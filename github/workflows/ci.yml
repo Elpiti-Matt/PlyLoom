@@ -1,0 +1,63 @@
+name: Checks
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+    inputs:
+      browser:
+        description: Run Chromium, production HTML and rendering checks
+        type: boolean
+        default: false
+defaults:
+  run:
+    shell: bash
+permissions:
+  contents: read
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - run: npm run build
+      # The build rewrites demo/ from dist/, so test:release alone cannot notice a
+      # stale committed demo. Fail here instead of silently shipping an old file.
+      - name: Committed demo matches this build
+        run: git diff --exit-code -- demo/
+      - run: npm run test:release -- --static
+      - uses: actions/upload-artifact@v4
+        with:
+          name: plyloom-offline-demo
+          path: demo/
+  browser:
+    if: ${{ inputs.browser == true || vars.PLYLOOM_BROWSER_CHECKS == 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run build
+      - run: mkdir -p .qa/release
+      - name: Browser DOM and storage tests
+        run: npm run test:browser 2>&1 | tee .qa/browser.log
+      - name: Production HTML and viewport checks
+        run: npm run test:release 2>&1 | tee .qa/release.log
+      - name: Rendering regression benchmark
+        run: npm run test:perf 2>&1 | tee .qa/perf.log
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: plyloom-browser-results
+          path: |
+            .qa/*.log
+            .qa/release/
