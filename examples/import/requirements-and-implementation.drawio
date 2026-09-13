@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="PlyLoom example">
+  <diagram id="requirements" name="Требования">
+    <mxGraphModel><root>
+      <mxCell id="0"/><mxCell id="1" parent="0"/>
+      <mxCell id="a" value="REQ-01: скачать отчёт" vertex="1" parent="1" style="rounded=1;html=0;">
+        <mxGeometry x="40" y="80" width="208" height="80" as="geometry"/>
+      </mxCell>
+      <mxCell id="b" value="Критерий: CSV содержит выбранные поля" vertex="1" parent="1" style="rounded=1;html=0;">
+        <mxGeometry x="340" y="80" width="208" height="80" as="geometry"/>
+      </mxCell>
+      <mxCell id="e" value="проверяется" edge="1" parent="1" source="a" target="b" style="html=0;endArrow=classic;">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </root></mxGraphModel>
+  </diagram>
+  <diagram id="implementation" name="Реализация">
+    <mxGraphModel><root>
+      <mxCell id="0"/><mxCell id="1" parent="0"/>
+      <mxCell id="a" value="Export API" vertex="1" parent="1" style="rounded=1;html=0;">
+        <mxGeometry x="40" y="80" width="208" height="80" as="geometry"/>
+      </mxCell>
+      <mxCell id="b" value="CSV writer" vertex="1" parent="1" style="rounded=1;html=0;">
+        <mxGeometry x="340" y="80" width="208" height="80" as="geometry"/>
+      </mxCell>
+      <mxCell id="e" value="вызывает" edge="1" parent="1" source="a" target="b" style="html=0;endArrow=classic;">
+        <mxGeometry relative="1" as="geometry"/>
+      </mxCell>
+    </root></mxGraphModel>
+  </diagram>
+</mxfile>

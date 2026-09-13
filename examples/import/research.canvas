@@ -1,0 +1,43 @@
+{
+  "nodes": [
+    {
+      "id": "area",
+      "type": "group",
+      "label": "Исследование",
+      "x": 0,
+      "y": 0,
+      "width": 760,
+      "height": 440
+    },
+    {
+      "id": "question",
+      "type": "text",
+      "text": "# Вопрос\nКак связаны слои проекта?",
+      "x": 40,
+      "y": 65,
+      "width": 280,
+      "height": 150,
+      "color": "6"
+    },
+    {
+      "id": "evidence",
+      "type": "text",
+      "text": "# Проверка\nОдна сущность появляется на двух листах.",
+      "x": 420,
+      "y": 65,
+      "width": 280,
+      "height": 150,
+      "color": "4"
+    }
+  ],
+  "edges": [
+    {
+      "id": "check",
+      "fromNode": "question",
+      "toNode": "evidence",
+      "fromSide": "right",
+      "toSide": "left",
+      "label": "проверяется"
+    }
+  ]
+}
