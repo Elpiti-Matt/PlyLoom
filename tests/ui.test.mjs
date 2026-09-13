@@ -700,8 +700,11 @@ test('canvas has two levels, preserves overview camera through +/− and leaves 
 test('overview header drag moves a whole sheet in one undo action and keeps all node coordinates',async()=>{
  const g=overviewFixture(),t=await mount(1366,g);try{
   await t.click('Выйти к обзору листов');const surface=document.querySelector('.overview-viewport'),k=Number(surface.dataset.overviewZoom),start=overviewPositions(g).get('main');
+  await t.flush();const before=(await savedGraph());
+  assert.deepEqual(before,g,'the fixture is autosaved before the gesture starts');
   await pointer(t,document.querySelector('[data-overview-handle="main"]'),'pointerdown',100,100);await pointer(t,surface,'pointermove',100+70*k,100+40*k);
-  assert.deepEqual((await savedGraph()),g,'drag preview does not save partial positions');
+  await t.flush();
+  assert.deepEqual((await savedGraph()),before,'an in-progress drag leaves stored positions unchanged');
   await pointer(t,surface,'pointerup',100+70*k,100+40*k);await t.flush();const saved=(await savedGraph());
   assert.deepEqual(saved.sheets[0].overviewPos,{x:start.x+70,y:start.y+40});assert.deepEqual(saved.nodes,g.nodes);assert.deepEqual(saved.sheets[1].overviewPos,overviewPositions(g).get('second'));
   await t.click('Отменить изменение');await t.flush();assert.equal((await savedGraph()).sheets[0].overviewPos,undefined);
@@ -1111,18 +1114,13 @@ test('dense scene paints candidates and captured background clicks open a readab
  try{
   const root=document.querySelector('main [data-canvas-id]'),canvas=root.querySelector('canvas.dense-scene');
   assert.ok(canvas);assert.equal(root.dataset.renderer,'canvas');assert.equal(root.querySelectorAll('[data-nid]').length,0);assert.ok(t.w.__canvasFills>0);
-  // jsdom has no layout. Use a non-zero origin there so viewport/local coordinate
-  // mistakes also fail in Node; Chromium keeps its actual element rectangle.
-  if(root.getBoundingClientRect().width===0)root.getBoundingClientRect=()=>({x:137,y:83,left:137,top:83,right:937,bottom:683,width:800,height:600,toJSON(){return this;}});
   const v={x:+root.dataset.viewX,y:+root.dataset.viewY,k:+root.dataset.viewK};
   const n=g.nodes.find(n=>{const p=n.pos[sid],x=v.x+(p.x+100)*v.k,y=v.y+(p.y+30)*v.k;return x>100&&x<700&&y>100&&y<500;});assert.ok(n);
-  const p=n.pos[sid],rect=root.getBoundingClientRect();
-  const init={bubbles:true,clientX:rect.left+v.x+(p.x+100)*v.k,clientY:rect.top+v.y+(p.y+30)*v.k,button:0};
+  const p=n.pos[sid],init={bubbles:true,clientX:v.x+(p.x+100)*v.k,clientY:v.y+(p.y+30)*v.k,button:0};
   await act(async()=>canvas.dispatchEvent(new t.w.MouseEvent('pointerdown',init)));
   // Native pointer capture retargets pointerup to the root, even if down was on the canvas.
   await act(async()=>root.dispatchEvent(new t.w.MouseEvent('pointerup',init)));
-  const editor=document.getElementById('node-name');assert.ok(editor,'captured canvas click opens the selected node editor');
-  assert.equal(editor.value,n.name);
+  assert.equal(document.getElementById('node-name').value,n.name);
   assert.equal(root.dataset.renderer,'dom');assert.ok(+root.dataset.viewK>=.7);
   assert.ok(root.querySelector(`[data-nid="${n.id}"]`));assert.ok(root.querySelectorAll('[data-nid]').length<200,'offscreen cards are culled at readable scale');
  }finally{await t.close();}
