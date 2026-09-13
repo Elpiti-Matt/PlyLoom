@@ -12,6 +12,14 @@ class FractionalMouseEvent extends NativeMouseEvent {
   }
 }
 
+// jsdom has no requestIdleCallback, so storage.ts schedules autosaves with setTimeout(…, 50) there.
+// Real Chromium only guarantees the callback within its 1000 ms timeout — about three times longer
+// than the harness flush — so every storage assertion would depend on scheduler luck, and a check
+// for the *absence* of a write could never observe anything. Match the jsdom timing instead.
+function idleShim(callback) {
+  return setTimeout(() => callback({ didTimeout: false, timeRemaining: () => 50 }), 50);
+}
+
 export class JSDOM {
   constructor(html) {
     HTMLElement.prototype.getBoundingClientRect = realRect;
@@ -19,6 +27,8 @@ export class JSDOM {
     try { localStorage.clear(); sessionStorage.clear(); } catch { /* storage may be unavailable */ }
     if (html) document.body.innerHTML = new DOMParser().parseFromString(html, "text/html").body.innerHTML;
     window.MouseEvent = FractionalMouseEvent;
+    window.requestIdleCallback = idleShim;
+    window.cancelIdleCallback = (id) => clearTimeout(id);
     window.close = () => {};
     this.window = window;
   }
