@@ -1,0 +1,44 @@
+{
+  "name": "plyloom",
+  "private": true,
+  "version": "0.8.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build && node scripts/release.mjs",
+    "preview": "vite preview",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/test.mjs",
+    "test:browser": "node scripts/test-browser.mjs",
+    "data": "node scripts/build-data.mjs",
+    "ai:docs": "node scripts/build-ai.mjs",
+    "test:release": "node scripts/test-release.mjs",
+    "test:perf": "node scripts/perf-bench.mjs dist/index.html --check"
+  },
+  "dependencies": {
+    "clsx": "2.1.1",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "tailwind-merge": "3.4.0"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "4.1.17",
+    "@types/node": "22.19.17",
+    "@types/react": "19.2.7",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "5.1.1",
+    "esbuild": "0.27.7",
+    "fake-indexeddb": "6.2.4",
+    "jsdom": "26.1.0",
+    "playwright": "1.63.0",
+    "tailwindcss": "4.1.17",
+    "typescript": "5.9.3",
+    "vite": "7.3.2",
+    "vite-plugin-singlefile": "2.3.0"
+  },
+  "license": "MIT",
+  "description": "Offline knowledge maps with shared entities on meaningful sheets",
+  "engines": {
+    "node": ">=22.12.0"
+  }
+}
