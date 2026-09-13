@@ -1111,13 +1111,18 @@ test('dense scene paints candidates and captured background clicks open a readab
  try{
   const root=document.querySelector('main [data-canvas-id]'),canvas=root.querySelector('canvas.dense-scene');
   assert.ok(canvas);assert.equal(root.dataset.renderer,'canvas');assert.equal(root.querySelectorAll('[data-nid]').length,0);assert.ok(t.w.__canvasFills>0);
+  // jsdom has no layout. Use a non-zero origin there so viewport/local coordinate
+  // mistakes also fail in Node; Chromium keeps its actual element rectangle.
+  if(root.getBoundingClientRect().width===0)root.getBoundingClientRect=()=>({x:137,y:83,left:137,top:83,right:937,bottom:683,width:800,height:600,toJSON(){return this;}});
   const v={x:+root.dataset.viewX,y:+root.dataset.viewY,k:+root.dataset.viewK};
   const n=g.nodes.find(n=>{const p=n.pos[sid],x=v.x+(p.x+100)*v.k,y=v.y+(p.y+30)*v.k;return x>100&&x<700&&y>100&&y<500;});assert.ok(n);
-  const p=n.pos[sid],init={bubbles:true,clientX:v.x+(p.x+100)*v.k,clientY:v.y+(p.y+30)*v.k,button:0};
+  const p=n.pos[sid],rect=root.getBoundingClientRect();
+  const init={bubbles:true,clientX:rect.left+v.x+(p.x+100)*v.k,clientY:rect.top+v.y+(p.y+30)*v.k,button:0};
   await act(async()=>canvas.dispatchEvent(new t.w.MouseEvent('pointerdown',init)));
   // Native pointer capture retargets pointerup to the root, even if down was on the canvas.
   await act(async()=>root.dispatchEvent(new t.w.MouseEvent('pointerup',init)));
-  assert.equal(document.getElementById('node-name').value,n.name);
+  const editor=document.getElementById('node-name');assert.ok(editor,'captured canvas click opens the selected node editor');
+  assert.equal(editor.value,n.name);
   assert.equal(root.dataset.renderer,'dom');assert.ok(+root.dataset.viewK>=.7);
   assert.ok(root.querySelector(`[data-nid="${n.id}"]`));assert.ok(root.querySelectorAll('[data-nid]').length<200,'offscreen cards are culled at readable scale');
  }finally{await t.close();}
