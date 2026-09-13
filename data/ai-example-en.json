@@ -1,0 +1,220 @@
+{
+  "version": 3,
+  "title": "My research map",
+  "types": {
+    "nodes": [
+      {
+        "id": "entity",
+        "label": "Entity",
+        "base": "entity",
+        "color": "#475569"
+      },
+      {
+        "id": "process",
+        "label": "Process",
+        "base": "process",
+        "color": "#475569"
+      },
+      {
+        "id": "metric",
+        "label": "Metric",
+        "base": "metric",
+        "color": "#475569"
+      }
+    ],
+    "edges": [
+      {
+        "id": "ref",
+        "label": "refers to",
+        "color": "#475569"
+      },
+      {
+        "id": "depends",
+        "label": "depends on",
+        "color": "#475569"
+      }
+    ],
+    "sheets": [
+      {
+        "id": "subject",
+        "label": "Subject",
+        "color": "#8b5cf6"
+      },
+      {
+        "id": "analysis",
+        "label": "Analysis",
+        "color": "#14b8a6"
+      }
+    ],
+    "tags": [
+      {
+        "id": "draft",
+        "label": "Draft",
+        "color": "#64748b"
+      }
+    ],
+    "attributes": [
+      {
+        "id": "note",
+        "label": "Review note",
+        "dataType": "text"
+      },
+      {
+        "id": "unitCost",
+        "label": "Unit cost",
+        "dataType": "number"
+      },
+      {
+        "id": "confirmed",
+        "label": "Confirmed",
+        "dataType": "boolean"
+      },
+      {
+        "id": "reviewDate",
+        "label": "Review date",
+        "dataType": "date"
+      },
+      {
+        "id": "sourceUrl",
+        "label": "Source URL",
+        "dataType": "url"
+      },
+      {
+        "id": "status",
+        "label": "Status",
+        "dataType": "select",
+        "options": [
+          "draft",
+          "reviewed"
+        ]
+      },
+      {
+        "id": "channels",
+        "label": "Sales channels",
+        "dataType": "multi",
+        "options": [
+          "shop",
+          "cafe",
+          "online"
+        ]
+      }
+    ]
+  },
+  "sheets": [
+    {
+      "id": "product",
+      "name": "Product",
+      "notation": "plyloom",
+      "typeId": "subject",
+      "tags": [
+        "draft"
+      ],
+      "color": "#8b5cf6",
+      "layout": "manual",
+      "overviewPos": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    {
+      "id": "money",
+      "name": "Money",
+      "notation": "plyloom",
+      "typeId": "analysis",
+      "tags": [
+        "draft"
+      ],
+      "color": "#14b8a6",
+      "layout": "manual",
+      "overviewPos": {
+        "x": 790,
+        "y": 0
+      }
+    }
+  ],
+  "nodes": [
+    {
+      "id": "blend",
+      "name": "Morning blend",
+      "kind": "entity",
+      "body": "Fictional structure example. Recipe and cost are not confirmed.",
+      "sheets": [
+        "product",
+        "money"
+      ],
+      "pos": {
+        "product": {
+          "x": 40,
+          "y": 80
+        },
+        "money": {
+          "x": 40,
+          "y": 140
+        }
+      },
+      "attributes": {
+        "note": "Ask the author for sources",
+        "unitCost": null,
+        "confirmed": false,
+        "reviewDate": null,
+        "sourceUrl": null,
+        "status": "draft",
+        "channels": [
+          "shop",
+          "online"
+        ]
+      }
+    },
+    {
+      "id": "trial",
+      "name": "Roast a trial batch",
+      "kind": "process",
+      "body": "Check taste before approving the recipe.",
+      "sheets": [
+        "product"
+      ],
+      "pos": {
+        "product": {
+          "x": 340,
+          "y": 80
+        }
+      },
+      "attributes": {
+        "status": "draft",
+        "channels": []
+      }
+    },
+    {
+      "id": "cost",
+      "name": "Batch cost",
+      "kind": "metric",
+      "body": "Unknown. Ask for the supplier price list; do not invent a value.",
+      "sheets": [
+        "money"
+      ],
+      "pos": {
+        "money": {
+          "x": 340,
+          "y": 140
+        }
+      },
+      "attributes": {
+        "unitCost": null
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "test",
+      "from": "trial",
+      "to": "blend",
+      "kind": "ref"
+    },
+    {
+      "id": "price",
+      "from": "cost",
+      "to": "blend",
+      "kind": "depends"
+    }
+  ]
+}

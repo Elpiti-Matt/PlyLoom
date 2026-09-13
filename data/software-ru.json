@@ -1,0 +1,2135 @@
+{
+  "version": 3,
+  "title": "Разработка: экспорт отчёта",
+  "description": "Полностью синтетический учебный проект: асинхронный экспорт отчёта. Без реальных людей, компаний, ведомств, адресов и рабочих данных. Диаграммы и тесты описывают предполагаемый сервис; сборка документов показана как концепция.",
+  "types": {
+    "nodes": [
+      {
+        "id": "entity",
+        "label": "Сущность",
+        "base": "entity",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "process",
+        "label": "Процесс",
+        "base": "process",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "decision",
+        "label": "Решение",
+        "base": "decision",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "hypothesis",
+        "label": "Гипотеза",
+        "base": "hypothesis",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "metric",
+        "label": "Метрика",
+        "base": "metric",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "rule",
+        "label": "Требование",
+        "base": "rule",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "risk",
+        "label": "Риск",
+        "base": "risk",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "person",
+        "label": "Человек / роль",
+        "base": "person",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "note",
+        "label": "Заметка",
+        "base": "note",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "flowchart:process",
+        "label": "Действие",
+        "labelEn": "Action",
+        "base": "process",
+        "notation": "flowchart",
+        "shape": "rectangle",
+        "color": "#475569"
+      },
+      {
+        "id": "flowchart:decision",
+        "label": "Условие",
+        "labelEn": "Decision",
+        "base": "decision",
+        "notation": "flowchart",
+        "shape": "diamond",
+        "color": "#475569"
+      },
+      {
+        "id": "flowchart:terminator",
+        "label": "Начало / конец",
+        "labelEn": "Start / end",
+        "base": "process",
+        "notation": "flowchart",
+        "shape": "rounded",
+        "color": "#475569"
+      },
+      {
+        "id": "flowchart:data",
+        "label": "Данные / ввод-вывод",
+        "labelEn": "Data / input-output",
+        "base": "entity",
+        "notation": "flowchart",
+        "shape": "parallelogram",
+        "color": "#475569"
+      },
+      {
+        "id": "flowchart:document",
+        "label": "Документ",
+        "labelEn": "Document",
+        "base": "rule",
+        "notation": "flowchart",
+        "shape": "document",
+        "color": "#475569"
+      },
+      {
+        "id": "canvas:text",
+        "label": "Текст",
+        "labelEn": "Text",
+        "base": "note",
+        "notation": "canvas",
+        "shape": "rectangle",
+        "color": "#475569"
+      },
+      {
+        "id": "canvas:link",
+        "label": "Ссылка",
+        "labelEn": "Link",
+        "base": "note",
+        "notation": "canvas",
+        "shape": "rectangle",
+        "color": "#475569"
+      },
+      {
+        "id": "canvas:file",
+        "label": "Файл",
+        "labelEn": "File",
+        "base": "rule",
+        "notation": "canvas",
+        "shape": "rectangle",
+        "color": "#475569"
+      },
+      {
+        "id": "canvas:group",
+        "label": "Группа",
+        "labelEn": "Group",
+        "base": "entity",
+        "notation": "canvas",
+        "shape": "group",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:task",
+        "label": "Задача",
+        "labelEn": "Task",
+        "base": "process",
+        "notation": "bpmn",
+        "shape": "rounded",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:startEvent",
+        "label": "Начальное событие",
+        "labelEn": "Start event",
+        "base": "process",
+        "notation": "bpmn",
+        "shape": "ellipse",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:endEvent",
+        "label": "Конечное событие",
+        "labelEn": "End event",
+        "base": "process",
+        "notation": "bpmn",
+        "shape": "ellipse",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:intermediateCatchEvent",
+        "label": "Промежуточное событие",
+        "labelEn": "Intermediate event",
+        "base": "process",
+        "notation": "bpmn",
+        "shape": "ellipse",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:exclusiveGateway",
+        "label": "Исключающий шлюз",
+        "labelEn": "Exclusive gateway",
+        "base": "decision",
+        "notation": "bpmn",
+        "shape": "diamond",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:parallelGateway",
+        "label": "Параллельный шлюз",
+        "labelEn": "Parallel gateway",
+        "base": "decision",
+        "notation": "bpmn",
+        "shape": "diamond",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:inclusiveGateway",
+        "label": "Включающий шлюз",
+        "labelEn": "Inclusive gateway",
+        "base": "decision",
+        "notation": "bpmn",
+        "shape": "diamond",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:participant",
+        "label": "Участник / пул",
+        "labelEn": "Participant / pool",
+        "base": "entity",
+        "notation": "bpmn",
+        "shape": "group",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:lane",
+        "label": "Дорожка",
+        "labelEn": "Lane",
+        "base": "entity",
+        "notation": "bpmn",
+        "shape": "group",
+        "color": "#475569"
+      }
+    ],
+    "edges": [
+      {
+        "id": "flow",
+        "label": "затем",
+        "color": "#475569"
+      },
+      {
+        "id": "depends",
+        "label": "зависит от",
+        "color": "#475569"
+      },
+      {
+        "id": "supports",
+        "label": "подтверждает",
+        "color": "#475569"
+      },
+      {
+        "id": "contradicts",
+        "label": "противоречит",
+        "color": "#475569"
+      },
+      {
+        "id": "ref",
+        "label": "см.",
+        "color": "#475569"
+      },
+      {
+        "id": "inherits",
+        "label": "наследует от",
+        "labelEn": "inherits from",
+        "color": "#475569"
+      },
+      {
+        "id": "implements",
+        "label": "реализует",
+        "labelEn": "implements",
+        "color": "#475569"
+      },
+      {
+        "id": "uses",
+        "label": "использует",
+        "labelEn": "uses",
+        "color": "#475569"
+      }
+    ],
+    "sheets": [
+      {
+        "id": "свободная",
+        "label": "Свободный лист",
+        "labelEn": "Free sheet",
+        "color": "#0ea5e9"
+      },
+      {
+        "id": "процесс",
+        "label": "Процесс",
+        "labelEn": "Process",
+        "color": "#f97316"
+      },
+      {
+        "id": "данные",
+        "label": "Данные",
+        "labelEn": "Data",
+        "color": "#14b8a6"
+      },
+      {
+        "id": "аргументы",
+        "label": "Аргументы",
+        "labelEn": "Arguments",
+        "color": "#a855f7"
+      }
+    ],
+    "tags": [
+      {
+        "id": "draft",
+        "label": "Черновик",
+        "labelEn": "Draft",
+        "color": "#64748b"
+      },
+      {
+        "id": "review",
+        "label": "На проверке",
+        "labelEn": "In review",
+        "color": "#d97706"
+      },
+      {
+        "id": "reference",
+        "label": "Справочный",
+        "labelEn": "Reference",
+        "color": "#2563eb"
+      }
+    ],
+    "attributes": [
+      {
+        "id": "status",
+        "label": "Состояние",
+        "labelEn": "Status",
+        "description": "Как далеко продвинулась карточка. Учебные значения.",
+        "dataType": "select",
+        "options": [
+          "Черновик",
+          "В работе",
+          "Готово"
+        ]
+      },
+      {
+        "id": "areas",
+        "label": "Области",
+        "labelEn": "Areas",
+        "description": "Каких частей примера касается карточка; вариантов может быть несколько.",
+        "dataType": "multi",
+        "options": [
+          "Интерфейс",
+          "Сервис",
+          "Хранилище",
+          "Документы",
+          "Проверки"
+        ]
+      },
+      {
+        "id": "days",
+        "label": "Оценка, дней",
+        "labelEn": "Estimate, days",
+        "description": "Условная оценка, придумана для примера.",
+        "dataType": "number"
+      },
+      {
+        "id": "due",
+        "label": "Контрольная дата",
+        "labelEn": "Checkpoint",
+        "description": "Учебная дата: ни к каким реальным срокам не привязана.",
+        "dataType": "date"
+      }
+    ]
+  },
+  "sheets": [
+    {
+      "id": "context",
+      "name": "Контекст задачи",
+      "color": "#0284c7",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Полностью синтетический учебный проект: асинхронный экспорт отчёта. Без реальных людей, компаний, ведомств, адресов и рабочих данных. Диаграммы и тесты описывают предполагаемый сервис; сборка документов показана как концепция."
+    },
+    {
+      "id": "requirements",
+      "name": "Спецификация",
+      "color": "#7c3aed",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Полностью синтетический учебный проект: асинхронный экспорт отчёта. Без реальных людей, компаний, ведомств, адресов и рабочих данных. Диаграммы и тесты описывают предполагаемый сервис; сборка документов показана как концепция."
+    },
+    {
+      "id": "architecture",
+      "name": "Архитектура",
+      "color": "#0d9488",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Полностью синтетический учебный проект: асинхронный экспорт отчёта. Без реальных людей, компаний, ведомств, адресов и рабочих данных. Диаграммы и тесты описывают предполагаемый сервис; сборка документов показана как концепция."
+    },
+    {
+      "id": "contracts",
+      "name": "Контракты и модели",
+      "color": "#d97706",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Полностью синтетический учебный проект: асинхронный экспорт отчёта. Без реальных людей, компаний, ведомств, адресов и рабочих данных. Диаграммы и тесты описывают предполагаемый сервис; сборка документов показана как концепция."
+    },
+    {
+      "id": "implementation",
+      "name": "Реализация",
+      "color": "#2563eb",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Полностью синтетический учебный проект: асинхронный экспорт отчёта. Без реальных людей, компаний, ведомств, адресов и рабочих данных. Диаграммы и тесты описывают предполагаемый сервис; сборка документов показана как концепция."
+    },
+    {
+      "id": "verification",
+      "name": "Проверки",
+      "color": "#db2777",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Полностью синтетический учебный проект: асинхронный экспорт отчёта. Без реальных людей, компаний, ведомств, адресов и рабочих данных. Диаграммы и тесты описывают предполагаемый сервис; сборка документов показана как концепция."
+    },
+    {
+      "id": "docs",
+      "name": "Документы и фрагменты",
+      "color": "#64748b",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Полностью синтетический учебный проект: асинхронный экспорт отчёта. Без реальных людей, компаний, ведомств, адресов и рабочих данных. Диаграммы и тесты описывают предполагаемый сервис; сборка документов показана как концепция."
+    },
+    {
+      "id": "change",
+      "name": "Разбор изменения",
+      "color": "#b45309",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Полностью синтетический учебный проект: асинхронный экспорт отчёта. Без реальных людей, компаний, ведомств, адресов и рабочих данных. Диаграммы и тесты описывают предполагаемый сервис; сборка документов показана как концепция."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "goal.export",
+      "kind": "hypothesis",
+      "name": "Цель: получить отчёт без ожидания",
+      "sheets": [
+        "context"
+      ],
+      "body": "Пользователь заказывает отчёт, продолжает работу и позже скачивает файл. Это учебная гипотеза: интервью и измерения не проводились.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 12,
+          "y": 8
+        }
+      },
+      "attributes": {
+        "status": "Готово",
+        "areas": [
+          "Сервис"
+        ]
+      }
+    },
+    {
+      "id": "role.analyst",
+      "kind": "person",
+      "name": "Роль: аналитик",
+      "sheets": [
+        "context"
+      ],
+      "body": "Уточняет границы задачи и критерии приёмки. Абстрактная роль без человека, работодателя или заказчика за ней.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 288,
+          "y": 40
+        }
+      }
+    },
+    {
+      "id": "role.developer",
+      "kind": "person",
+      "name": "Роль: разработчик",
+      "sheets": [
+        "context"
+      ],
+      "body": "Сопоставляет требования с контрактом и компонентами. Технические решения придуманы для примера.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 550,
+          "y": 7
+        }
+      }
+    },
+    {
+      "id": "role.tester",
+      "kind": "person",
+      "name": "Роль: тестировщик",
+      "sheets": [
+        "context"
+      ],
+      "body": "Проверяет поведение по критериям. Карточки тестов обозначают план проверок, а не выполненные испытания сервиса.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 828,
+          "y": 40
+        }
+      }
+    },
+    {
+      "id": "scope.v1",
+      "kind": "decision",
+      "name": "Границы учебного релиза",
+      "sheets": [
+        "context",
+        "requirements"
+      ],
+      "body": "Один формат отчёта, один владелец задачи, опрос статуса. Рассылка и расписания остаются за границами примера.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 17,
+          "y": 161
+        },
+        "requirements": {
+          "x": 23,
+          "y": 15
+        }
+      },
+      "attributes": {
+        "status": "Готово",
+        "areas": [
+          "Документы"
+        ],
+        "due": "2026-01-16"
+      }
+    },
+    {
+      "id": "metric.ready",
+      "kind": "metric",
+      "name": "Метрика: время до готового файла",
+      "sheets": [
+        "context",
+        "verification"
+      ],
+      "body": "Измерять от принятия запроса до Ready. Цель пока не выбрана, результатов производительности нет.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 281,
+          "y": 185
+        },
+        "verification": {
+          "x": 23,
+          "y": 15
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Проверки"
+        ],
+        "days": 2
+      }
+    },
+    {
+      "id": "requirement.async",
+      "kind": "rule",
+      "name": "REQ-01: фоновая подготовка",
+      "sheets": [
+        "requirements",
+        "architecture"
+      ],
+      "body": "Запрос создаёт задачу и возвращает её ID. Отдельный запрос сообщает готовность файла. Принятие запроса ещё не означает Ready.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 288,
+          "y": 40
+        },
+        "architecture": {
+          "x": 16,
+          "y": 11
+        }
+      },
+      "attributes": {
+        "status": "Готово",
+        "areas": [
+          "Сервис",
+          "Хранилище"
+        ],
+        "days": 3,
+        "due": "2026-02-02"
+      }
+    },
+    {
+      "id": "requirement.owner",
+      "kind": "rule",
+      "name": "REQ-02: доступ владельца",
+      "sheets": [
+        "requirements",
+        "contracts"
+      ],
+      "body": "Статус и файл доступны владельцу задачи. В учебном контракте чужая и неизвестная задача дают одинаковый ответ NotFound.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 558,
+          "y": 12
+        },
+        "contracts": {
+          "x": 7,
+          "y": 5
+        }
+      },
+      "attributes": {
+        "status": "Готово",
+        "areas": [
+          "Сервис"
+        ],
+        "days": 2,
+        "due": "2026-02-02"
+      }
+    },
+    {
+      "id": "requirement.expiry",
+      "kind": "rule",
+      "name": "REQ-03: срок доступности файла",
+      "sheets": [
+        "requirements",
+        "implementation",
+        "verification",
+        "change"
+      ],
+      "body": "Базовая версия: файл доступен 24 часа после Ready. В момент expiresAt скачивание запрещается, даже если очистка ещё не завершилась. 24 часа — произвольное условие учебной задачи.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 819,
+          "y": 34
+        },
+        "implementation": {
+          "x": 4,
+          "y": 2
+        },
+        "verification": {
+          "x": 286,
+          "y": 39
+        },
+        "change": {
+          "x": 8,
+          "y": 5
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Сервис",
+          "Хранилище",
+          "Документы"
+        ],
+        "days": 2,
+        "due": "2026-03-10"
+      }
+    },
+    {
+      "id": "requirement.retry",
+      "kind": "rule",
+      "name": "REQ-04: безопасный повтор",
+      "sheets": [
+        "requirements",
+        "contracts",
+        "implementation"
+      ],
+      "body": "Те же ключ и параметры возвращают тот же jobId в окне дедупликации. Другие параметры с тем же ключом дают Conflict. Окно дедупликации задаётся отдельно от срока файла.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 13,
+          "y": 159
+        },
+        "contracts": {
+          "x": 273,
+          "y": 30
+        },
+        "implementation": {
+          "x": 294,
+          "y": 44
+        }
+      },
+      "attributes": {
+        "status": "Черновик",
+        "areas": [
+          "Сервис"
+        ],
+        "days": 3
+      }
+    },
+    {
+      "id": "usecase.export",
+      "kind": "process",
+      "name": "UC-01: заказать и скачать",
+      "sheets": [
+        "context",
+        "requirements"
+      ],
+      "body": "1. Задать параметры.\n2. Получить jobId.\n3. Проверять статус.\n4. При Ready скачать.\n5. При Failed показать ошибку; при Expired предложить новый запрос.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 547,
+          "y": 154
+        },
+        "requirements": {
+          "x": 280,
+          "y": 185
+        }
+      },
+      "attributes": {
+        "status": "Готово",
+        "areas": [
+          "Интерфейс",
+          "Сервис"
+        ],
+        "days": 4
+      }
+    },
+    {
+      "id": "acceptance.export",
+      "kind": "rule",
+      "name": "AC-01: критерии приёмки",
+      "sheets": [
+        "requirements",
+        "verification"
+      ],
+      "body": "Принятый запрос возвращает jobId. API и интерфейс согласованы по статусам. Владелец скачивает Ready-файл до expiresAt, после срока доступ закрыт.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 545,
+          "y": 153
+        },
+        "verification": {
+          "x": 561,
+          "y": 14
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Проверки"
+        ],
+        "days": 1,
+        "due": "2026-02-20"
+      }
+    },
+    {
+      "id": "adr.queue",
+      "kind": "decision",
+      "name": "ADR-01: очередь и обработчик",
+      "sheets": [
+        "architecture"
+      ],
+      "body": "Вынести генерацию в обработчик очереди. Альтернатива — держать HTTP-запрос открытым. Цена решения: состояния задачи, повторная доставка и очистка.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 275,
+          "y": 31
+        }
+      },
+      "attributes": {
+        "status": "Готово",
+        "areas": [
+          "Сервис"
+        ]
+      }
+    },
+    {
+      "id": "diagram.context",
+      "kind": "note",
+      "name": "Диаграмма: компоненты",
+      "sheets": [
+        "architecture"
+      ],
+      "body": "Интерфейс → API → очередь → обработчик → хранилище. Исходник Mermaid: examples/software/artifacts.md. Карточка описывает диаграмму; PlyLoom не выполняет эту систему.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 563,
+          "y": 16
+        }
+      },
+      "attributes": {
+        "status": "Готово",
+        "areas": [
+          "Сервис"
+        ],
+        "days": 1
+      }
+    },
+    {
+      "id": "diagram.sequence",
+      "kind": "note",
+      "name": "Диаграмма: последовательность",
+      "sheets": [
+        "architecture"
+      ],
+      "body": "API фиксирует задачу и возвращает Accepted; обработчик создаёт файл; пользователь узнаёт Ready через опрос. Диаграмма и её допущения: examples/software/artifacts.md.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 823,
+          "y": 36
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Интерфейс",
+          "Сервис"
+        ],
+        "days": 1
+      }
+    },
+    {
+      "id": "diagram.states",
+      "kind": "note",
+      "name": "Диаграмма: состояния задачи",
+      "sheets": [
+        "architecture",
+        "contracts"
+      ],
+      "body": "Queued → Running → Ready → Expired. Из Running возможен Failed. Повтор доставки не создаёт второй результат завершённой задачи. Это учебная модель без встроенного UML-валидатора.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 8,
+          "y": 155
+        },
+        "contracts": {
+          "x": 567,
+          "y": 18
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Сервис"
+        ],
+        "days": 1
+      }
+    },
+    {
+      "id": "contract.export",
+      "kind": "note",
+      "name": "API-01: контракт экспорта",
+      "sheets": [
+        "contracts",
+        "implementation",
+        "verification",
+        "docs"
+      ],
+      "body": "| Операция | Результат |\n|---|---|\n| POST /exports | Accepted и jobId |\n| GET /exports/{id} | state, expiresAt при Ready |\n| GET /exports/{id}/file | файл или ошибка |\n\nОдин артефакт на четырёх листах. Это описание учебного API, а не действующие адреса.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "contracts": {
+          "x": 836,
+          "y": 45
+        },
+        "implementation": {
+          "x": 546,
+          "y": 4
+        },
+        "verification": {
+          "x": 831,
+          "y": 42
+        },
+        "docs": {
+          "x": 16,
+          "y": 11
+        }
+      },
+      "attributes": {
+        "status": "Готово",
+        "areas": [
+          "Интерфейс",
+          "Сервис"
+        ],
+        "days": 2,
+        "due": "2026-02-16"
+      }
+    },
+    {
+      "id": "model.job",
+      "kind": "entity",
+      "name": "Модель: задача экспорта",
+      "sheets": [
+        "requirements",
+        "architecture",
+        "contracts",
+        "implementation"
+      ],
+      "body": "Поля: id, ownerId, state, createdAt, readyAt, expiresAt, resultRef. Это сущность предметной модели. Карточка диаграммы состояний ссылается на неё и имеет собственный ID.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 837,
+          "y": 196
+        },
+        "architecture": {
+          "x": 299,
+          "y": 197
+        },
+        "contracts": {
+          "x": 3,
+          "y": 152
+        },
+        "implementation": {
+          "x": 834,
+          "y": 44
+        }
+      },
+      "attributes": {
+        "status": "Готово",
+        "areas": [
+          "Сервис",
+          "Хранилище"
+        ],
+        "days": 2
+      }
+    },
+    {
+      "id": "contract.errors",
+      "kind": "note",
+      "name": "API-02: ответы об ошибках",
+      "sheets": [
+        "contracts",
+        "verification"
+      ],
+      "body": "NotFound — неизвестная или чужая задача; NotReady — файл ещё не готов; Expired — срок прошёл; Conflict — параметры не совпали с ключом. Это именованные ошибки учебного контракта.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "contracts": {
+          "x": 284,
+          "y": 187
+        },
+        "verification": {
+          "x": 14,
+          "y": 159
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Интерфейс",
+          "Сервис"
+        ],
+        "days": 1,
+        "due": "2026-02-16"
+      }
+    },
+    {
+      "id": "component.api",
+      "kind": "entity",
+      "name": "Компонент: API",
+      "sheets": [
+        "architecture",
+        "implementation"
+      ],
+      "body": "Проверяет владельца, принимает запрос, выдаёт статус. Проверка expiresAt выполняется при скачивании, независимо от фоновой очистки.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 559,
+          "y": 163
+        },
+        "implementation": {
+          "x": 7,
+          "y": 155
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Сервис"
+        ],
+        "days": 5,
+        "due": "2026-03-02"
+      }
+    },
+    {
+      "id": "component.worker",
+      "kind": "entity",
+      "name": "Компонент: обработчик",
+      "sheets": [
+        "architecture",
+        "implementation"
+      ],
+      "body": "Создаёт файл, фиксирует Ready, readyAt и expiresAt. Перед повторной обработкой проверяет сохранённое состояние.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 821,
+          "y": 185
+        },
+        "implementation": {
+          "x": 280,
+          "y": 185
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Сервис"
+        ],
+        "days": 5,
+        "due": "2026-03-02"
+      }
+    },
+    {
+      "id": "component.queue",
+      "kind": "entity",
+      "name": "Компонент: очередь",
+      "sheets": [
+        "architecture"
+      ],
+      "body": "В учебном сценарии допускается повторная доставка. Конкретный продукт и провайдер не выбраны.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 3,
+          "y": 302
+        }
+      },
+      "attributes": {
+        "status": "Черновик",
+        "areas": [
+          "Сервис"
+        ],
+        "days": 3
+      }
+    },
+    {
+      "id": "component.storage",
+      "kind": "entity",
+      "name": "Компонент: хранилище файлов",
+      "sheets": [
+        "architecture",
+        "implementation"
+      ],
+      "body": "Хранит результат по resultRef. Публичного доступа нет. Провайдер, адреса и рабочие данные отсутствуют.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 278,
+          "y": 333
+        },
+        "implementation": {
+          "x": 568,
+          "y": 168
+        }
+      },
+      "attributes": {
+        "status": "Черновик",
+        "areas": [
+          "Хранилище"
+        ],
+        "days": 4,
+        "due": "2026-03-16"
+      }
+    },
+    {
+      "id": "implementation.cleanup",
+      "kind": "process",
+      "name": "DEV-01: очистка результатов",
+      "sheets": [
+        "implementation"
+      ],
+      "body": "Удаляет просроченные файлы, повтор безопасен. API отзывает доступ в expiresAt, очистка освобождает место.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "implementation": {
+          "x": 814,
+          "y": 180
+        }
+      },
+      "attributes": {
+        "status": "Черновик",
+        "areas": [
+          "Сервис",
+          "Хранилище"
+        ],
+        "days": 2,
+        "due": "2026-03-16"
+      }
+    },
+    {
+      "id": "implementation.polling",
+      "kind": "process",
+      "name": "DEV-02: опрос статуса",
+      "sheets": [
+        "implementation"
+      ],
+      "body": "Останавливает опрос в Ready, Failed или Expired. После сетевой ошибки предлагает повтор. Рабочего приложения за карточкой нет.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "implementation": {
+          "x": 22,
+          "y": 314
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Интерфейс",
+          "Сервис"
+        ],
+        "days": 2
+      }
+    },
+    {
+      "id": "test.lifecycle",
+      "kind": "note",
+      "name": "TEST-01: основной путь",
+      "sheets": [
+        "verification"
+      ],
+      "body": "Создать задачу, дождаться Ready, скачать владельцем. Сверить статусы API и интерфейса. Статус: план проверки, не выполнен.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "verification": {
+          "x": 285,
+          "y": 188
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Проверки"
+        ],
+        "days": 1,
+        "due": "2026-03-23"
+      }
+    },
+    {
+      "id": "test.access",
+      "kind": "note",
+      "name": "TEST-02: чужая задача",
+      "sheets": [
+        "verification"
+      ],
+      "body": "Запросить статус и файл с другой учебной учётной записью; ожидать NotFound в обоих случаях. Статус: план проверки, не выполнен.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "verification": {
+          "x": 566,
+          "y": 167
+        }
+      },
+      "attributes": {
+        "status": "Черновик",
+        "areas": [
+          "Проверки"
+        ],
+        "days": 1
+      }
+    },
+    {
+      "id": "test.expiry",
+      "kind": "note",
+      "name": "TEST-03: граница срока",
+      "sheets": [
+        "verification",
+        "change"
+      ],
+      "body": "Проверить скачивание до expiresAt и ровно в expiresAt, включая задержку очистки. Использовать управляемые часы. Статус: план проверки, не выполнен.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "verification": {
+          "x": 816,
+          "y": 182
+        },
+        "change": {
+          "x": 292,
+          "y": 42
+        }
+      },
+      "attributes": {
+        "status": "Черновик",
+        "areas": [
+          "Хранилище",
+          "Проверки"
+        ],
+        "days": 1,
+        "due": "2026-03-23"
+      }
+    },
+    {
+      "id": "test.retry",
+      "kind": "note",
+      "name": "TEST-04: повтор и конфликт",
+      "sheets": [
+        "verification"
+      ],
+      "body": "Те же ключ и параметры дают тот же jobId; другие параметры дают Conflict; повтор доставки не меняет готовый результат. Статус: план проверки, не выполнен.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "verification": {
+          "x": 23,
+          "y": 315
+        }
+      },
+      "attributes": {
+        "status": null,
+        "areas": [
+          "Проверки"
+        ],
+        "days": 1
+      }
+    },
+    {
+      "id": "trace.matrix",
+      "kind": "note",
+      "name": "Матрица: требование → проверка",
+      "sheets": [
+        "verification",
+        "docs"
+      ],
+      "body": "REQ-01 → TEST-01; REQ-02 → TEST-02; REQ-03 → TEST-03; REQ-04 → TEST-04. Матрица задана вручную; связь с тестом не означает, что он пройден.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "verification": {
+          "x": 272,
+          "y": 330
+        },
+        "docs": {
+          "x": 275,
+          "y": 32
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Документы",
+          "Проверки"
+        ]
+      }
+    },
+    {
+      "id": "doc.brief",
+      "kind": "note",
+      "name": "Документ: постановка задачи",
+      "sheets": [
+        "context",
+        "docs"
+      ],
+      "body": "Состав: цель, границы, UC-01, AC-01, API-01. Документ ссылается на артефакты. Положение карточек не задаёт порядок публикации.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 817,
+          "y": 182
+        },
+        "docs": {
+          "x": 549,
+          "y": 6
+        }
+      },
+      "attributes": {
+        "status": "Готово",
+        "areas": [
+          "Документы"
+        ],
+        "due": "2026-01-16"
+      }
+    },
+    {
+      "id": "doc.user-guide",
+      "kind": "note",
+      "name": "Документ: инструкция пользователя",
+      "sheets": [
+        "docs"
+      ],
+      "body": "Объясняет заказ и скачивание. Переиспользует fragment.expiry. В этом демо включение обозначено связью; автоматической сборки документа нет.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "docs": {
+          "x": 822,
+          "y": 36
+        }
+      },
+      "attributes": {
+        "status": "Черновик",
+        "areas": [
+          "Интерфейс",
+          "Документы"
+        ],
+        "days": 2
+      }
+    },
+    {
+      "id": "doc.runbook",
+      "kind": "note",
+      "name": "Документ: инструкция сопровождения",
+      "sheets": [
+        "docs"
+      ],
+      "body": "Описывает проверку очереди и очистку. Ссылается на тот же fragment.expiry, что и инструкция пользователя. Рабочих адресов и имён хостов нет.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "docs": {
+          "x": 24,
+          "y": 166
+        }
+      },
+      "attributes": {
+        "status": "Черновик",
+        "areas": [
+          "Документы"
+        ],
+        "days": 2
+      }
+    },
+    {
+      "id": "fragment.expiry",
+      "kind": "note",
+      "name": "Фрагмент: доступность результата",
+      "sheets": [
+        "docs",
+        "change"
+      ],
+      "body": "Готовый файл доступен 24 часа после завершения задачи. После истечения срока создайте новый запрос.\n\nОдин фрагмент для двух документов. В карте хранится один текст; сборка публикаций — отдельная предлагаемая функция.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "docs": {
+          "x": 275,
+          "y": 181
+        },
+        "change": {
+          "x": 557,
+          "y": 11
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Документы"
+        ]
+      }
+    },
+    {
+      "id": "glossary.job",
+      "kind": "note",
+      "name": "Словарь: задача и результат",
+      "sheets": [
+        "contracts",
+        "docs"
+      ],
+      "body": "Задача — запись о подготовке отчёта. Результат — файл. Их жизненные циклы различаются. Это заметка, не расширение встроенных типов PlyLoom.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "contracts": {
+          "x": 551,
+          "y": 158
+        },
+        "docs": {
+          "x": 545,
+          "y": 153
+        }
+      },
+      "attributes": {
+        "status": "Черновик",
+        "areas": [
+          "Документы"
+        ]
+      }
+    },
+    {
+      "id": "assembly.review",
+      "kind": "note",
+      "name": "Сборка: пакет для обсуждения",
+      "sheets": [
+        "docs"
+      ],
+      "body": "Порядок: 1) постановка; 2) UC-01; 3) API-01; 4) fragment.expiry; 5) матрица проверок. Это рецепт в заметке, не работающий CCMS-экспортёр.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "docs": {
+          "x": 832,
+          "y": 192
+        }
+      },
+      "attributes": {
+        "status": null,
+        "areas": []
+      }
+    },
+    {
+      "id": "change.expiry",
+      "kind": "decision",
+      "name": "CHG-01: предложено 2 часа",
+      "sheets": [
+        "change"
+      ],
+      "body": "Предложение: уменьшить срок новых файлов с 24 до 2 часов. Пока не принято. Судьбу старых файлов решить отдельно. Код и документы автоматически не меняются.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "change": {
+          "x": 815,
+          "y": 31
+        }
+      },
+      "attributes": {
+        "status": "Черновик",
+        "areas": [
+          "Сервис",
+          "Документы"
+        ],
+        "due": "2026-04-06"
+      }
+    },
+    {
+      "id": "impact.review",
+      "kind": "process",
+      "name": "Разбор: что затронет изменение",
+      "sheets": [
+        "change"
+      ],
+      "body": "От CHG-01 пройти к REQ-03, затем к вычислению expiresAt, проверке скачивания, очистке, TEST-03 и fragment.expiry. Проверить две инструкции. Связь указывает кандидата на пересмотр, не доказывает влияние.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "change": {
+          "x": 27,
+          "y": 168
+        }
+      },
+      "attributes": {
+        "status": "В работе",
+        "areas": [
+          "Документы",
+          "Проверки"
+        ],
+        "days": 1,
+        "due": "2026-04-06"
+      }
+    },
+    {
+      "id": "risk.stale-docs",
+      "kind": "risk",
+      "name": "Риск: текст отстал от поведения",
+      "sheets": [
+        "change"
+      ],
+      "body": "Копии абзаца могут разойтись. Общий фрагмент уменьшает дублирование, но документы всё равно нужно проверить и опубликовать повторно.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "change": {
+          "x": 294,
+          "y": 194
+        }
+      },
+      "attributes": {
+        "status": "Черновик",
+        "areas": [
+          "Документы"
+        ]
+      }
+    },
+    {
+      "id": "release.checklist",
+      "kind": "rule",
+      "name": "Проверка перед учебным релизом",
+      "sheets": [
+        "change"
+      ],
+      "body": "Решить судьбу CHG-01 и старых файлов; проверить контракт; выполнить тесты; пересобрать документы; зафиксировать версии. Карточка не означает выполнения этих действий.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "change": {
+          "x": 568,
+          "y": 169
+        }
+      },
+      "attributes": {
+        "status": "Черновик",
+        "areas": [
+          "Проверки"
+        ],
+        "due": "2026-04-13"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "software-edge-1",
+      "from": "goal.export",
+      "to": "usecase.export",
+      "kind": "ref",
+      "label": "раскрывается в"
+    },
+    {
+      "id": "software-edge-2",
+      "from": "scope.v1",
+      "to": "goal.export",
+      "kind": "ref",
+      "label": "ограничивает"
+    },
+    {
+      "id": "software-edge-3",
+      "from": "metric.ready",
+      "to": "goal.export",
+      "kind": "ref",
+      "label": "проверяет гипотезу"
+    },
+    {
+      "id": "software-edge-4",
+      "from": "role.analyst",
+      "to": "doc.brief",
+      "kind": "ref",
+      "label": "готовит"
+    },
+    {
+      "id": "software-edge-5",
+      "from": "role.analyst",
+      "to": "acceptance.export",
+      "kind": "ref",
+      "label": "уточняет"
+    },
+    {
+      "id": "software-edge-6",
+      "from": "role.developer",
+      "to": "adr.queue",
+      "kind": "ref",
+      "label": "обосновывает"
+    },
+    {
+      "id": "software-edge-7",
+      "from": "role.tester",
+      "to": "trace.matrix",
+      "kind": "ref",
+      "label": "проверяет покрытие"
+    },
+    {
+      "id": "software-edge-8",
+      "from": "doc.brief",
+      "to": "goal.export",
+      "kind": "ref",
+      "label": "ссылается на цель"
+    },
+    {
+      "id": "software-edge-9",
+      "from": "doc.brief",
+      "to": "scope.v1",
+      "kind": "ref",
+      "label": "ссылается на границы"
+    },
+    {
+      "id": "software-edge-10",
+      "from": "doc.brief",
+      "to": "usecase.export",
+      "kind": "ref",
+      "label": "ссылается на сценарий"
+    },
+    {
+      "id": "software-edge-11",
+      "from": "doc.brief",
+      "to": "acceptance.export",
+      "kind": "ref",
+      "label": "ссылается на критерии"
+    },
+    {
+      "id": "software-edge-12",
+      "from": "doc.brief",
+      "to": "contract.export",
+      "kind": "ref",
+      "label": "ссылается на контракт"
+    },
+    {
+      "id": "software-edge-13",
+      "from": "usecase.export",
+      "to": "requirement.async",
+      "kind": "depends",
+      "label": "требует фоновой задачи"
+    },
+    {
+      "id": "software-edge-14",
+      "from": "usecase.export",
+      "to": "requirement.owner",
+      "kind": "depends",
+      "label": "ограничен владельцем"
+    },
+    {
+      "id": "software-edge-15",
+      "from": "usecase.export",
+      "to": "requirement.expiry",
+      "kind": "depends",
+      "label": "ограничен сроком"
+    },
+    {
+      "id": "software-edge-16",
+      "from": "usecase.export",
+      "to": "requirement.retry",
+      "kind": "depends",
+      "label": "учитывает повторы"
+    },
+    {
+      "id": "software-edge-17",
+      "from": "acceptance.export",
+      "to": "usecase.export",
+      "kind": "ref",
+      "label": "проверяет сценарий"
+    },
+    {
+      "id": "software-edge-18",
+      "from": "adr.queue",
+      "to": "requirement.async",
+      "kind": "ref",
+      "label": "реализует требование"
+    },
+    {
+      "id": "software-edge-19",
+      "from": "adr.queue",
+      "to": "component.queue",
+      "kind": "ref",
+      "label": "выбирает подход"
+    },
+    {
+      "id": "software-edge-20",
+      "from": "adr.queue",
+      "to": "component.worker",
+      "kind": "ref",
+      "label": "распределяет работу"
+    },
+    {
+      "id": "software-edge-21",
+      "from": "diagram.context",
+      "to": "component.api",
+      "kind": "ref",
+      "label": "показывает"
+    },
+    {
+      "id": "software-edge-22",
+      "from": "diagram.context",
+      "to": "component.worker",
+      "kind": "ref",
+      "label": "показывает"
+    },
+    {
+      "id": "software-edge-23",
+      "from": "diagram.sequence",
+      "to": "usecase.export",
+      "kind": "ref",
+      "label": "детализирует"
+    },
+    {
+      "id": "software-edge-24",
+      "from": "diagram.sequence",
+      "to": "contract.export",
+      "kind": "ref",
+      "label": "использует операции"
+    },
+    {
+      "id": "software-edge-25",
+      "from": "diagram.states",
+      "to": "model.job",
+      "kind": "ref",
+      "label": "описывает состояния"
+    },
+    {
+      "id": "software-edge-26",
+      "from": "component.api",
+      "to": "component.queue",
+      "kind": "flow",
+      "label": "ставит задачу"
+    },
+    {
+      "id": "software-edge-27",
+      "from": "component.queue",
+      "to": "component.worker",
+      "kind": "flow",
+      "label": "доставляет задачу"
+    },
+    {
+      "id": "software-edge-28",
+      "from": "component.worker",
+      "to": "component.storage",
+      "kind": "flow",
+      "label": "сохраняет результат"
+    },
+    {
+      "id": "software-edge-29",
+      "from": "component.api",
+      "to": "contract.export",
+      "kind": "ref",
+      "label": "реализует контракт"
+    },
+    {
+      "id": "software-edge-30",
+      "from": "component.api",
+      "to": "requirement.owner",
+      "kind": "ref",
+      "label": "проверяет доступ"
+    },
+    {
+      "id": "software-edge-31",
+      "from": "component.api",
+      "to": "requirement.expiry",
+      "kind": "ref",
+      "label": "проверяет expiresAt"
+    },
+    {
+      "id": "software-edge-32",
+      "from": "component.worker",
+      "to": "requirement.expiry",
+      "kind": "ref",
+      "label": "вычисляет expiresAt"
+    },
+    {
+      "id": "software-edge-33",
+      "from": "component.worker",
+      "to": "requirement.retry",
+      "kind": "ref",
+      "label": "учитывает повтор"
+    },
+    {
+      "id": "software-edge-34",
+      "from": "component.worker",
+      "to": "model.job",
+      "kind": "ref",
+      "label": "обновляет состояние"
+    },
+    {
+      "id": "software-edge-35",
+      "from": "contract.export",
+      "to": "model.job",
+      "kind": "ref",
+      "label": "возвращает поля"
+    },
+    {
+      "id": "software-edge-36",
+      "from": "contract.export",
+      "to": "contract.errors",
+      "kind": "ref",
+      "label": "определяет ошибки"
+    },
+    {
+      "id": "software-edge-37",
+      "from": "contract.export",
+      "to": "requirement.retry",
+      "kind": "ref",
+      "label": "задаёт повтор запроса"
+    },
+    {
+      "id": "software-edge-38",
+      "from": "contract.errors",
+      "to": "requirement.owner",
+      "kind": "ref",
+      "label": "уточняет отказ"
+    },
+    {
+      "id": "software-edge-39",
+      "from": "implementation.cleanup",
+      "to": "requirement.expiry",
+      "kind": "ref",
+      "label": "следует сроку"
+    },
+    {
+      "id": "software-edge-40",
+      "from": "implementation.cleanup",
+      "to": "component.storage",
+      "kind": "ref",
+      "label": "удаляет файлы"
+    },
+    {
+      "id": "software-edge-41",
+      "from": "implementation.polling",
+      "to": "contract.export",
+      "kind": "ref",
+      "label": "вызывает статус"
+    },
+    {
+      "id": "software-edge-42",
+      "from": "implementation.polling",
+      "to": "diagram.states",
+      "kind": "ref",
+      "label": "учитывает состояния"
+    },
+    {
+      "id": "software-edge-43",
+      "from": "test.lifecycle",
+      "to": "requirement.async",
+      "kind": "ref",
+      "label": "проверяет"
+    },
+    {
+      "id": "software-edge-44",
+      "from": "test.lifecycle",
+      "to": "acceptance.export",
+      "kind": "ref",
+      "label": "уточняет шаги"
+    },
+    {
+      "id": "software-edge-45",
+      "from": "test.access",
+      "to": "requirement.owner",
+      "kind": "ref",
+      "label": "проверяет"
+    },
+    {
+      "id": "software-edge-46",
+      "from": "test.access",
+      "to": "contract.errors",
+      "kind": "ref",
+      "label": "ожидает NotFound"
+    },
+    {
+      "id": "software-edge-47",
+      "from": "test.expiry",
+      "to": "requirement.expiry",
+      "kind": "ref",
+      "label": "проверяет границу"
+    },
+    {
+      "id": "software-edge-48",
+      "from": "test.expiry",
+      "to": "implementation.cleanup",
+      "kind": "ref",
+      "label": "учитывает задержку"
+    },
+    {
+      "id": "software-edge-49",
+      "from": "test.retry",
+      "to": "requirement.retry",
+      "kind": "ref",
+      "label": "проверяет"
+    },
+    {
+      "id": "software-edge-50",
+      "from": "test.retry",
+      "to": "component.worker",
+      "kind": "ref",
+      "label": "проверяет повтор доставки"
+    },
+    {
+      "id": "software-edge-51",
+      "from": "trace.matrix",
+      "to": "test.lifecycle",
+      "kind": "ref",
+      "label": "REQ-01 → TEST-01"
+    },
+    {
+      "id": "software-edge-52",
+      "from": "trace.matrix",
+      "to": "test.access",
+      "kind": "ref",
+      "label": "REQ-02 → TEST-02"
+    },
+    {
+      "id": "software-edge-53",
+      "from": "trace.matrix",
+      "to": "test.expiry",
+      "kind": "ref",
+      "label": "REQ-03 → TEST-03"
+    },
+    {
+      "id": "software-edge-54",
+      "from": "trace.matrix",
+      "to": "test.retry",
+      "kind": "ref",
+      "label": "REQ-04 → TEST-04"
+    },
+    {
+      "id": "software-edge-55",
+      "from": "metric.ready",
+      "to": "test.lifecycle",
+      "kind": "ref",
+      "label": "наблюдается в сценарии"
+    },
+    {
+      "id": "software-edge-56",
+      "from": "doc.user-guide",
+      "to": "usecase.export",
+      "kind": "ref",
+      "label": "объясняет"
+    },
+    {
+      "id": "software-edge-57",
+      "from": "doc.user-guide",
+      "to": "fragment.expiry",
+      "kind": "ref",
+      "label": "включает фрагмент"
+    },
+    {
+      "id": "software-edge-58",
+      "from": "doc.runbook",
+      "to": "fragment.expiry",
+      "kind": "ref",
+      "label": "включает тот же фрагмент"
+    },
+    {
+      "id": "software-edge-59",
+      "from": "doc.runbook",
+      "to": "implementation.cleanup",
+      "kind": "ref",
+      "label": "описывает сопровождение"
+    },
+    {
+      "id": "software-edge-60",
+      "from": "fragment.expiry",
+      "to": "requirement.expiry",
+      "kind": "ref",
+      "label": "излагает правило"
+    },
+    {
+      "id": "software-edge-61",
+      "from": "glossary.job",
+      "to": "model.job",
+      "kind": "ref",
+      "label": "определяет термин"
+    },
+    {
+      "id": "software-edge-62",
+      "from": "assembly.review",
+      "to": "doc.brief",
+      "kind": "ref",
+      "label": "1 · постановка"
+    },
+    {
+      "id": "software-edge-63",
+      "from": "assembly.review",
+      "to": "usecase.export",
+      "kind": "ref",
+      "label": "2 · сценарий"
+    },
+    {
+      "id": "software-edge-64",
+      "from": "assembly.review",
+      "to": "contract.export",
+      "kind": "ref",
+      "label": "3 · контракт"
+    },
+    {
+      "id": "software-edge-65",
+      "from": "assembly.review",
+      "to": "fragment.expiry",
+      "kind": "ref",
+      "label": "4 · общий фрагмент"
+    },
+    {
+      "id": "software-edge-66",
+      "from": "assembly.review",
+      "to": "trace.matrix",
+      "kind": "ref",
+      "label": "5 · проверки"
+    },
+    {
+      "id": "software-edge-67",
+      "from": "change.expiry",
+      "to": "requirement.expiry",
+      "kind": "contradicts",
+      "label": "предлагает изменить 24 → 2"
+    },
+    {
+      "id": "software-edge-68",
+      "from": "impact.review",
+      "to": "change.expiry",
+      "kind": "ref",
+      "label": "разбирает предложение"
+    },
+    {
+      "id": "software-edge-69",
+      "from": "impact.review",
+      "to": "test.expiry",
+      "kind": "ref",
+      "label": "кандидат на пересмотр"
+    },
+    {
+      "id": "software-edge-70",
+      "from": "impact.review",
+      "to": "fragment.expiry",
+      "kind": "ref",
+      "label": "кандидат на пересмотр"
+    },
+    {
+      "id": "software-edge-71",
+      "from": "risk.stale-docs",
+      "to": "fragment.expiry",
+      "kind": "ref",
+      "label": "требует проверки текста"
+    },
+    {
+      "id": "software-edge-72",
+      "from": "risk.stale-docs",
+      "to": "doc.user-guide",
+      "kind": "ref",
+      "label": "затрагивает публикацию"
+    },
+    {
+      "id": "software-edge-73",
+      "from": "risk.stale-docs",
+      "to": "doc.runbook",
+      "kind": "ref",
+      "label": "затрагивает публикацию"
+    },
+    {
+      "id": "software-edge-74",
+      "from": "release.checklist",
+      "to": "impact.review",
+      "kind": "depends",
+      "label": "требует разбора"
+    },
+    {
+      "id": "software-edge-75",
+      "from": "release.checklist",
+      "to": "assembly.review",
+      "kind": "ref",
+      "label": "проверяет пакет"
+    }
+  ]
+}

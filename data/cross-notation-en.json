@@ -1,0 +1,424 @@
+{
+  "version": 2,
+  "title": "One payment, six models",
+  "description": "Teaching case: asynchronous confirmation reveals stale assumptions across separate diagrams. Tags retain original model roles; the current renderer uses PlyLoom cards.",
+  "sheets": [
+    {
+      "id": "process",
+      "name": "Payment process · BPMN",
+      "color": "#8467ad",
+      "limit": 15,
+      "notation": "free"
+    },
+    {
+      "id": "architecture",
+      "name": "Architecture · C4",
+      "color": "#4d8aa8",
+      "limit": 15,
+      "notation": "free"
+    },
+    {
+      "id": "states",
+      "name": "States · UML",
+      "color": "#60a098",
+      "limit": 15,
+      "notation": "free"
+    },
+    {
+      "id": "classes",
+      "name": "Data model · UML",
+      "color": "#859758",
+      "limit": 15,
+      "notation": "free"
+    },
+    {
+      "id": "requirements",
+      "name": "Requirements and tests",
+      "color": "#ac8150",
+      "limit": 15,
+      "notation": "free"
+    },
+    {
+      "id": "risks",
+      "name": "Risk map",
+      "color": "#b87177",
+      "limit": 15,
+      "notation": "free"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "activity.accept",
+      "name": "Accept order",
+      "kind": "process",
+      "sheets": [
+        "process"
+      ],
+      "tags": [
+        "bpmn:Task"
+      ],
+      "pos": {
+        "process": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "body": "A process task. Accepts an order without declaring it paid.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    },
+    {
+      "id": "activity.pay",
+      "name": "Request payment",
+      "kind": "process",
+      "sheets": [
+        "process"
+      ],
+      "tags": [
+        "bpmn:Task"
+      ],
+      "pos": {
+        "process": {
+          "x": 300,
+          "y": 0
+        }
+      },
+      "body": "Process activity implemented by Payment API. Its ID is distinct from the application's ID.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    },
+    {
+      "id": "activity.ship",
+      "name": "Release for shipping",
+      "kind": "process",
+      "sheets": [
+        "process"
+      ],
+      "tags": [
+        "bpmn:Task"
+      ],
+      "pos": {
+        "process": {
+          "x": 600,
+          "y": 0
+        }
+      },
+      "body": "The old process releases an order after the request returns. Review the confirmation condition when the provider changes.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    },
+    {
+      "id": "service.payment",
+      "name": "Payment API",
+      "kind": "entity",
+      "sheets": [
+        "architecture",
+        "requirements"
+      ],
+      "tags": [
+        "c4:Container"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 0,
+          "y": 0
+        },
+        "requirements": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "body": "Python application; calls the provider over HTTPS. Asynchronous confirmation needs an event receiver and duplicate-event protection.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    },
+    {
+      "id": "system.provider",
+      "name": "Payment provider",
+      "kind": "entity",
+      "sheets": [
+        "architecture"
+      ],
+      "tags": [
+        "c4:SoftwareSystem"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 300,
+          "y": 0
+        }
+      },
+      "body": "Fictional change: confirmation arrives as an event within 15 minutes. An accepted request is not a successful payment.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    },
+    {
+      "id": "class.payment",
+      "name": "Payment",
+      "kind": "entity",
+      "sheets": [
+        "classes",
+        "states"
+      ],
+      "tags": [
+        "uml:Class"
+      ],
+      "pos": {
+        "states": {
+          "x": 0,
+          "y": 0
+        },
+        "classes": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "body": "One classifier appears in the class view and as the state machine context. Fields: id, status, providerEventId. Paid is a separate state entity.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    },
+    {
+      "id": "state.created",
+      "name": "Created",
+      "kind": "entity",
+      "sheets": [
+        "states"
+      ],
+      "tags": [
+        "uml:State"
+      ],
+      "pos": {
+        "states": {
+          "x": 300,
+          "y": 0
+        }
+      },
+      "body": "Created. The old state machine does not represent waiting for provider confirmation.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    },
+    {
+      "id": "state.paid",
+      "name": "Paid",
+      "kind": "entity",
+      "sheets": [
+        "states"
+      ],
+      "tags": [
+        "uml:State"
+      ],
+      "pos": {
+        "states": {
+          "x": 600,
+          "y": 0
+        }
+      },
+      "body": "Enter this state only after confirmed success, not upon 202 Accepted.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    },
+    {
+      "id": "req.confirmed",
+      "name": "REQ-17 · ship only after confirmation",
+      "kind": "rule",
+      "sheets": [
+        "requirements",
+        "process",
+        "risks"
+      ],
+      "tags": [
+        "requirement:Functional"
+      ],
+      "pos": {
+        "process": {
+          "x": 0,
+          "y": 160
+        },
+        "requirements": {
+          "x": 300,
+          "y": 0
+        },
+        "risks": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "body": "This requirement connects the process, architecture and test. Its appearances share an ID; the activity, service and test keep their own IDs.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    },
+    {
+      "id": "req.once",
+      "name": "REQ-18 · apply an event once",
+      "kind": "rule",
+      "sheets": [
+        "requirements",
+        "risks"
+      ],
+      "tags": [
+        "requirement:Functional"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 600,
+          "y": 0
+        },
+        "risks": {
+          "x": 300,
+          "y": 0
+        }
+      },
+      "body": "A repeated event must not release the order twice. Delivery may repeat; the requirement concerns the processing effect.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    },
+    {
+      "id": "test.duplicate",
+      "name": "Duplicate-event test",
+      "kind": "process",
+      "sheets": [
+        "requirements"
+      ],
+      "tags": [
+        "test:Case"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 0,
+          "y": 160
+        }
+      },
+      "body": "Send the same event twice, then a late confirmation after timeout. Check the final status and number of releases.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    },
+    {
+      "id": "risk.unpaid",
+      "name": "Shipping an unpaid order",
+      "kind": "risk",
+      "sheets": [
+        "risks"
+      ],
+      "tags": [
+        "risk:Scenario"
+      ],
+      "pos": {
+        "risks": {
+          "x": 600,
+          "y": 0
+        }
+      },
+      "body": "Cause: synchronous response assumptions applied to an asynchronous contract. Controls: verify confirmation and test late responses.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    },
+    {
+      "id": "risk.duplicate",
+      "name": "Duplicate shipment",
+      "kind": "risk",
+      "sheets": [
+        "risks"
+      ],
+      "tags": [
+        "risk:Scenario"
+      ],
+      "pos": {
+        "risks": {
+          "x": 0,
+          "y": 160
+        }
+      },
+      "body": "A repeated event repeats a business effect. Controls: idempotency key, atomic handling and duplicate-event test.\n\nSource: fictional PlyLoom teaching scenario. This is a traceability map, not an executable model."
+    }
+  ],
+  "edges": [
+    {
+      "id": "trace.1",
+      "from": "activity.accept",
+      "to": "activity.pay",
+      "kind": "flow",
+      "label": "then"
+    },
+    {
+      "id": "trace.2",
+      "from": "activity.pay",
+      "to": "activity.ship",
+      "kind": "flow",
+      "label": "old condition: API response"
+    },
+    {
+      "id": "trace.3",
+      "from": "service.payment",
+      "to": "activity.pay",
+      "kind": "supports",
+      "label": "implements activity"
+    },
+    {
+      "id": "trace.4",
+      "from": "service.payment",
+      "to": "system.provider",
+      "kind": "depends",
+      "label": "HTTPS / confirmation contract"
+    },
+    {
+      "id": "trace.5",
+      "from": "service.payment",
+      "to": "class.payment",
+      "kind": "ref",
+      "label": "uses data model"
+    },
+    {
+      "id": "trace.6",
+      "from": "state.created",
+      "to": "state.paid",
+      "kind": "flow",
+      "label": "old condition: API response"
+    },
+    {
+      "id": "trace.7",
+      "from": "class.payment",
+      "to": "state.created",
+      "kind": "ref",
+      "label": "state machine context"
+    },
+    {
+      "id": "trace.8",
+      "from": "class.payment",
+      "to": "state.paid",
+      "kind": "ref",
+      "label": "state machine context"
+    },
+    {
+      "id": "trace.9",
+      "from": "activity.ship",
+      "to": "req.confirmed",
+      "kind": "depends",
+      "label": "constrained by requirement"
+    },
+    {
+      "id": "trace.10",
+      "from": "service.payment",
+      "to": "req.confirmed",
+      "kind": "supports",
+      "label": "must satisfy"
+    },
+    {
+      "id": "trace.11",
+      "from": "req.once",
+      "to": "risk.duplicate",
+      "kind": "ref",
+      "label": "control for risk"
+    },
+    {
+      "id": "trace.12",
+      "from": "req.confirmed",
+      "to": "risk.unpaid",
+      "kind": "ref",
+      "label": "control for risk"
+    },
+    {
+      "id": "trace.13",
+      "from": "test.duplicate",
+      "to": "req.once",
+      "kind": "supports",
+      "label": "verifies"
+    },
+    {
+      "id": "trace.14",
+      "from": "test.duplicate",
+      "to": "req.confirmed",
+      "kind": "supports",
+      "label": "verifies late response"
+    },
+    {
+      "id": "trace.15",
+      "from": "req.confirmed",
+      "to": "system.provider",
+      "kind": "depends",
+      "label": "depends on contract"
+    },
+    {
+      "id": "trace.16",
+      "from": "class.payment",
+      "to": "req.once",
+      "kind": "depends",
+      "label": "needs event key"
+    }
+  ]
+}

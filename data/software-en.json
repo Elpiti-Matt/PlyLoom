@@ -1,0 +1,2135 @@
+{
+  "version": 3,
+  "title": "Software: report export",
+  "description": "A wholly synthetic teaching project: asynchronous report export. No real people, companies, authorities, addresses or production data. Diagrams and tests describe a proposed service; document assembly is shown as a concept.",
+  "types": {
+    "nodes": [
+      {
+        "id": "entity",
+        "label": "Сущность",
+        "base": "entity",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "process",
+        "label": "Процесс",
+        "base": "process",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "decision",
+        "label": "Решение",
+        "base": "decision",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "hypothesis",
+        "label": "Гипотеза",
+        "base": "hypothesis",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "metric",
+        "label": "Метрика",
+        "base": "metric",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "rule",
+        "label": "Требование",
+        "base": "rule",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "risk",
+        "label": "Риск",
+        "base": "risk",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "person",
+        "label": "Человек / роль",
+        "base": "person",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "note",
+        "label": "Заметка",
+        "base": "note",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "flowchart:process",
+        "label": "Действие",
+        "labelEn": "Action",
+        "base": "process",
+        "notation": "flowchart",
+        "shape": "rectangle",
+        "color": "#475569"
+      },
+      {
+        "id": "flowchart:decision",
+        "label": "Условие",
+        "labelEn": "Decision",
+        "base": "decision",
+        "notation": "flowchart",
+        "shape": "diamond",
+        "color": "#475569"
+      },
+      {
+        "id": "flowchart:terminator",
+        "label": "Начало / конец",
+        "labelEn": "Start / end",
+        "base": "process",
+        "notation": "flowchart",
+        "shape": "rounded",
+        "color": "#475569"
+      },
+      {
+        "id": "flowchart:data",
+        "label": "Данные / ввод-вывод",
+        "labelEn": "Data / input-output",
+        "base": "entity",
+        "notation": "flowchart",
+        "shape": "parallelogram",
+        "color": "#475569"
+      },
+      {
+        "id": "flowchart:document",
+        "label": "Документ",
+        "labelEn": "Document",
+        "base": "rule",
+        "notation": "flowchart",
+        "shape": "document",
+        "color": "#475569"
+      },
+      {
+        "id": "canvas:text",
+        "label": "Текст",
+        "labelEn": "Text",
+        "base": "note",
+        "notation": "canvas",
+        "shape": "rectangle",
+        "color": "#475569"
+      },
+      {
+        "id": "canvas:link",
+        "label": "Ссылка",
+        "labelEn": "Link",
+        "base": "note",
+        "notation": "canvas",
+        "shape": "rectangle",
+        "color": "#475569"
+      },
+      {
+        "id": "canvas:file",
+        "label": "Файл",
+        "labelEn": "File",
+        "base": "rule",
+        "notation": "canvas",
+        "shape": "rectangle",
+        "color": "#475569"
+      },
+      {
+        "id": "canvas:group",
+        "label": "Группа",
+        "labelEn": "Group",
+        "base": "entity",
+        "notation": "canvas",
+        "shape": "group",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:task",
+        "label": "Задача",
+        "labelEn": "Task",
+        "base": "process",
+        "notation": "bpmn",
+        "shape": "rounded",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:startEvent",
+        "label": "Начальное событие",
+        "labelEn": "Start event",
+        "base": "process",
+        "notation": "bpmn",
+        "shape": "ellipse",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:endEvent",
+        "label": "Конечное событие",
+        "labelEn": "End event",
+        "base": "process",
+        "notation": "bpmn",
+        "shape": "ellipse",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:intermediateCatchEvent",
+        "label": "Промежуточное событие",
+        "labelEn": "Intermediate event",
+        "base": "process",
+        "notation": "bpmn",
+        "shape": "ellipse",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:exclusiveGateway",
+        "label": "Исключающий шлюз",
+        "labelEn": "Exclusive gateway",
+        "base": "decision",
+        "notation": "bpmn",
+        "shape": "diamond",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:parallelGateway",
+        "label": "Параллельный шлюз",
+        "labelEn": "Parallel gateway",
+        "base": "decision",
+        "notation": "bpmn",
+        "shape": "diamond",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:inclusiveGateway",
+        "label": "Включающий шлюз",
+        "labelEn": "Inclusive gateway",
+        "base": "decision",
+        "notation": "bpmn",
+        "shape": "diamond",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:participant",
+        "label": "Участник / пул",
+        "labelEn": "Participant / pool",
+        "base": "entity",
+        "notation": "bpmn",
+        "shape": "group",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:lane",
+        "label": "Дорожка",
+        "labelEn": "Lane",
+        "base": "entity",
+        "notation": "bpmn",
+        "shape": "group",
+        "color": "#475569"
+      }
+    ],
+    "edges": [
+      {
+        "id": "flow",
+        "label": "затем",
+        "color": "#475569"
+      },
+      {
+        "id": "depends",
+        "label": "зависит от",
+        "color": "#475569"
+      },
+      {
+        "id": "supports",
+        "label": "подтверждает",
+        "color": "#475569"
+      },
+      {
+        "id": "contradicts",
+        "label": "противоречит",
+        "color": "#475569"
+      },
+      {
+        "id": "ref",
+        "label": "см.",
+        "color": "#475569"
+      },
+      {
+        "id": "inherits",
+        "label": "наследует от",
+        "labelEn": "inherits from",
+        "color": "#475569"
+      },
+      {
+        "id": "implements",
+        "label": "реализует",
+        "labelEn": "implements",
+        "color": "#475569"
+      },
+      {
+        "id": "uses",
+        "label": "использует",
+        "labelEn": "uses",
+        "color": "#475569"
+      }
+    ],
+    "sheets": [
+      {
+        "id": "свободная",
+        "label": "Свободный лист",
+        "labelEn": "Free sheet",
+        "color": "#0ea5e9"
+      },
+      {
+        "id": "процесс",
+        "label": "Процесс",
+        "labelEn": "Process",
+        "color": "#f97316"
+      },
+      {
+        "id": "данные",
+        "label": "Данные",
+        "labelEn": "Data",
+        "color": "#14b8a6"
+      },
+      {
+        "id": "аргументы",
+        "label": "Аргументы",
+        "labelEn": "Arguments",
+        "color": "#a855f7"
+      }
+    ],
+    "tags": [
+      {
+        "id": "draft",
+        "label": "Черновик",
+        "labelEn": "Draft",
+        "color": "#64748b"
+      },
+      {
+        "id": "review",
+        "label": "На проверке",
+        "labelEn": "In review",
+        "color": "#d97706"
+      },
+      {
+        "id": "reference",
+        "label": "Справочный",
+        "labelEn": "Reference",
+        "color": "#2563eb"
+      }
+    ],
+    "attributes": [
+      {
+        "id": "status",
+        "label": "Состояние",
+        "labelEn": "Status",
+        "description": "How far the card has got. Teaching values.",
+        "dataType": "select",
+        "options": [
+          "Draft",
+          "In progress",
+          "Done"
+        ]
+      },
+      {
+        "id": "areas",
+        "label": "Области",
+        "labelEn": "Areas",
+        "description": "Which parts of the example the card touches; several options are allowed.",
+        "dataType": "multi",
+        "options": [
+          "UI",
+          "Service",
+          "Storage",
+          "Documents",
+          "Verification"
+        ]
+      },
+      {
+        "id": "days",
+        "label": "Оценка, дней",
+        "labelEn": "Estimate, days",
+        "description": "A made-up estimate for the example.",
+        "dataType": "number"
+      },
+      {
+        "id": "due",
+        "label": "Контрольная дата",
+        "labelEn": "Checkpoint",
+        "description": "A teaching date: not tied to any real deadline.",
+        "dataType": "date"
+      }
+    ]
+  },
+  "sheets": [
+    {
+      "id": "context",
+      "name": "Problem context",
+      "color": "#0284c7",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "A wholly synthetic teaching project: asynchronous report export. No real people, companies, authorities, addresses or production data. Diagrams and tests describe a proposed service; document assembly is shown as a concept."
+    },
+    {
+      "id": "requirements",
+      "name": "Requirements",
+      "color": "#7c3aed",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "A wholly synthetic teaching project: asynchronous report export. No real people, companies, authorities, addresses or production data. Diagrams and tests describe a proposed service; document assembly is shown as a concept."
+    },
+    {
+      "id": "architecture",
+      "name": "Architecture",
+      "color": "#0d9488",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "A wholly synthetic teaching project: asynchronous report export. No real people, companies, authorities, addresses or production data. Diagrams and tests describe a proposed service; document assembly is shown as a concept."
+    },
+    {
+      "id": "contracts",
+      "name": "Contracts and models",
+      "color": "#d97706",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "A wholly synthetic teaching project: asynchronous report export. No real people, companies, authorities, addresses or production data. Diagrams and tests describe a proposed service; document assembly is shown as a concept."
+    },
+    {
+      "id": "implementation",
+      "name": "Implementation",
+      "color": "#2563eb",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "A wholly synthetic teaching project: asynchronous report export. No real people, companies, authorities, addresses or production data. Diagrams and tests describe a proposed service; document assembly is shown as a concept."
+    },
+    {
+      "id": "verification",
+      "name": "Verification",
+      "color": "#db2777",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "A wholly synthetic teaching project: asynchronous report export. No real people, companies, authorities, addresses or production data. Diagrams and tests describe a proposed service; document assembly is shown as a concept."
+    },
+    {
+      "id": "docs",
+      "name": "Documents and fragments",
+      "color": "#64748b",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "A wholly synthetic teaching project: asynchronous report export. No real people, companies, authorities, addresses or production data. Diagrams and tests describe a proposed service; document assembly is shown as a concept."
+    },
+    {
+      "id": "change",
+      "name": "Change review",
+      "color": "#b45309",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "A wholly synthetic teaching project: asynchronous report export. No real people, companies, authorities, addresses or production data. Diagrams and tests describe a proposed service; document assembly is shown as a concept."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "goal.export",
+      "kind": "hypothesis",
+      "name": "Goal: request a report without waiting",
+      "sheets": [
+        "context"
+      ],
+      "body": "A user requests a report, continues working and downloads the file later. This is a teaching hypothesis: no interviews or measurements have been conducted.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 12,
+          "y": 8
+        }
+      },
+      "attributes": {
+        "status": "Done",
+        "areas": [
+          "Service"
+        ]
+      }
+    },
+    {
+      "id": "role.analyst",
+      "kind": "person",
+      "name": "Role: analyst",
+      "sheets": [
+        "context"
+      ],
+      "body": "Clarifies scope and acceptance criteria. An abstract role with no person, employer or customer behind it.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 288,
+          "y": 40
+        }
+      }
+    },
+    {
+      "id": "role.developer",
+      "kind": "person",
+      "name": "Role: developer",
+      "sheets": [
+        "context"
+      ],
+      "body": "Maps requirements to the contract and components. Technical decisions were invented for this example.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 550,
+          "y": 7
+        }
+      }
+    },
+    {
+      "id": "role.tester",
+      "kind": "person",
+      "name": "Role: tester",
+      "sheets": [
+        "context"
+      ],
+      "body": "Checks behavior against criteria. Test cards describe a test plan, not completed tests of a service.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 828,
+          "y": 40
+        }
+      }
+    },
+    {
+      "id": "scope.v1",
+      "kind": "decision",
+      "name": "Teaching release scope",
+      "sheets": [
+        "context",
+        "requirements"
+      ],
+      "body": "One report format, one job owner and status polling. Email delivery and schedules are outside the example.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 17,
+          "y": 161
+        },
+        "requirements": {
+          "x": 23,
+          "y": 15
+        }
+      },
+      "attributes": {
+        "status": "Done",
+        "areas": [
+          "Documents"
+        ],
+        "due": "2026-01-16"
+      }
+    },
+    {
+      "id": "metric.ready",
+      "kind": "metric",
+      "name": "Metric: time until the file is ready",
+      "sheets": [
+        "context",
+        "verification"
+      ],
+      "body": "Measure from request acceptance to Ready. No target has been chosen and no performance results are available.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 281,
+          "y": 185
+        },
+        "verification": {
+          "x": 23,
+          "y": 15
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "Verification"
+        ],
+        "days": 2
+      }
+    },
+    {
+      "id": "requirement.async",
+      "kind": "rule",
+      "name": "REQ-01: background generation",
+      "sheets": [
+        "requirements",
+        "architecture"
+      ],
+      "body": "A request creates a job and returns its ID. A separate request reports file readiness. Accepting a request does not mean Ready.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 288,
+          "y": 40
+        },
+        "architecture": {
+          "x": 16,
+          "y": 11
+        }
+      },
+      "attributes": {
+        "status": "Done",
+        "areas": [
+          "Service",
+          "Storage"
+        ],
+        "days": 3,
+        "due": "2026-02-02"
+      }
+    },
+    {
+      "id": "requirement.owner",
+      "kind": "rule",
+      "name": "REQ-02: owner access",
+      "sheets": [
+        "requirements",
+        "contracts"
+      ],
+      "body": "The job owner can access its status and file. In this teaching contract, another user's job and an unknown job both return NotFound.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 558,
+          "y": 12
+        },
+        "contracts": {
+          "x": 7,
+          "y": 5
+        }
+      },
+      "attributes": {
+        "status": "Done",
+        "areas": [
+          "Service"
+        ],
+        "days": 2,
+        "due": "2026-02-02"
+      }
+    },
+    {
+      "id": "requirement.expiry",
+      "kind": "rule",
+      "name": "REQ-03: file availability period",
+      "sheets": [
+        "requirements",
+        "implementation",
+        "verification",
+        "change"
+      ],
+      "body": "Baseline: a file is available for 24 hours after Ready. Downloads are denied at expiresAt even if cleanup is pending. The 24-hour period is an arbitrary teaching assumption.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 819,
+          "y": 34
+        },
+        "implementation": {
+          "x": 4,
+          "y": 2
+        },
+        "verification": {
+          "x": 286,
+          "y": 39
+        },
+        "change": {
+          "x": 8,
+          "y": 5
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "Service",
+          "Storage",
+          "Documents"
+        ],
+        "days": 2,
+        "due": "2026-03-10"
+      }
+    },
+    {
+      "id": "requirement.retry",
+      "kind": "rule",
+      "name": "REQ-04: safe retry",
+      "sheets": [
+        "requirements",
+        "contracts",
+        "implementation"
+      ],
+      "body": "The same key and parameters return the same jobId within a deduplication window. Different parameters with the same key return Conflict. This window is separate from file retention.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 13,
+          "y": 159
+        },
+        "contracts": {
+          "x": 273,
+          "y": 30
+        },
+        "implementation": {
+          "x": 294,
+          "y": 44
+        }
+      },
+      "attributes": {
+        "status": "Draft",
+        "areas": [
+          "Service"
+        ],
+        "days": 3
+      }
+    },
+    {
+      "id": "usecase.export",
+      "kind": "process",
+      "name": "UC-01: request and download",
+      "sheets": [
+        "context",
+        "requirements"
+      ],
+      "body": "1. Select parameters.\n2. Receive jobId.\n3. Poll status.\n4. Download when Ready.\n5. Show an error for Failed; offer a new request for Expired.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 547,
+          "y": 154
+        },
+        "requirements": {
+          "x": 280,
+          "y": 185
+        }
+      },
+      "attributes": {
+        "status": "Done",
+        "areas": [
+          "UI",
+          "Service"
+        ],
+        "days": 4
+      }
+    },
+    {
+      "id": "acceptance.export",
+      "kind": "rule",
+      "name": "AC-01: acceptance criteria",
+      "sheets": [
+        "requirements",
+        "verification"
+      ],
+      "body": "An accepted request returns jobId. API and UI agree on status. The owner can download a Ready file before expiresAt; access ends at expiry.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 545,
+          "y": 153
+        },
+        "verification": {
+          "x": 561,
+          "y": 14
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "Verification"
+        ],
+        "days": 1,
+        "due": "2026-02-20"
+      }
+    },
+    {
+      "id": "adr.queue",
+      "kind": "decision",
+      "name": "ADR-01: queue and worker",
+      "sheets": [
+        "architecture"
+      ],
+      "body": "Move generation to a queue worker. The alternative is keeping the HTTP request open. Costs include job states, redelivery and cleanup.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 275,
+          "y": 31
+        }
+      },
+      "attributes": {
+        "status": "Done",
+        "areas": [
+          "Service"
+        ]
+      }
+    },
+    {
+      "id": "diagram.context",
+      "kind": "note",
+      "name": "Diagram: components",
+      "sheets": [
+        "architecture"
+      ],
+      "body": "UI → API → queue → worker → storage. Mermaid source: examples/software/artifacts.md. This card describes a diagram; PlyLoom does not execute this system.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 563,
+          "y": 16
+        }
+      },
+      "attributes": {
+        "status": "Done",
+        "areas": [
+          "Service"
+        ],
+        "days": 1
+      }
+    },
+    {
+      "id": "diagram.sequence",
+      "kind": "note",
+      "name": "Diagram: sequence",
+      "sheets": [
+        "architecture"
+      ],
+      "body": "The API records a job and returns Accepted; a worker creates a file; polling reports Ready. Diagram and assumptions: examples/software/artifacts.md.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 823,
+          "y": 36
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "UI",
+          "Service"
+        ],
+        "days": 1
+      }
+    },
+    {
+      "id": "diagram.states",
+      "kind": "note",
+      "name": "Diagram: job states",
+      "sheets": [
+        "architecture",
+        "contracts"
+      ],
+      "body": "Queued → Running → Ready → Expired. Running may also become Failed. Redelivery does not create another result for a completed job. This is a teaching model without a built-in UML validator.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 8,
+          "y": 155
+        },
+        "contracts": {
+          "x": 567,
+          "y": 18
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "Service"
+        ],
+        "days": 1
+      }
+    },
+    {
+      "id": "contract.export",
+      "kind": "note",
+      "name": "API-01: export contract",
+      "sheets": [
+        "contracts",
+        "implementation",
+        "verification",
+        "docs"
+      ],
+      "body": "| Operation | Result |\n|---|---|\n| POST /exports | Accepted and jobId |\n| GET /exports/{id} | state, expiresAt when Ready |\n| GET /exports/{id}/file | file or error |\n\nOne artifact on four sheets. This describes a teaching API, not live endpoints.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "contracts": {
+          "x": 836,
+          "y": 45
+        },
+        "implementation": {
+          "x": 546,
+          "y": 4
+        },
+        "verification": {
+          "x": 831,
+          "y": 42
+        },
+        "docs": {
+          "x": 16,
+          "y": 11
+        }
+      },
+      "attributes": {
+        "status": "Done",
+        "areas": [
+          "UI",
+          "Service"
+        ],
+        "days": 2,
+        "due": "2026-02-16"
+      }
+    },
+    {
+      "id": "model.job",
+      "kind": "entity",
+      "name": "Model: export job",
+      "sheets": [
+        "requirements",
+        "architecture",
+        "contracts",
+        "implementation"
+      ],
+      "body": "Fields: id, ownerId, state, createdAt, readyAt, expiresAt, resultRef. This is a domain entity. The state diagram references it and has its own ID.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 837,
+          "y": 196
+        },
+        "architecture": {
+          "x": 299,
+          "y": 197
+        },
+        "contracts": {
+          "x": 3,
+          "y": 152
+        },
+        "implementation": {
+          "x": 834,
+          "y": 44
+        }
+      },
+      "attributes": {
+        "status": "Done",
+        "areas": [
+          "Service",
+          "Storage"
+        ],
+        "days": 2
+      }
+    },
+    {
+      "id": "contract.errors",
+      "kind": "note",
+      "name": "API-02: error responses",
+      "sheets": [
+        "contracts",
+        "verification"
+      ],
+      "body": "NotFound: unknown job or different owner; NotReady: no file yet; Expired: availability ended; Conflict: parameters differ for a key. Named errors in the teaching contract.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "contracts": {
+          "x": 284,
+          "y": 187
+        },
+        "verification": {
+          "x": 14,
+          "y": 159
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "UI",
+          "Service"
+        ],
+        "days": 1,
+        "due": "2026-02-16"
+      }
+    },
+    {
+      "id": "component.api",
+      "kind": "entity",
+      "name": "Component: API",
+      "sheets": [
+        "architecture",
+        "implementation"
+      ],
+      "body": "Checks ownership, accepts requests and returns status. Download authorization checks expiresAt independently of background cleanup.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 559,
+          "y": 163
+        },
+        "implementation": {
+          "x": 7,
+          "y": 155
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "Service"
+        ],
+        "days": 5,
+        "due": "2026-03-02"
+      }
+    },
+    {
+      "id": "component.worker",
+      "kind": "entity",
+      "name": "Component: worker",
+      "sheets": [
+        "architecture",
+        "implementation"
+      ],
+      "body": "Creates a file and records Ready, readyAt and expiresAt. Checks persisted state before reprocessing.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 821,
+          "y": 185
+        },
+        "implementation": {
+          "x": 280,
+          "y": 185
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "Service"
+        ],
+        "days": 5,
+        "due": "2026-03-02"
+      }
+    },
+    {
+      "id": "component.queue",
+      "kind": "entity",
+      "name": "Component: queue",
+      "sheets": [
+        "architecture"
+      ],
+      "body": "Redelivery is possible in this teaching scenario. No product or provider has been selected.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 3,
+          "y": 302
+        }
+      },
+      "attributes": {
+        "status": "Draft",
+        "areas": [
+          "Service"
+        ],
+        "days": 3
+      }
+    },
+    {
+      "id": "component.storage",
+      "kind": "entity",
+      "name": "Component: file storage",
+      "sheets": [
+        "architecture",
+        "implementation"
+      ],
+      "body": "Stores a result by resultRef with no public access. There is no provider, address or production data.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 278,
+          "y": 333
+        },
+        "implementation": {
+          "x": 568,
+          "y": 168
+        }
+      },
+      "attributes": {
+        "status": "Draft",
+        "areas": [
+          "Storage"
+        ],
+        "days": 4,
+        "due": "2026-03-16"
+      }
+    },
+    {
+      "id": "implementation.cleanup",
+      "kind": "process",
+      "name": "DEV-01: result cleanup",
+      "sheets": [
+        "implementation"
+      ],
+      "body": "Removes expired files and can safely repeat. The API revokes access at expiresAt; cleanup releases storage.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "implementation": {
+          "x": 814,
+          "y": 180
+        }
+      },
+      "attributes": {
+        "status": "Draft",
+        "areas": [
+          "Service",
+          "Storage"
+        ],
+        "days": 2,
+        "due": "2026-03-16"
+      }
+    },
+    {
+      "id": "implementation.polling",
+      "kind": "process",
+      "name": "DEV-02: status polling",
+      "sheets": [
+        "implementation"
+      ],
+      "body": "Stops polling at Ready, Failed or Expired. Offers retry after a network error. This card does not represent an existing application.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "implementation": {
+          "x": 22,
+          "y": 314
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "UI",
+          "Service"
+        ],
+        "days": 2
+      }
+    },
+    {
+      "id": "test.lifecycle",
+      "kind": "note",
+      "name": "TEST-01: happy path",
+      "sheets": [
+        "verification"
+      ],
+      "body": "Create a job, wait for Ready and download as its owner. Compare API and UI status. Status: planned, not executed.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "verification": {
+          "x": 285,
+          "y": 188
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "Verification"
+        ],
+        "days": 1,
+        "due": "2026-03-23"
+      }
+    },
+    {
+      "id": "test.access",
+      "kind": "note",
+      "name": "TEST-02: another user's job",
+      "sheets": [
+        "verification"
+      ],
+      "body": "Request status and file as a different test identity; expect NotFound in both cases. Status: planned, not executed.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "verification": {
+          "x": 566,
+          "y": 167
+        }
+      },
+      "attributes": {
+        "status": "Draft",
+        "areas": [
+          "Verification"
+        ],
+        "days": 1
+      }
+    },
+    {
+      "id": "test.expiry",
+      "kind": "note",
+      "name": "TEST-03: expiry boundary",
+      "sheets": [
+        "verification",
+        "change"
+      ],
+      "body": "Test downloads before and exactly at expiresAt, including delayed cleanup. Use a controllable clock. Status: planned, not executed.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "verification": {
+          "x": 816,
+          "y": 182
+        },
+        "change": {
+          "x": 292,
+          "y": 42
+        }
+      },
+      "attributes": {
+        "status": "Draft",
+        "areas": [
+          "Storage",
+          "Verification"
+        ],
+        "days": 1,
+        "due": "2026-03-23"
+      }
+    },
+    {
+      "id": "test.retry",
+      "kind": "note",
+      "name": "TEST-04: retry and conflict",
+      "sheets": [
+        "verification"
+      ],
+      "body": "The same key and parameters return the same jobId; different parameters return Conflict; redelivery leaves a completed result intact. Status: planned, not executed.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "verification": {
+          "x": 23,
+          "y": 315
+        }
+      },
+      "attributes": {
+        "status": null,
+        "areas": [
+          "Verification"
+        ],
+        "days": 1
+      }
+    },
+    {
+      "id": "trace.matrix",
+      "kind": "note",
+      "name": "Matrix: requirement → test",
+      "sheets": [
+        "verification",
+        "docs"
+      ],
+      "body": "REQ-01 → TEST-01; REQ-02 → TEST-02; REQ-03 → TEST-03; REQ-04 → TEST-04. This matrix is authored manually; a test link does not mean it passed.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "verification": {
+          "x": 272,
+          "y": 330
+        },
+        "docs": {
+          "x": 275,
+          "y": 32
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "Documents",
+          "Verification"
+        ]
+      }
+    },
+    {
+      "id": "doc.brief",
+      "kind": "note",
+      "name": "Document: feature brief",
+      "sheets": [
+        "context",
+        "docs"
+      ],
+      "body": "Contents: goal, scope, UC-01, AC-01 and API-01. The document references artifacts. Card positions do not define publication order.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "context": {
+          "x": 817,
+          "y": 182
+        },
+        "docs": {
+          "x": 549,
+          "y": 6
+        }
+      },
+      "attributes": {
+        "status": "Done",
+        "areas": [
+          "Documents"
+        ],
+        "due": "2026-01-16"
+      }
+    },
+    {
+      "id": "doc.user-guide",
+      "kind": "note",
+      "name": "Document: user guide",
+      "sheets": [
+        "docs"
+      ],
+      "body": "Explains requesting and downloading. Reuses fragment.expiry. In this demo, inclusion is represented by a link; documents are not assembled automatically.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "docs": {
+          "x": 822,
+          "y": 36
+        }
+      },
+      "attributes": {
+        "status": "Draft",
+        "areas": [
+          "UI",
+          "Documents"
+        ],
+        "days": 2
+      }
+    },
+    {
+      "id": "doc.runbook",
+      "kind": "note",
+      "name": "Document: runbook",
+      "sheets": [
+        "docs"
+      ],
+      "body": "Describes queue checks and cleanup. References the same fragment.expiry as the user guide. No production addresses or hostnames are included.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "docs": {
+          "x": 24,
+          "y": 166
+        }
+      },
+      "attributes": {
+        "status": "Draft",
+        "areas": [
+          "Documents"
+        ],
+        "days": 2
+      }
+    },
+    {
+      "id": "fragment.expiry",
+      "kind": "note",
+      "name": "Fragment: result availability",
+      "sheets": [
+        "docs",
+        "change"
+      ],
+      "body": "A completed file is available for 24 hours after the job finishes. Submit a new request after it expires.\n\nOne fragment for two documents. The map stores one text; assembling publications is a separate proposed feature.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "docs": {
+          "x": 275,
+          "y": 181
+        },
+        "change": {
+          "x": 557,
+          "y": 11
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "Documents"
+        ]
+      }
+    },
+    {
+      "id": "glossary.job",
+      "kind": "note",
+      "name": "Glossary: job and result",
+      "sheets": [
+        "contracts",
+        "docs"
+      ],
+      "body": "A job records report generation. A result is a file. Their lifecycles differ. This is a note, not an extension of PlyLoom's built-in types.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "contracts": {
+          "x": 551,
+          "y": 158
+        },
+        "docs": {
+          "x": 545,
+          "y": 153
+        }
+      },
+      "attributes": {
+        "status": "Draft",
+        "areas": [
+          "Documents"
+        ]
+      }
+    },
+    {
+      "id": "assembly.review",
+      "kind": "note",
+      "name": "Assembly: review packet",
+      "sheets": [
+        "docs"
+      ],
+      "body": "Order: 1) feature brief; 2) UC-01; 3) API-01; 4) fragment.expiry; 5) test matrix. This is a recipe in a note, not a working CCMS exporter.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "docs": {
+          "x": 832,
+          "y": 192
+        }
+      },
+      "attributes": {
+        "status": null,
+        "areas": []
+      }
+    },
+    {
+      "id": "change.expiry",
+      "kind": "decision",
+      "name": "CHG-01: proposed two-hour expiry",
+      "sheets": [
+        "change"
+      ],
+      "body": "Proposal: reduce availability of new files from 24 to 2 hours. Not yet accepted. Decide separately how existing files are treated. Code and documents do not change automatically.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "change": {
+          "x": 815,
+          "y": 31
+        }
+      },
+      "attributes": {
+        "status": "Draft",
+        "areas": [
+          "Service",
+          "Documents"
+        ],
+        "due": "2026-04-06"
+      }
+    },
+    {
+      "id": "impact.review",
+      "kind": "process",
+      "name": "Review: what does the change affect?",
+      "sheets": [
+        "change"
+      ],
+      "body": "Follow CHG-01 to REQ-03, then review expiresAt calculation, download authorization, cleanup, TEST-03 and fragment.expiry. Check both guides. A link identifies a review candidate, not proven impact.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "change": {
+          "x": 27,
+          "y": 168
+        }
+      },
+      "attributes": {
+        "status": "In progress",
+        "areas": [
+          "Documents",
+          "Verification"
+        ],
+        "days": 1,
+        "due": "2026-04-06"
+      }
+    },
+    {
+      "id": "risk.stale-docs",
+      "kind": "risk",
+      "name": "Risk: documentation lags behind behavior",
+      "sheets": [
+        "change"
+      ],
+      "body": "Copies of a paragraph may diverge. A shared fragment reduces duplication, but documents still need review and republication.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "change": {
+          "x": 294,
+          "y": 194
+        }
+      },
+      "attributes": {
+        "status": "Draft",
+        "areas": [
+          "Documents"
+        ]
+      }
+    },
+    {
+      "id": "release.checklist",
+      "kind": "rule",
+      "name": "Teaching release checklist",
+      "sheets": [
+        "change"
+      ],
+      "body": "Decide on CHG-01 and existing files; review the contract; run tests; rebuild documents; record versions. A card does not imply these actions were completed.",
+      "tags": [
+        "synthetic",
+        "software-example"
+      ],
+      "pos": {
+        "change": {
+          "x": 568,
+          "y": 169
+        }
+      },
+      "attributes": {
+        "status": "Draft",
+        "areas": [
+          "Verification"
+        ],
+        "due": "2026-04-13"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "software-edge-1",
+      "from": "goal.export",
+      "to": "usecase.export",
+      "kind": "ref",
+      "label": "described by"
+    },
+    {
+      "id": "software-edge-2",
+      "from": "scope.v1",
+      "to": "goal.export",
+      "kind": "ref",
+      "label": "scopes"
+    },
+    {
+      "id": "software-edge-3",
+      "from": "metric.ready",
+      "to": "goal.export",
+      "kind": "ref",
+      "label": "assesses hypothesis"
+    },
+    {
+      "id": "software-edge-4",
+      "from": "role.analyst",
+      "to": "doc.brief",
+      "kind": "ref",
+      "label": "authors"
+    },
+    {
+      "id": "software-edge-5",
+      "from": "role.analyst",
+      "to": "acceptance.export",
+      "kind": "ref",
+      "label": "clarifies"
+    },
+    {
+      "id": "software-edge-6",
+      "from": "role.developer",
+      "to": "adr.queue",
+      "kind": "ref",
+      "label": "justifies"
+    },
+    {
+      "id": "software-edge-7",
+      "from": "role.tester",
+      "to": "trace.matrix",
+      "kind": "ref",
+      "label": "reviews coverage"
+    },
+    {
+      "id": "software-edge-8",
+      "from": "doc.brief",
+      "to": "goal.export",
+      "kind": "ref",
+      "label": "references goal"
+    },
+    {
+      "id": "software-edge-9",
+      "from": "doc.brief",
+      "to": "scope.v1",
+      "kind": "ref",
+      "label": "references scope"
+    },
+    {
+      "id": "software-edge-10",
+      "from": "doc.brief",
+      "to": "usecase.export",
+      "kind": "ref",
+      "label": "references use case"
+    },
+    {
+      "id": "software-edge-11",
+      "from": "doc.brief",
+      "to": "acceptance.export",
+      "kind": "ref",
+      "label": "references criteria"
+    },
+    {
+      "id": "software-edge-12",
+      "from": "doc.brief",
+      "to": "contract.export",
+      "kind": "ref",
+      "label": "references contract"
+    },
+    {
+      "id": "software-edge-13",
+      "from": "usecase.export",
+      "to": "requirement.async",
+      "kind": "depends",
+      "label": "requires background job"
+    },
+    {
+      "id": "software-edge-14",
+      "from": "usecase.export",
+      "to": "requirement.owner",
+      "kind": "depends",
+      "label": "restricted to owner"
+    },
+    {
+      "id": "software-edge-15",
+      "from": "usecase.export",
+      "to": "requirement.expiry",
+      "kind": "depends",
+      "label": "limited by expiry"
+    },
+    {
+      "id": "software-edge-16",
+      "from": "usecase.export",
+      "to": "requirement.retry",
+      "kind": "depends",
+      "label": "handles retries"
+    },
+    {
+      "id": "software-edge-17",
+      "from": "acceptance.export",
+      "to": "usecase.export",
+      "kind": "ref",
+      "label": "checks use case"
+    },
+    {
+      "id": "software-edge-18",
+      "from": "adr.queue",
+      "to": "requirement.async",
+      "kind": "ref",
+      "label": "addresses requirement"
+    },
+    {
+      "id": "software-edge-19",
+      "from": "adr.queue",
+      "to": "component.queue",
+      "kind": "ref",
+      "label": "selects approach"
+    },
+    {
+      "id": "software-edge-20",
+      "from": "adr.queue",
+      "to": "component.worker",
+      "kind": "ref",
+      "label": "assigns work"
+    },
+    {
+      "id": "software-edge-21",
+      "from": "diagram.context",
+      "to": "component.api",
+      "kind": "ref",
+      "label": "depicts"
+    },
+    {
+      "id": "software-edge-22",
+      "from": "diagram.context",
+      "to": "component.worker",
+      "kind": "ref",
+      "label": "depicts"
+    },
+    {
+      "id": "software-edge-23",
+      "from": "diagram.sequence",
+      "to": "usecase.export",
+      "kind": "ref",
+      "label": "details"
+    },
+    {
+      "id": "software-edge-24",
+      "from": "diagram.sequence",
+      "to": "contract.export",
+      "kind": "ref",
+      "label": "uses operations"
+    },
+    {
+      "id": "software-edge-25",
+      "from": "diagram.states",
+      "to": "model.job",
+      "kind": "ref",
+      "label": "describes states"
+    },
+    {
+      "id": "software-edge-26",
+      "from": "component.api",
+      "to": "component.queue",
+      "kind": "flow",
+      "label": "enqueues job"
+    },
+    {
+      "id": "software-edge-27",
+      "from": "component.queue",
+      "to": "component.worker",
+      "kind": "flow",
+      "label": "delivers job"
+    },
+    {
+      "id": "software-edge-28",
+      "from": "component.worker",
+      "to": "component.storage",
+      "kind": "flow",
+      "label": "stores result"
+    },
+    {
+      "id": "software-edge-29",
+      "from": "component.api",
+      "to": "contract.export",
+      "kind": "ref",
+      "label": "implements contract"
+    },
+    {
+      "id": "software-edge-30",
+      "from": "component.api",
+      "to": "requirement.owner",
+      "kind": "ref",
+      "label": "checks access"
+    },
+    {
+      "id": "software-edge-31",
+      "from": "component.api",
+      "to": "requirement.expiry",
+      "kind": "ref",
+      "label": "checks expiresAt"
+    },
+    {
+      "id": "software-edge-32",
+      "from": "component.worker",
+      "to": "requirement.expiry",
+      "kind": "ref",
+      "label": "calculates expiresAt"
+    },
+    {
+      "id": "software-edge-33",
+      "from": "component.worker",
+      "to": "requirement.retry",
+      "kind": "ref",
+      "label": "handles redelivery"
+    },
+    {
+      "id": "software-edge-34",
+      "from": "component.worker",
+      "to": "model.job",
+      "kind": "ref",
+      "label": "updates state"
+    },
+    {
+      "id": "software-edge-35",
+      "from": "contract.export",
+      "to": "model.job",
+      "kind": "ref",
+      "label": "returns fields"
+    },
+    {
+      "id": "software-edge-36",
+      "from": "contract.export",
+      "to": "contract.errors",
+      "kind": "ref",
+      "label": "defines errors"
+    },
+    {
+      "id": "software-edge-37",
+      "from": "contract.export",
+      "to": "requirement.retry",
+      "kind": "ref",
+      "label": "specifies retry"
+    },
+    {
+      "id": "software-edge-38",
+      "from": "contract.errors",
+      "to": "requirement.owner",
+      "kind": "ref",
+      "label": "specifies denial"
+    },
+    {
+      "id": "software-edge-39",
+      "from": "implementation.cleanup",
+      "to": "requirement.expiry",
+      "kind": "ref",
+      "label": "follows expiry"
+    },
+    {
+      "id": "software-edge-40",
+      "from": "implementation.cleanup",
+      "to": "component.storage",
+      "kind": "ref",
+      "label": "removes files"
+    },
+    {
+      "id": "software-edge-41",
+      "from": "implementation.polling",
+      "to": "contract.export",
+      "kind": "ref",
+      "label": "polls status"
+    },
+    {
+      "id": "software-edge-42",
+      "from": "implementation.polling",
+      "to": "diagram.states",
+      "kind": "ref",
+      "label": "handles states"
+    },
+    {
+      "id": "software-edge-43",
+      "from": "test.lifecycle",
+      "to": "requirement.async",
+      "kind": "ref",
+      "label": "tests"
+    },
+    {
+      "id": "software-edge-44",
+      "from": "test.lifecycle",
+      "to": "acceptance.export",
+      "kind": "ref",
+      "label": "details steps"
+    },
+    {
+      "id": "software-edge-45",
+      "from": "test.access",
+      "to": "requirement.owner",
+      "kind": "ref",
+      "label": "tests"
+    },
+    {
+      "id": "software-edge-46",
+      "from": "test.access",
+      "to": "contract.errors",
+      "kind": "ref",
+      "label": "expects NotFound"
+    },
+    {
+      "id": "software-edge-47",
+      "from": "test.expiry",
+      "to": "requirement.expiry",
+      "kind": "ref",
+      "label": "tests boundary"
+    },
+    {
+      "id": "software-edge-48",
+      "from": "test.expiry",
+      "to": "implementation.cleanup",
+      "kind": "ref",
+      "label": "covers delayed cleanup"
+    },
+    {
+      "id": "software-edge-49",
+      "from": "test.retry",
+      "to": "requirement.retry",
+      "kind": "ref",
+      "label": "tests"
+    },
+    {
+      "id": "software-edge-50",
+      "from": "test.retry",
+      "to": "component.worker",
+      "kind": "ref",
+      "label": "tests redelivery"
+    },
+    {
+      "id": "software-edge-51",
+      "from": "trace.matrix",
+      "to": "test.lifecycle",
+      "kind": "ref",
+      "label": "REQ-01 → TEST-01"
+    },
+    {
+      "id": "software-edge-52",
+      "from": "trace.matrix",
+      "to": "test.access",
+      "kind": "ref",
+      "label": "REQ-02 → TEST-02"
+    },
+    {
+      "id": "software-edge-53",
+      "from": "trace.matrix",
+      "to": "test.expiry",
+      "kind": "ref",
+      "label": "REQ-03 → TEST-03"
+    },
+    {
+      "id": "software-edge-54",
+      "from": "trace.matrix",
+      "to": "test.retry",
+      "kind": "ref",
+      "label": "REQ-04 → TEST-04"
+    },
+    {
+      "id": "software-edge-55",
+      "from": "metric.ready",
+      "to": "test.lifecycle",
+      "kind": "ref",
+      "label": "observed in scenario"
+    },
+    {
+      "id": "software-edge-56",
+      "from": "doc.user-guide",
+      "to": "usecase.export",
+      "kind": "ref",
+      "label": "explains"
+    },
+    {
+      "id": "software-edge-57",
+      "from": "doc.user-guide",
+      "to": "fragment.expiry",
+      "kind": "ref",
+      "label": "includes fragment"
+    },
+    {
+      "id": "software-edge-58",
+      "from": "doc.runbook",
+      "to": "fragment.expiry",
+      "kind": "ref",
+      "label": "includes same fragment"
+    },
+    {
+      "id": "software-edge-59",
+      "from": "doc.runbook",
+      "to": "implementation.cleanup",
+      "kind": "ref",
+      "label": "describes operation"
+    },
+    {
+      "id": "software-edge-60",
+      "from": "fragment.expiry",
+      "to": "requirement.expiry",
+      "kind": "ref",
+      "label": "explains rule"
+    },
+    {
+      "id": "software-edge-61",
+      "from": "glossary.job",
+      "to": "model.job",
+      "kind": "ref",
+      "label": "defines term"
+    },
+    {
+      "id": "software-edge-62",
+      "from": "assembly.review",
+      "to": "doc.brief",
+      "kind": "ref",
+      "label": "1 · brief"
+    },
+    {
+      "id": "software-edge-63",
+      "from": "assembly.review",
+      "to": "usecase.export",
+      "kind": "ref",
+      "label": "2 · use case"
+    },
+    {
+      "id": "software-edge-64",
+      "from": "assembly.review",
+      "to": "contract.export",
+      "kind": "ref",
+      "label": "3 · contract"
+    },
+    {
+      "id": "software-edge-65",
+      "from": "assembly.review",
+      "to": "fragment.expiry",
+      "kind": "ref",
+      "label": "4 · shared fragment"
+    },
+    {
+      "id": "software-edge-66",
+      "from": "assembly.review",
+      "to": "trace.matrix",
+      "kind": "ref",
+      "label": "5 · tests"
+    },
+    {
+      "id": "software-edge-67",
+      "from": "change.expiry",
+      "to": "requirement.expiry",
+      "kind": "contradicts",
+      "label": "proposes 24 → 2"
+    },
+    {
+      "id": "software-edge-68",
+      "from": "impact.review",
+      "to": "change.expiry",
+      "kind": "ref",
+      "label": "reviews proposal"
+    },
+    {
+      "id": "software-edge-69",
+      "from": "impact.review",
+      "to": "test.expiry",
+      "kind": "ref",
+      "label": "review candidate"
+    },
+    {
+      "id": "software-edge-70",
+      "from": "impact.review",
+      "to": "fragment.expiry",
+      "kind": "ref",
+      "label": "review candidate"
+    },
+    {
+      "id": "software-edge-71",
+      "from": "risk.stale-docs",
+      "to": "fragment.expiry",
+      "kind": "ref",
+      "label": "requires text review"
+    },
+    {
+      "id": "software-edge-72",
+      "from": "risk.stale-docs",
+      "to": "doc.user-guide",
+      "kind": "ref",
+      "label": "affects publication"
+    },
+    {
+      "id": "software-edge-73",
+      "from": "risk.stale-docs",
+      "to": "doc.runbook",
+      "kind": "ref",
+      "label": "affects publication"
+    },
+    {
+      "id": "software-edge-74",
+      "from": "release.checklist",
+      "to": "impact.review",
+      "kind": "depends",
+      "label": "requires review"
+    },
+    {
+      "id": "software-edge-75",
+      "from": "release.checklist",
+      "to": "assembly.review",
+      "kind": "ref",
+      "label": "checks packet"
+    }
+  ]
+}

@@ -1,0 +1,81 @@
+{
+  "dataset": "roastery",
+  "nodes": 42,
+  "edges": 43,
+  "card": {
+    "width": 208,
+    "height": 64
+  },
+  "method": "Eight straight segments per rendered cubic; fitted spread geometry. Fixed collapsed-card sizes, not browser measurements. Counts are drawing estimates, not human task results.",
+  "cases": {
+    "sheet": {
+      "before": {
+        "overlaps": 0,
+        "nodeHits": 13,
+        "crossings": 5,
+        "sharedSegments": 0,
+        "length": 4676.183567841546,
+        "sampled": false,
+        "checkedEdges": 13,
+        "totalEdges": 13
+      },
+      "after": {
+        "overlaps": 0,
+        "nodeHits": 0,
+        "crossings": 0,
+        "sharedSegments": 0,
+        "length": 1397.8271502842144,
+        "sampled": false,
+        "checkedEdges": 13,
+        "totalEdges": 13
+      },
+      "candidates": 45
+    },
+    "spread": {
+      "before": {
+        "overlaps": 0,
+        "nodeHits": 48,
+        "crossings": 37,
+        "sharedSegments": 9,
+        "length": 14694.25103661925,
+        "sampled": false,
+        "checkedEdges": 50,
+        "totalEdges": 50
+      },
+      "after": {
+        "overlaps": 0,
+        "nodeHits": 19,
+        "crossings": 13,
+        "sharedSegments": 4,
+        "length": 13812.112519025151,
+        "sampled": false,
+        "checkedEdges": 50,
+        "totalEdges": 50
+      },
+      "candidates": 280
+    },
+    "flat": {
+      "before": {
+        "overlaps": 20,
+        "nodeHits": 40,
+        "crossings": 20,
+        "sharedSegments": 0,
+        "length": 7837.688296525304,
+        "sampled": false,
+        "checkedEdges": 43,
+        "totalEdges": 43
+      },
+      "after": {
+        "overlaps": 0,
+        "nodeHits": 9,
+        "crossings": 4,
+        "sharedSegments": 0,
+        "length": 9563.242319419393,
+        "sampled": false,
+        "checkedEdges": 43,
+        "totalEdges": 43
+      },
+      "candidates": 215
+    }
+  }
+}

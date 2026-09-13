@@ -1,0 +1,424 @@
+{
+  "version": 2,
+  "title": "Одна оплата — шесть моделей",
+  "description": "Учебный пример: асинхронное подтверждение обнаруживает устаревшие допущения в отдельных диаграммах. Теги сохраняют роль в исходной модели; текущий рендерер использует карточки PlyLoom.",
+  "sheets": [
+    {
+      "id": "process",
+      "name": "Процесс оплаты · BPMN",
+      "color": "#8467ad",
+      "limit": 15,
+      "notation": "free"
+    },
+    {
+      "id": "architecture",
+      "name": "Архитектура · C4",
+      "color": "#4d8aa8",
+      "limit": 15,
+      "notation": "free"
+    },
+    {
+      "id": "states",
+      "name": "Состояния · UML",
+      "color": "#60a098",
+      "limit": 15,
+      "notation": "free"
+    },
+    {
+      "id": "classes",
+      "name": "Модель данных · UML",
+      "color": "#859758",
+      "limit": 15,
+      "notation": "free"
+    },
+    {
+      "id": "requirements",
+      "name": "Требования и тесты",
+      "color": "#ac8150",
+      "limit": 15,
+      "notation": "free"
+    },
+    {
+      "id": "risks",
+      "name": "Карта рисков",
+      "color": "#b87177",
+      "limit": 15,
+      "notation": "free"
+    }
+  ],
+  "nodes": [
+    {
+      "id": "activity.accept",
+      "name": "Принять заказ",
+      "kind": "process",
+      "sheets": [
+        "process"
+      ],
+      "tags": [
+        "bpmn:Task"
+      ],
+      "pos": {
+        "process": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "body": "Задача процесса. Принимает заявку, но ещё не подтверждает оплату.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    },
+    {
+      "id": "activity.pay",
+      "name": "Запросить оплату",
+      "kind": "process",
+      "sheets": [
+        "process"
+      ],
+      "tags": [
+        "bpmn:Task"
+      ],
+      "pos": {
+        "process": {
+          "x": 300,
+          "y": 0
+        }
+      },
+      "body": "Задача процесса, реализуемая приложением Payment API. Это отдельная сущность, а не тот же ID, что у сервиса.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    },
+    {
+      "id": "activity.ship",
+      "name": "Передать на отгрузку",
+      "kind": "process",
+      "sheets": [
+        "process"
+      ],
+      "tags": [
+        "bpmn:Task"
+      ],
+      "pos": {
+        "process": {
+          "x": 600,
+          "y": 0
+        }
+      },
+      "body": "Старая схема отправляет заказ после ответа на запрос. После смены провайдера проверить условие подтверждения.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    },
+    {
+      "id": "service.payment",
+      "name": "Payment API",
+      "kind": "entity",
+      "sheets": [
+        "architecture",
+        "requirements"
+      ],
+      "tags": [
+        "c4:Container"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 0,
+          "y": 0
+        },
+        "requirements": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "body": "Приложение на Python; вызывает провайдера по HTTPS. После перехода на асинхронное подтверждение нужен приём событий и защита от повторной обработки.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    },
+    {
+      "id": "system.provider",
+      "name": "Платёжный провайдер",
+      "kind": "entity",
+      "sheets": [
+        "architecture"
+      ],
+      "tags": [
+        "c4:SoftwareSystem"
+      ],
+      "pos": {
+        "architecture": {
+          "x": 300,
+          "y": 0
+        }
+      },
+      "body": "Изменение учебного примера: подтверждение через событие, до 15 минут. Принятие запроса не означает успешную оплату.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    },
+    {
+      "id": "class.payment",
+      "name": "Payment",
+      "kind": "entity",
+      "sheets": [
+        "classes",
+        "states"
+      ],
+      "tags": [
+        "uml:Class"
+      ],
+      "pos": {
+        "states": {
+          "x": 0,
+          "y": 0
+        },
+        "classes": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "body": "Один классификатор представлен в диаграмме классов и как контекст машины состояний. Поля id, status, providerEventId. Состояние Paid — другая сущность.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    },
+    {
+      "id": "state.created",
+      "name": "Created",
+      "kind": "entity",
+      "sheets": [
+        "states"
+      ],
+      "tags": [
+        "uml:State"
+      ],
+      "pos": {
+        "states": {
+          "x": 300,
+          "y": 0
+        }
+      },
+      "body": "Заказ создан. Старая машина состояний не описывает ожидание ответа провайдера.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    },
+    {
+      "id": "state.paid",
+      "name": "Paid",
+      "kind": "entity",
+      "sheets": [
+        "states"
+      ],
+      "tags": [
+        "uml:State"
+      ],
+      "pos": {
+        "states": {
+          "x": 600,
+          "y": 0
+        }
+      },
+      "body": "Переходить сюда только по подтверждённому результату провайдера, не по ответу 202 Accepted.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    },
+    {
+      "id": "req.confirmed",
+      "name": "REQ-17 · отгрузка после подтверждения",
+      "kind": "rule",
+      "sheets": [
+        "requirements",
+        "process",
+        "risks"
+      ],
+      "tags": [
+        "requirement:Functional"
+      ],
+      "pos": {
+        "process": {
+          "x": 0,
+          "y": 160
+        },
+        "requirements": {
+          "x": 300,
+          "y": 0
+        },
+        "risks": {
+          "x": 0,
+          "y": 0
+        }
+      },
+      "body": "Сформулированное правило связывает процесс, архитектуру и тест. Появления имеют один ID; задачи, сервис и тест имеют собственные ID.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    },
+    {
+      "id": "req.once",
+      "name": "REQ-18 · эффект события ровно один раз",
+      "kind": "rule",
+      "sheets": [
+        "requirements",
+        "risks"
+      ],
+      "tags": [
+        "requirement:Functional"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 600,
+          "y": 0
+        },
+        "risks": {
+          "x": 300,
+          "y": 0
+        }
+      },
+      "body": "Повтор события не должен повторно отгружать заказ. Доставка события может повторяться; требование относится к эффекту обработки.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    },
+    {
+      "id": "test.duplicate",
+      "name": "Тест повторного события",
+      "kind": "process",
+      "sheets": [
+        "requirements"
+      ],
+      "tags": [
+        "test:Case"
+      ],
+      "pos": {
+        "requirements": {
+          "x": 0,
+          "y": 160
+        }
+      },
+      "body": "Отправить одно событие дважды, затем позднее подтверждение после тайм-аута. Проверить итоговый статус и количество отгрузок.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    },
+    {
+      "id": "risk.unpaid",
+      "name": "Отгрузка неоплаченного заказа",
+      "kind": "risk",
+      "sheets": [
+        "risks"
+      ],
+      "tags": [
+        "risk:Scenario"
+      ],
+      "pos": {
+        "risks": {
+          "x": 600,
+          "y": 0
+        }
+      },
+      "body": "Причина: синхронную модель ответа применили к асинхронному контракту. Меры: проверка подтверждения и тест позднего ответа.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    },
+    {
+      "id": "risk.duplicate",
+      "name": "Повторная отгрузка",
+      "kind": "risk",
+      "sheets": [
+        "risks"
+      ],
+      "tags": [
+        "risk:Scenario"
+      ],
+      "pos": {
+        "risks": {
+          "x": 0,
+          "y": 160
+        }
+      },
+      "body": "Повторное событие повторяет бизнес-эффект. Меры: ключ идемпотентности, атомарная обработка и тест повтора.\n\nИсточник: вымышленный учебный сценарий PlyLoom. Это карта трассировки, а не исполняемая модель."
+    }
+  ],
+  "edges": [
+    {
+      "id": "trace.1",
+      "from": "activity.accept",
+      "to": "activity.pay",
+      "kind": "flow",
+      "label": "затем"
+    },
+    {
+      "id": "trace.2",
+      "from": "activity.pay",
+      "to": "activity.ship",
+      "kind": "flow",
+      "label": "старое условие: ответ API"
+    },
+    {
+      "id": "trace.3",
+      "from": "service.payment",
+      "to": "activity.pay",
+      "kind": "supports",
+      "label": "реализует задачу"
+    },
+    {
+      "id": "trace.4",
+      "from": "service.payment",
+      "to": "system.provider",
+      "kind": "depends",
+      "label": "HTTPS / контракт подтверждения"
+    },
+    {
+      "id": "trace.5",
+      "from": "service.payment",
+      "to": "class.payment",
+      "kind": "ref",
+      "label": "использует модель"
+    },
+    {
+      "id": "trace.6",
+      "from": "state.created",
+      "to": "state.paid",
+      "kind": "flow",
+      "label": "старое условие: ответ API"
+    },
+    {
+      "id": "trace.7",
+      "from": "class.payment",
+      "to": "state.created",
+      "kind": "ref",
+      "label": "контекст машины состояний"
+    },
+    {
+      "id": "trace.8",
+      "from": "class.payment",
+      "to": "state.paid",
+      "kind": "ref",
+      "label": "контекст машины состояний"
+    },
+    {
+      "id": "trace.9",
+      "from": "activity.ship",
+      "to": "req.confirmed",
+      "kind": "depends",
+      "label": "ограничена требованием"
+    },
+    {
+      "id": "trace.10",
+      "from": "service.payment",
+      "to": "req.confirmed",
+      "kind": "supports",
+      "label": "должен обеспечивать"
+    },
+    {
+      "id": "trace.11",
+      "from": "req.once",
+      "to": "risk.duplicate",
+      "kind": "ref",
+      "label": "мера против риска"
+    },
+    {
+      "id": "trace.12",
+      "from": "req.confirmed",
+      "to": "risk.unpaid",
+      "kind": "ref",
+      "label": "мера против риска"
+    },
+    {
+      "id": "trace.13",
+      "from": "test.duplicate",
+      "to": "req.once",
+      "kind": "supports",
+      "label": "проверяет"
+    },
+    {
+      "id": "trace.14",
+      "from": "test.duplicate",
+      "to": "req.confirmed",
+      "kind": "supports",
+      "label": "проверяет поздний ответ"
+    },
+    {
+      "id": "trace.15",
+      "from": "req.confirmed",
+      "to": "system.provider",
+      "kind": "depends",
+      "label": "зависит от контракта"
+    },
+    {
+      "id": "trace.16",
+      "from": "class.payment",
+      "to": "req.once",
+      "kind": "depends",
+      "label": "нужен ключ события"
+    }
+  ]
+}

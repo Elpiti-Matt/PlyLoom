@@ -1,0 +1,984 @@
+{
+  "nodes": [
+    {
+      "id": "group-0",
+      "type": "group",
+      "label": "Продукт",
+      "x": 0,
+      "y": 0,
+      "width": 873,
+      "height": 507,
+      "color": "#0284c7"
+    },
+    {
+      "id": "node-1",
+      "type": "text",
+      "text": "# Эспрессо-смесь «Утро»\n\nРецепт для тестовой партии: 70 % Бразилии и 30 % Эфиопии. Один объект на трёх листах; изменение тела видно во всех его появлениях.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: blend",
+      "x": 66,
+      "y": 77,
+      "width": 208,
+      "height": 220,
+      "color": "#0284c7",
+      "plyloomNodeId": "blend",
+      "plyloomSheetId": "product"
+    },
+    {
+      "id": "node-2",
+      "type": "text",
+      "text": "# Рецепт и версии\n\nХранить номер версии, состав и дату дегустации. Замена зерна создаёт новую версию рецепта, а не переписывает историю.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: recipe",
+      "x": 316,
+      "y": 92,
+      "width": 208,
+      "height": 220,
+      "color": "#0284c7",
+      "plyloomNodeId": "recipe",
+      "plyloomSheetId": "product"
+    },
+    {
+      "id": "node-3",
+      "type": "text",
+      "text": "# Шоколад и орех\n\nПока это гипотеза о вкусе. Проверить слепой дегустацией; не превращать рекламную формулировку в установленный факт.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: taste",
+      "x": 591,
+      "y": 68,
+      "width": 208,
+      "height": 220,
+      "color": "#0284c7",
+      "plyloomNodeId": "taste",
+      "plyloomSheetId": "product"
+    },
+    {
+      "id": "node-4",
+      "type": "text",
+      "text": "# Пакет 250 г\n\nВариант упаковки с клапаном. Удобство открытия и сохранность кофе нужно проверить на пробной партии.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: pack",
+      "x": 70,
+      "y": 230,
+      "width": 208,
+      "height": 220,
+      "color": "#0284c7",
+      "plyloomNodeId": "pack",
+      "plyloomSheetId": "product"
+    },
+    {
+      "id": "node-5",
+      "type": "text",
+      "text": "# Срок годности\n\nНельзя вывести из чужой этикетки. Нужны обоснование, условия хранения и применимые к рынку правила.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: shelf",
+      "x": 324,
+      "y": 247,
+      "width": 208,
+      "height": 220,
+      "color": "#0284c7",
+      "plyloomNodeId": "shelf",
+      "plyloomSheetId": "product"
+    },
+    {
+      "id": "node-6",
+      "type": "text",
+      "text": "# Первая тестовая партия\n\nВыпускать после дегустации и проверки упаковки. Критерий успеха — повторный заказ, а не только первая продажа.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: launch",
+      "x": 605,
+      "y": 226,
+      "width": 208,
+      "height": 220,
+      "color": "#0284c7",
+      "plyloomNodeId": "launch",
+      "plyloomSheetId": "product"
+    },
+    {
+      "id": "group-7",
+      "type": "group",
+      "label": "Поставщики",
+      "x": 1033,
+      "y": 0,
+      "width": 1145,
+      "height": 512,
+      "color": "#7c3aed"
+    },
+    {
+      "id": "node-8",
+      "type": "text",
+      "text": "# Эспрессо-смесь «Утро»\n\nРецепт для тестовой партии: 70 % Бразилии и 30 % Эфиопии. Один объект на трёх листах; изменение тела видно во всех его появлениях.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: blend",
+      "x": 1099,
+      "y": 77,
+      "width": 208,
+      "height": 220,
+      "color": "#7c3aed",
+      "plyloomNodeId": "blend",
+      "plyloomSheetId": "suppliers"
+    },
+    {
+      "id": "node-9",
+      "type": "text",
+      "text": "# Зелёное зерно: Бразилия\n\nУчебное предложение A: цена 600 условных единиц за килограмм. Цена вымышлена, не является рыночной котировкой.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: brazil",
+      "x": 1356,
+      "y": 97,
+      "width": 208,
+      "height": 220,
+      "color": "#7c3aed",
+      "plyloomNodeId": "brazil",
+      "plyloomSheetId": "suppliers"
+    },
+    {
+      "id": "node-10",
+      "type": "text",
+      "text": "# Зелёное зерно: Эфиопия\n\nУчебное предложение B: 900 условных единиц за килограмм. Меняется отдельным источником — прайсом.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: ethiopia",
+      "x": 1619,
+      "y": 64,
+      "width": 208,
+      "height": 220,
+      "color": "#7c3aed",
+      "plyloomNodeId": "ethiopia",
+      "plyloomSheetId": "suppliers"
+    },
+    {
+      "id": "node-11",
+      "type": "text",
+      "text": "# Прайс поставщика v1\n\nИсточник: вымышленный прайс для демо.\n\n| Зерно | Цена, у.е./кг |\n|---|---|\n| Бразилия | 600 |\n| Эфиопия | 900 |\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: quote",
+      "x": 1910,
+      "y": 106,
+      "width": 208,
+      "height": 220,
+      "color": "#7c3aed",
+      "plyloomNodeId": "quote",
+      "plyloomSheetId": "suppliers"
+    },
+    {
+      "id": "node-12",
+      "type": "text",
+      "text": "# Минимальная партия\n\nУсловие тестового предложения: один мешок каждого сорта. Проверить условия поставщика до расчёта оборотных средств.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: minimum",
+      "x": 1077,
+      "y": 213,
+      "width": 208,
+      "height": 220,
+      "color": "#7c3aed",
+      "plyloomNodeId": "minimum",
+      "plyloomSheetId": "suppliers"
+    },
+    {
+      "id": "node-13",
+      "type": "text",
+      "text": "# Резервный поставщик\n\nНаличие похожего зерна не гарантирует тот же вкус. Смена поставщика требует пробной обжарки и проверки документов.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: backup",
+      "x": 1365,
+      "y": 252,
+      "width": 208,
+      "height": 220,
+      "color": "#7c3aed",
+      "plyloomNodeId": "backup",
+      "plyloomSheetId": "suppliers"
+    },
+    {
+      "id": "node-14",
+      "type": "text",
+      "text": "# Срок доставки\n\nДля планирования предполагаем две недели. Задержка расходует запас, а ускоренная доставка меняет себестоимость.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: delivery",
+      "x": 1629,
+      "y": 220,
+      "width": 208,
+      "height": 220,
+      "color": "#7c3aed",
+      "plyloomNodeId": "delivery",
+      "plyloomSheetId": "suppliers"
+    },
+    {
+      "id": "group-15",
+      "type": "group",
+      "label": "Деньги",
+      "x": 2338,
+      "y": 0,
+      "width": 1125,
+      "height": 503,
+      "color": "#d97706"
+    },
+    {
+      "id": "node-16",
+      "type": "text",
+      "text": "# Эспрессо-смесь «Утро»\n\nРецепт для тестовой партии: 70 % Бразилии и 30 % Эфиопии. Один объект на трёх листах; изменение тела видно во всех его появлениях.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: blend",
+      "x": 2404,
+      "y": 77,
+      "width": 208,
+      "height": 220,
+      "color": "#d97706",
+      "plyloomNodeId": "blend",
+      "plyloomSheetId": "money"
+    },
+    {
+      "id": "node-17",
+      "type": "text",
+      "text": "# Себестоимость смеси\n\nУчебный расчёт: 0,7 × 600 + 0,3 × 900 = 690 у.е./кг зелёного зерна. Потери массы, упаковка, труд и доставка здесь ещё не включены.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: cost",
+      "x": 2665,
+      "y": 99,
+      "width": 208,
+      "height": 220,
+      "color": "#d97706",
+      "plyloomNodeId": "cost",
+      "plyloomSheetId": "money"
+    },
+    {
+      "id": "node-18",
+      "type": "text",
+      "text": "# Потеря массы\n\nДля расчёта принята гипотеза 15 %. Тогда зерно на килограмм готового кофе: 690 / 0,85 ≈ 812 у.е. Проверить взвешиванием.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: loss",
+      "x": 2941,
+      "y": 75,
+      "width": 208,
+      "height": 220,
+      "color": "#d97706",
+      "plyloomNodeId": "loss",
+      "plyloomSheetId": "money"
+    },
+    {
+      "id": "node-19",
+      "type": "text",
+      "text": "# Маржа после переменных затрат\n\nЦена минус зерно, упаковка, сдельный труд и доставка заказа. Это не прибыль бизнеса: аренда и оборудование считаются отдельно.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: margin",
+      "x": 3195,
+      "y": 92,
+      "width": 208,
+      "height": 220,
+      "color": "#d97706",
+      "plyloomNodeId": "margin",
+      "plyloomSheetId": "money"
+    },
+    {
+      "id": "node-20",
+      "type": "text",
+      "text": "# Деньги в запасах\n\nМинимальная партия может потребовать денег раньше, чем появится спрос. Сравнить сценарии продаж, срока поставки и срока хранения.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: cash",
+      "x": 2384,
+      "y": 214,
+      "width": 208,
+      "height": 220,
+      "color": "#d97706",
+      "plyloomNodeId": "cash",
+      "plyloomSheetId": "money"
+    },
+    {
+      "id": "node-21",
+      "type": "text",
+      "text": "# Тестовая цена\n\nСначала проверить готовность покупателей повторять заказ. Число в модели — допущение, пока нет наблюдений.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: price",
+      "x": 2655,
+      "y": 243,
+      "width": 208,
+      "height": 220,
+      "color": "#d97706",
+      "plyloomNodeId": "price",
+      "plyloomSheetId": "money"
+    },
+    {
+      "id": "node-22",
+      "type": "text",
+      "text": "# Постоянные расходы\n\nОтдельно учитывать аренду, обслуживание, оклад и амортизацию. Маржа одного пакета не отвечает на вопрос об окупаемости.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: fixed",
+      "x": 2918,
+      "y": 210,
+      "width": 208,
+      "height": 220,
+      "color": "#d97706",
+      "plyloomNodeId": "fixed",
+      "plyloomSheetId": "money"
+    },
+    {
+      "id": "group-23",
+      "type": "group",
+      "label": "Требования",
+      "x": 3623,
+      "y": 0,
+      "width": 1145,
+      "height": 515,
+      "color": "#db2777"
+    },
+    {
+      "id": "node-24",
+      "type": "text",
+      "text": "# Срок годности\n\nНельзя вывести из чужой этикетки. Нужны обоснование, условия хранения и применимые к рынку правила.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: shelf",
+      "x": 3677,
+      "y": 69,
+      "width": 208,
+      "height": 220,
+      "color": "#db2777",
+      "plyloomNodeId": "shelf",
+      "plyloomSheetId": "rules"
+    },
+    {
+      "id": "node-25",
+      "type": "text",
+      "text": "# Макет этикетки\n\nУчебный макет явно называет страны происхождения. Само подорожание зерна не меняет этикетку; смена состава или происхождения запускает проверку макета.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: label",
+      "x": 3962,
+      "y": 107,
+      "width": 208,
+      "height": 220,
+      "color": "#db2777",
+      "plyloomNodeId": "label",
+      "plyloomSheetId": "rules"
+    },
+    {
+      "id": "node-26",
+      "type": "text",
+      "text": "# Рынок и применимые правила\n\nОткрытый вопрос: где продаётся продукт? Сначала определить рынок, затем найти действующие официальные требования к пищевой продукции и информации на упаковке.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: market",
+      "x": 4215,
+      "y": 68,
+      "width": 208,
+      "height": 220,
+      "color": "#db2777",
+      "plyloomNodeId": "market",
+      "plyloomSheetId": "rules"
+    },
+    {
+      "id": "node-27",
+      "type": "text",
+      "text": "# Прослеживаемость партии\n\nСвязать входящую партию, рецепт, дату обжарки и готовую упаковку. Это проектное правило демо, не цитата из закона.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: trace",
+      "x": 4500,
+      "y": 106,
+      "width": 208,
+      "height": 220,
+      "color": "#db2777",
+      "plyloomNodeId": "trace",
+      "plyloomSheetId": "rules"
+    },
+    {
+      "id": "node-28",
+      "type": "text",
+      "text": "# Документы поставщика\n\nСписок нужных документов должен быть подтверждён для выбранного рынка. В этой карте такого подтверждения пока нет.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: documents",
+      "x": 3676,
+      "y": 219,
+      "width": 208,
+      "height": 220,
+      "color": "#db2777",
+      "plyloomNodeId": "documents",
+      "plyloomSheetId": "rules"
+    },
+    {
+      "id": "node-29",
+      "type": "text",
+      "text": "# Проверка помещения\n\nДо аренды проверить пригодность помещения и действующие требования. Вопросы про вентиляцию, электричество и пищевое производство передать профильным специалистам.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: food",
+      "x": 3958,
+      "y": 255,
+      "width": 208,
+      "height": 220,
+      "color": "#db2777",
+      "plyloomNodeId": "food",
+      "plyloomSheetId": "rules"
+    },
+    {
+      "id": "node-30",
+      "type": "text",
+      "text": "# Проверить обещания на упаковке\n\nСопоставить макет с фактической смесью. Связь с рецептом нужна и без формального требования указывать страну.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: claim",
+      "x": 4230,
+      "y": 228,
+      "width": 208,
+      "height": 220,
+      "color": "#db2777",
+      "plyloomNodeId": "claim",
+      "plyloomSheetId": "rules"
+    },
+    {
+      "id": "group-31",
+      "type": "group",
+      "label": "Оборудование",
+      "x": 4928,
+      "y": 0,
+      "width": 852,
+      "height": 516,
+      "color": "#0d9488"
+    },
+    {
+      "id": "node-32",
+      "type": "text",
+      "text": "# Ростер\n\nВыбор после теста партии и оценки производительности. Паспортная ёмкость не равна стабильному выпуску за смену.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: roaster",
+      "x": 4969,
+      "y": 61,
+      "width": 208,
+      "height": 220,
+      "color": "#0d9488",
+      "plyloomNodeId": "roaster",
+      "plyloomSheetId": "equipment"
+    },
+    {
+      "id": "node-33",
+      "type": "text",
+      "text": "# Вентиляция\n\nПроверить требования конкретного ростера и помещения. В демо нет инженерного расчёта.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: ventilation",
+      "x": 5261,
+      "y": 103,
+      "width": 208,
+      "height": 220,
+      "color": "#0d9488",
+      "plyloomNodeId": "ventilation",
+      "plyloomSheetId": "equipment"
+    },
+    {
+      "id": "node-34",
+      "type": "text",
+      "text": "# Электропитание\n\nСверить доступную мощность с оборудованием до подписания аренды.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: power",
+      "x": 5509,
+      "y": 61,
+      "width": 208,
+      "height": 220,
+      "color": "#0d9488",
+      "plyloomNodeId": "power",
+      "plyloomSheetId": "equipment"
+    },
+    {
+      "id": "node-35",
+      "type": "text",
+      "text": "# Весы\n\nВходное и выходное взвешивание дают фактическую потерю массы. Предусмотреть проверку точности.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: scales",
+      "x": 4985,
+      "y": 221,
+      "width": 208,
+      "height": 220,
+      "color": "#0d9488",
+      "plyloomNodeId": "scales",
+      "plyloomSheetId": "equipment"
+    },
+    {
+      "id": "node-36",
+      "type": "text",
+      "text": "# Запайщик\n\nТест герметичности на выбранном пакете. Скорость запайки может ограничить всю линию.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: sealer",
+      "x": 5266,
+      "y": 256,
+      "width": 208,
+      "height": 220,
+      "color": "#0d9488",
+      "plyloomNodeId": "sealer",
+      "plyloomSheetId": "equipment"
+    },
+    {
+      "id": "node-37",
+      "type": "text",
+      "text": "# План обслуживания\n\nОпираться на документацию изготовителя. Хранить историю обслуживания отдельно от текущего плана.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: service",
+      "x": 5512,
+      "y": 212,
+      "width": 208,
+      "height": 220,
+      "color": "#0d9488",
+      "plyloomNodeId": "service",
+      "plyloomSheetId": "equipment"
+    },
+    {
+      "id": "group-38",
+      "type": "group",
+      "label": "Люди",
+      "x": 5940,
+      "y": 0,
+      "width": 867,
+      "height": 518,
+      "color": "#4f46e5"
+    },
+    {
+      "id": "node-39",
+      "type": "text",
+      "text": "# Обжарщик\n\nВедёт профиль и записи о партиях; останавливает выпуск при отклонениях.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: roaster_role",
+      "x": 6002,
+      "y": 75,
+      "width": 208,
+      "height": 220,
+      "color": "#4f46e5",
+      "plyloomNodeId": "roaster_role",
+      "plyloomSheetId": "people"
+    },
+    {
+      "id": "node-40",
+      "type": "text",
+      "text": "# Продажи\n\nСобирает обратную связь и повторные заказы. Не меняет обещание вкуса без согласования.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: sales_role",
+      "x": 6263,
+      "y": 97,
+      "width": 208,
+      "height": 220,
+      "color": "#4f46e5",
+      "plyloomNodeId": "sales_role",
+      "plyloomSheetId": "people"
+    },
+    {
+      "id": "node-41",
+      "type": "text",
+      "text": "# Ответственный за этикетку\n\nПроверяет макет при изменении рецепта и рынка. Ответственность должна иметь имя, а не только роль.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: label_role",
+      "x": 6539,
+      "y": 73,
+      "width": 208,
+      "height": 220,
+      "color": "#4f46e5",
+      "plyloomNodeId": "label_role",
+      "plyloomSheetId": "people"
+    },
+    {
+      "id": "node-42",
+      "type": "text",
+      "text": "# Обучение смены\n\nПередача навыка включает журнал партии и совместную дегустацию.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: training",
+      "x": 6006,
+      "y": 227,
+      "width": 208,
+      "height": 220,
+      "color": "#4f46e5",
+      "plyloomNodeId": "training",
+      "plyloomSheetId": "people"
+    },
+    {
+      "id": "node-43",
+      "type": "text",
+      "text": "# Замена на смене\n\nОдин человек с нужным навыком — риск остановки. Проверить, кто способен его заменить.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: backup_role",
+      "x": 6279,
+      "y": 258,
+      "width": 208,
+      "height": 220,
+      "color": "#4f46e5",
+      "plyloomNodeId": "backup_role",
+      "plyloomSheetId": "people"
+    },
+    {
+      "id": "node-44",
+      "type": "text",
+      "text": "# Журнал обратной связи\n\nЗаписывать номер партии вместе с отзывом: иначе нельзя связать проблему с рецептом и процессом.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: feedback",
+      "x": 6539,
+      "y": 223,
+      "width": 208,
+      "height": 220,
+      "color": "#4f46e5",
+      "plyloomNodeId": "feedback",
+      "plyloomSheetId": "people"
+    },
+    {
+      "id": "group-45",
+      "type": "group",
+      "label": "Обжарка",
+      "x": 6967,
+      "y": 0,
+      "width": 1146,
+      "height": 517,
+      "color": "#475569"
+    },
+    {
+      "id": "node-46",
+      "type": "text",
+      "text": "# Потеря массы\n\nДля расчёта принята гипотеза 15 %. Тогда зерно на килограмм готового кофе: 690 / 0,85 ≈ 812 у.е. Проверить взвешиванием.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: loss",
+      "x": 7030,
+      "y": 75,
+      "width": 208,
+      "height": 220,
+      "color": "#475569",
+      "plyloomNodeId": "loss",
+      "plyloomSheetId": "roasting"
+    },
+    {
+      "id": "node-47",
+      "type": "text",
+      "text": "# Маржа после переменных затрат\n\nЦена минус зерно, упаковка, сдельный труд и доставка заказа. Это не прибыль бизнеса: аренда и оборудование считаются отдельно.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: margin",
+      "x": 7284,
+      "y": 92,
+      "width": 208,
+      "height": 220,
+      "color": "#475569",
+      "plyloomNodeId": "margin",
+      "plyloomSheetId": "roasting"
+    },
+    {
+      "id": "node-48",
+      "type": "text",
+      "text": "# Взвесить зерно\n\nЗаписать массы компонентов и идентификаторы входящих партий.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: weigh",
+      "x": 7548,
+      "y": 60,
+      "width": 208,
+      "height": 220,
+      "color": "#475569",
+      "plyloomNodeId": "weigh",
+      "plyloomSheetId": "roasting"
+    },
+    {
+      "id": "node-49",
+      "type": "text",
+      "text": "# Обжарить\n\nЗаписать фактический профиль. Точки времени и температуры не являются инструкцией по безопасной эксплуатации.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: roast",
+      "x": 7827,
+      "y": 94,
+      "width": 208,
+      "height": 220,
+      "color": "#475569",
+      "plyloomNodeId": "roast",
+      "plyloomSheetId": "roasting"
+    },
+    {
+      "id": "node-50",
+      "type": "text",
+      "text": "# Остудить\n\nСледовать инструкции оборудования; проверить воспроизводимость охлаждения.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: cool",
+      "x": 7009,
+      "y": 211,
+      "width": 208,
+      "height": 220,
+      "color": "#475569",
+      "plyloomNodeId": "cool",
+      "plyloomSheetId": "roasting"
+    },
+    {
+      "id": "node-51",
+      "type": "text",
+      "text": "# Оценить чашку\n\nПартия проходит дегустацию? Если нет, записать причину и решение о партии.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: cup",
+      "x": 7293,
+      "y": 249,
+      "width": 208,
+      "height": 220,
+      "color": "#475569",
+      "plyloomNodeId": "cup",
+      "plyloomSheetId": "roasting"
+    },
+    {
+      "id": "node-52",
+      "type": "text",
+      "text": "# Упаковать и промаркировать\n\nПроверить массу, шов, версию этикетки и связь с журналом партии.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: seal",
+      "x": 7565,
+      "y": 222,
+      "width": 208,
+      "height": 220,
+      "color": "#475569",
+      "plyloomNodeId": "seal",
+      "plyloomSheetId": "roasting"
+    },
+    {
+      "id": "node-53",
+      "type": "text",
+      "text": "# Журнал партии\n\nИсточник фактических наблюдений. В демо записи ещё нет: это место для будущего первичного документа.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.\n\nPlyLoom ID: log",
+      "x": 7845,
+      "y": 257,
+      "width": 208,
+      "height": 220,
+      "color": "#475569",
+      "plyloomNodeId": "log",
+      "plyloomSheetId": "roasting"
+    }
+  ],
+  "edges": [
+    {
+      "id": "edge-54",
+      "fromNode": "node-1",
+      "toNode": "node-2",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-0"
+    },
+    {
+      "id": "edge-55",
+      "fromNode": "node-8",
+      "toNode": "node-9",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-1"
+    },
+    {
+      "id": "edge-56",
+      "fromNode": "node-8",
+      "toNode": "node-10",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-2"
+    },
+    {
+      "id": "edge-57",
+      "fromNode": "node-16",
+      "toNode": "node-17",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-3"
+    },
+    {
+      "id": "edge-58",
+      "fromNode": "node-2",
+      "toNode": "node-3",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-4"
+    },
+    {
+      "id": "edge-59",
+      "fromNode": "node-4",
+      "toNode": "node-5",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-5"
+    },
+    {
+      "id": "edge-60",
+      "fromNode": "node-6",
+      "toNode": "node-51",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-6"
+    },
+    {
+      "id": "edge-61",
+      "fromNode": "node-6",
+      "toNode": "node-4",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-7"
+    },
+    {
+      "id": "edge-62",
+      "fromNode": "node-9",
+      "toNode": "node-11",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-8"
+    },
+    {
+      "id": "edge-63",
+      "fromNode": "node-10",
+      "toNode": "node-11",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-9"
+    },
+    {
+      "id": "edge-64",
+      "fromNode": "node-12",
+      "toNode": "node-20",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-10"
+    },
+    {
+      "id": "edge-65",
+      "fromNode": "node-13",
+      "toNode": "node-2",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-11"
+    },
+    {
+      "id": "edge-66",
+      "fromNode": "node-14",
+      "toNode": "node-20",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-12"
+    },
+    {
+      "id": "edge-67",
+      "fromNode": "node-17",
+      "toNode": "node-18",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-13"
+    },
+    {
+      "id": "edge-68",
+      "fromNode": "node-19",
+      "toNode": "node-17",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-14"
+    },
+    {
+      "id": "edge-69",
+      "fromNode": "node-19",
+      "toNode": "node-21",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-15"
+    },
+    {
+      "id": "edge-70",
+      "fromNode": "node-22",
+      "toNode": "node-32",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-16"
+    },
+    {
+      "id": "edge-71",
+      "fromNode": "node-21",
+      "toNode": "node-44",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-17"
+    },
+    {
+      "id": "edge-72",
+      "fromNode": "node-25",
+      "toNode": "node-2",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-18"
+    },
+    {
+      "id": "edge-73",
+      "fromNode": "node-25",
+      "toNode": "node-26",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-19"
+    },
+    {
+      "id": "edge-74",
+      "fromNode": "node-25",
+      "toNode": "node-30",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-20"
+    },
+    {
+      "id": "edge-75",
+      "fromNode": "node-30",
+      "toNode": "node-3",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-21"
+    },
+    {
+      "id": "edge-76",
+      "fromNode": "node-27",
+      "toNode": "node-53",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-22"
+    },
+    {
+      "id": "edge-77",
+      "fromNode": "node-28",
+      "toNode": "node-9",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-23"
+    },
+    {
+      "id": "edge-78",
+      "fromNode": "node-29",
+      "toNode": "node-33",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-24"
+    },
+    {
+      "id": "edge-79",
+      "fromNode": "node-32",
+      "toNode": "node-33",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-25"
+    },
+    {
+      "id": "edge-80",
+      "fromNode": "node-32",
+      "toNode": "node-34",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-26"
+    },
+    {
+      "id": "edge-81",
+      "fromNode": "node-32",
+      "toNode": "node-37",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-27"
+    },
+    {
+      "id": "edge-82",
+      "fromNode": "node-35",
+      "toNode": "node-18",
+      "toEnd": "arrow",
+      "label": "supports",
+      "plyloomEdgeId": "coffee-edge-28"
+    },
+    {
+      "id": "edge-83",
+      "fromNode": "node-36",
+      "toNode": "node-4",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-29"
+    },
+    {
+      "id": "edge-84",
+      "fromNode": "node-39",
+      "toNode": "node-49",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-30"
+    },
+    {
+      "id": "edge-85",
+      "fromNode": "node-40",
+      "toNode": "node-44",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-31"
+    },
+    {
+      "id": "edge-86",
+      "fromNode": "node-41",
+      "toNode": "node-25",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-32"
+    },
+    {
+      "id": "edge-87",
+      "fromNode": "node-42",
+      "toNode": "node-39",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-33"
+    },
+    {
+      "id": "edge-88",
+      "fromNode": "node-43",
+      "toNode": "node-42",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-34"
+    },
+    {
+      "id": "edge-89",
+      "fromNode": "node-48",
+      "toNode": "node-49",
+      "toEnd": "arrow",
+      "label": "flow",
+      "plyloomEdgeId": "coffee-edge-35"
+    },
+    {
+      "id": "edge-90",
+      "fromNode": "node-49",
+      "toNode": "node-50",
+      "toEnd": "arrow",
+      "label": "flow",
+      "plyloomEdgeId": "coffee-edge-36"
+    },
+    {
+      "id": "edge-91",
+      "fromNode": "node-50",
+      "toNode": "node-51",
+      "toEnd": "arrow",
+      "label": "flow",
+      "plyloomEdgeId": "coffee-edge-37"
+    },
+    {
+      "id": "edge-92",
+      "fromNode": "node-51",
+      "toNode": "node-52",
+      "toEnd": "arrow",
+      "label": "flow",
+      "plyloomEdgeId": "coffee-edge-38"
+    },
+    {
+      "id": "edge-93",
+      "fromNode": "node-52",
+      "toNode": "node-53",
+      "toEnd": "arrow",
+      "label": "flow",
+      "plyloomEdgeId": "coffee-edge-39"
+    },
+    {
+      "id": "edge-94",
+      "fromNode": "node-48",
+      "toNode": "node-35",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-40"
+    },
+    {
+      "id": "edge-95",
+      "fromNode": "node-52",
+      "toNode": "node-25",
+      "toEnd": "arrow",
+      "label": "depends",
+      "plyloomEdgeId": "coffee-edge-41"
+    },
+    {
+      "id": "edge-96",
+      "fromNode": "node-53",
+      "toNode": "node-2",
+      "toEnd": "arrow",
+      "label": "ref",
+      "plyloomEdgeId": "coffee-edge-42"
+    }
+  ]
+}

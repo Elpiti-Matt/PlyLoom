@@ -1,0 +1,112 @@
+{
+  "roastery": {
+    "nodes": 42,
+    "edges": 43,
+    "sheets": 7,
+    "memberships": 47,
+    "multiMemberNodes": 4,
+    "droppedByTree": 5,
+    "nodesPerSheet": {
+      "product": 6,
+      "suppliers": 7,
+      "money": 7,
+      "rules": 7,
+      "equipment": 6,
+      "people": 6,
+      "roasting": 8
+    },
+    "lint": {
+      "error": 0,
+      "warn": 14,
+      "info": 0
+    }
+  },
+  "software-ru": {
+    "nodes": 40,
+    "edges": 75,
+    "sheets": 8,
+    "memberships": 67,
+    "multiMemberNodes": 20,
+    "droppedByTree": 27,
+    "nodesPerSheet": {
+      "context": 8,
+      "requirements": 8,
+      "architecture": 10,
+      "contracts": 7,
+      "implementation": 9,
+      "verification": 10,
+      "docs": 8,
+      "change": 7
+    },
+    "lint": {
+      "error": 0,
+      "warn": 6,
+      "info": 2
+    }
+  },
+  "software-en": {
+    "nodes": 40,
+    "edges": 75,
+    "sheets": 8,
+    "memberships": 67,
+    "multiMemberNodes": 20,
+    "droppedByTree": 27,
+    "nodesPerSheet": {
+      "context": 8,
+      "requirements": 8,
+      "architecture": 10,
+      "contracts": 7,
+      "implementation": 9,
+      "verification": 10,
+      "docs": 8,
+      "change": 7
+    },
+    "lint": {
+      "error": 0,
+      "warn": 6,
+      "info": 2
+    }
+  },
+  "cross-notation-ru": {
+    "nodes": 13,
+    "edges": 16,
+    "sheets": 6,
+    "memberships": 18,
+    "multiMemberNodes": 4,
+    "droppedByTree": 5,
+    "nodesPerSheet": {
+      "process": 4,
+      "architecture": 2,
+      "states": 3,
+      "classes": 1,
+      "requirements": 4,
+      "risks": 4
+    },
+    "lint": {
+      "error": 0,
+      "warn": 1,
+      "info": 0
+    }
+  },
+  "cross-notation-en": {
+    "nodes": 13,
+    "edges": 16,
+    "sheets": 6,
+    "memberships": 18,
+    "multiMemberNodes": 4,
+    "droppedByTree": 5,
+    "nodesPerSheet": {
+      "process": 4,
+      "architecture": 2,
+      "states": 3,
+      "classes": 1,
+      "requirements": 4,
+      "risks": 4
+    },
+    "lint": {
+      "error": 0,
+      "warn": 1,
+      "info": 0
+    }
+  }
+}

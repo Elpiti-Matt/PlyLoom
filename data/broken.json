@@ -1,0 +1,1598 @@
+{
+  "version": 3,
+  "title": "Маленькая обжарка",
+  "description": "42 учебных узла. Все числа — допущения. Начните со смеси «Утро» и её трёх листов.",
+  "types": {
+    "nodes": [
+      {
+        "id": "entity",
+        "label": "Сущность",
+        "base": "entity",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "process",
+        "label": "Процесс",
+        "base": "process",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "decision",
+        "label": "Решение",
+        "base": "decision",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "hypothesis",
+        "label": "Гипотеза",
+        "base": "hypothesis",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "metric",
+        "label": "Метрика",
+        "base": "metric",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "rule",
+        "label": "Требование",
+        "base": "rule",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "risk",
+        "label": "Риск",
+        "base": "risk",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "person",
+        "label": "Человек / роль",
+        "base": "person",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "note",
+        "label": "Заметка",
+        "base": "note",
+        "color": "#475569",
+        "notation": "plyloom"
+      },
+      {
+        "id": "flowchart:process",
+        "label": "Действие",
+        "labelEn": "Action",
+        "base": "process",
+        "notation": "flowchart",
+        "shape": "rectangle",
+        "color": "#475569"
+      },
+      {
+        "id": "flowchart:decision",
+        "label": "Условие",
+        "labelEn": "Decision",
+        "base": "decision",
+        "notation": "flowchart",
+        "shape": "diamond",
+        "color": "#475569"
+      },
+      {
+        "id": "flowchart:terminator",
+        "label": "Начало / конец",
+        "labelEn": "Start / end",
+        "base": "process",
+        "notation": "flowchart",
+        "shape": "rounded",
+        "color": "#475569"
+      },
+      {
+        "id": "flowchart:data",
+        "label": "Данные / ввод-вывод",
+        "labelEn": "Data / input-output",
+        "base": "entity",
+        "notation": "flowchart",
+        "shape": "parallelogram",
+        "color": "#475569"
+      },
+      {
+        "id": "flowchart:document",
+        "label": "Документ",
+        "labelEn": "Document",
+        "base": "rule",
+        "notation": "flowchart",
+        "shape": "document",
+        "color": "#475569"
+      },
+      {
+        "id": "canvas:text",
+        "label": "Текст",
+        "labelEn": "Text",
+        "base": "note",
+        "notation": "canvas",
+        "shape": "rectangle",
+        "color": "#475569"
+      },
+      {
+        "id": "canvas:link",
+        "label": "Ссылка",
+        "labelEn": "Link",
+        "base": "note",
+        "notation": "canvas",
+        "shape": "rectangle",
+        "color": "#475569"
+      },
+      {
+        "id": "canvas:file",
+        "label": "Файл",
+        "labelEn": "File",
+        "base": "rule",
+        "notation": "canvas",
+        "shape": "rectangle",
+        "color": "#475569"
+      },
+      {
+        "id": "canvas:group",
+        "label": "Группа",
+        "labelEn": "Group",
+        "base": "entity",
+        "notation": "canvas",
+        "shape": "group",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:task",
+        "label": "Задача",
+        "labelEn": "Task",
+        "base": "process",
+        "notation": "bpmn",
+        "shape": "rounded",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:startEvent",
+        "label": "Начальное событие",
+        "labelEn": "Start event",
+        "base": "process",
+        "notation": "bpmn",
+        "shape": "ellipse",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:endEvent",
+        "label": "Конечное событие",
+        "labelEn": "End event",
+        "base": "process",
+        "notation": "bpmn",
+        "shape": "ellipse",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:intermediateCatchEvent",
+        "label": "Промежуточное событие",
+        "labelEn": "Intermediate event",
+        "base": "process",
+        "notation": "bpmn",
+        "shape": "ellipse",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:exclusiveGateway",
+        "label": "Исключающий шлюз",
+        "labelEn": "Exclusive gateway",
+        "base": "decision",
+        "notation": "bpmn",
+        "shape": "diamond",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:parallelGateway",
+        "label": "Параллельный шлюз",
+        "labelEn": "Parallel gateway",
+        "base": "decision",
+        "notation": "bpmn",
+        "shape": "diamond",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:inclusiveGateway",
+        "label": "Включающий шлюз",
+        "labelEn": "Inclusive gateway",
+        "base": "decision",
+        "notation": "bpmn",
+        "shape": "diamond",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:participant",
+        "label": "Участник / пул",
+        "labelEn": "Participant / pool",
+        "base": "entity",
+        "notation": "bpmn",
+        "shape": "group",
+        "color": "#475569"
+      },
+      {
+        "id": "bpmn:lane",
+        "label": "Дорожка",
+        "labelEn": "Lane",
+        "base": "entity",
+        "notation": "bpmn",
+        "shape": "group",
+        "color": "#475569"
+      }
+    ],
+    "edges": [
+      {
+        "id": "flow",
+        "label": "затем",
+        "color": "#475569"
+      },
+      {
+        "id": "depends",
+        "label": "зависит от",
+        "color": "#475569"
+      },
+      {
+        "id": "supports",
+        "label": "подтверждает",
+        "color": "#475569"
+      },
+      {
+        "id": "contradicts",
+        "label": "противоречит",
+        "color": "#475569"
+      },
+      {
+        "id": "ref",
+        "label": "см.",
+        "color": "#475569"
+      },
+      {
+        "id": "inherits",
+        "label": "наследует от",
+        "labelEn": "inherits from",
+        "color": "#475569"
+      },
+      {
+        "id": "implements",
+        "label": "реализует",
+        "labelEn": "implements",
+        "color": "#475569"
+      },
+      {
+        "id": "uses",
+        "label": "использует",
+        "labelEn": "uses",
+        "color": "#475569"
+      }
+    ],
+    "sheets": [
+      {
+        "id": "свободная",
+        "label": "Свободный лист",
+        "labelEn": "Free sheet",
+        "color": "#0ea5e9"
+      },
+      {
+        "id": "процесс",
+        "label": "Процесс",
+        "labelEn": "Process",
+        "color": "#f97316"
+      },
+      {
+        "id": "данные",
+        "label": "Данные",
+        "labelEn": "Data",
+        "color": "#14b8a6"
+      },
+      {
+        "id": "аргументы",
+        "label": "Аргументы",
+        "labelEn": "Arguments",
+        "color": "#a855f7"
+      }
+    ],
+    "tags": [
+      {
+        "id": "draft",
+        "label": "Черновик",
+        "labelEn": "Draft",
+        "color": "#64748b"
+      },
+      {
+        "id": "review",
+        "label": "На проверке",
+        "labelEn": "In review",
+        "color": "#d97706"
+      },
+      {
+        "id": "reference",
+        "label": "Справочный",
+        "labelEn": "Reference",
+        "color": "#2563eb"
+      }
+    ],
+    "attributes": [
+      {
+        "id": "basis",
+        "label": "Основание",
+        "labelEn": "Basis",
+        "description": "На чём держится карточка: допущение, вопрос к проверке или первичный документ.",
+        "dataType": "select",
+        "options": [
+          "Допущение",
+          "Нужна проверка",
+          "Из первичного документа"
+        ]
+      },
+      {
+        "id": "touches",
+        "label": "Затрагивает",
+        "labelEn": "Touches",
+        "description": "Каких сторон дела касается карточка; сторон может быть несколько.",
+        "dataType": "multi",
+        "options": [
+          "Качество",
+          "Деньги",
+          "Сроки",
+          "Безопасность",
+          "Люди"
+        ]
+      }
+    ]
+  },
+  "sheets": [
+    {
+      "id": "product",
+      "name": "Продукт",
+      "color": "#0284c7",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Учебная карта вымышленной обжарки. Данные — допущения, а требования — вопросы для проверки."
+    },
+    {
+      "id": "suppliers",
+      "name": "Поставщики",
+      "color": "#7c3aed",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Учебная карта вымышленной обжарки. Данные — допущения, а требования — вопросы для проверки."
+    },
+    {
+      "id": "money",
+      "name": "Деньги",
+      "color": "#d97706",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Учебная карта вымышленной обжарки. Данные — допущения, а требования — вопросы для проверки."
+    },
+    {
+      "id": "rules",
+      "name": "Требования",
+      "color": "#db2777",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Учебная карта вымышленной обжарки. Данные — допущения, а требования — вопросы для проверки."
+    },
+    {
+      "id": "equipment",
+      "name": "Оборудование",
+      "color": "#0d9488",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Учебная карта вымышленной обжарки. Данные — допущения, а требования — вопросы для проверки."
+    },
+    {
+      "id": "people",
+      "name": "Люди",
+      "color": "#4f46e5",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Учебная карта вымышленной обжарки. Данные — допущения, а требования — вопросы для проверки."
+    },
+    {
+      "id": "roasting",
+      "name": "Обжарка",
+      "color": "#475569",
+      "notation": "свободная",
+      "limit": 15,
+      "description": "Учебная карта вымышленной обжарки. Данные — допущения, а требования — вопросы для проверки."
+    }
+  ],
+  "nodes": [
+    {
+      "id": "blend",
+      "name": "Эспрессо-смесь «Утро»",
+      "kind": "entity",
+      "sheets": [
+        "product",
+        "suppliers",
+        "money"
+      ],
+      "body": "Рецепт для тестовой партии: 70 % Бразилии и 30 % Эфиопии. Один объект на трёх листах; изменение тела видно во всех его появлениях.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "product": {
+          "x": 26,
+          "y": 17
+        },
+        "suppliers": {
+          "x": 26,
+          "y": 17
+        },
+        "money": {
+          "x": 26,
+          "y": 17
+        }
+      },
+      "attributes": {
+        "basis": "Допущение",
+        "touches": [
+          "Качество",
+          "Деньги"
+        ]
+      }
+    },
+    {
+      "id": "recipe",
+      "name": "Рецепт и версии",
+      "kind": "rule",
+      "sheets": [
+        "product"
+      ],
+      "body": "Хранить номер версии, состав и дату дегустации. Замена зерна создаёт новую версию рецепта, а не переписывает историю.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "product": {
+          "x": 276,
+          "y": 32
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество"
+        ]
+      }
+    },
+    {
+      "id": "taste",
+      "name": "Шоколад и орех",
+      "kind": "hypothesis",
+      "sheets": [
+        "product"
+      ],
+      "body": "Пока это гипотеза о вкусе. Проверить слепой дегустацией; не превращать рекламную формулировку в установленный факт.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "product": {
+          "x": 551,
+          "y": 8
+        }
+      },
+      "attributes": {
+        "basis": "Допущение",
+        "touches": [
+          "Качество"
+        ]
+      }
+    },
+    {
+      "id": "pack",
+      "name": "Пакет 250 г",
+      "kind": "entity",
+      "sheets": [
+        "product"
+      ],
+      "body": "Вариант упаковки с клапаном. Удобство открытия и сохранность кофе нужно проверить на пробной партии.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "product": {
+          "x": 30,
+          "y": 170
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество",
+          "Безопасность"
+        ]
+      }
+    },
+    {
+      "id": "shelf",
+      "name": "Срок годности",
+      "kind": "hypothesis",
+      "sheets": [
+        "product",
+        "rules"
+      ],
+      "body": "Нельзя вывести из чужой этикетки. Нужны обоснование, условия хранения и применимые к рынку правила.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "product": {
+          "x": 284,
+          "y": 187
+        },
+        "rules": {
+          "x": 14,
+          "y": 9
+        }
+      },
+      "attributes": {
+        "basis": "Допущение",
+        "touches": [
+          "Качество",
+          "Безопасность"
+        ]
+      }
+    },
+    {
+      "id": "launch",
+      "name": "Первая тестовая партия",
+      "kind": "decision",
+      "sheets": [
+        "product"
+      ],
+      "body": "Выпускать после дегустации и проверки упаковки. Критерий успеха — повторный заказ, а не только первая продажа.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "product": {
+          "x": 565,
+          "y": 166
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество",
+          "Деньги"
+        ]
+      }
+    },
+    {
+      "id": "brazil",
+      "name": "Зелёное зерно: Бразилия",
+      "kind": "entity",
+      "sheets": [
+        "suppliers"
+      ],
+      "body": "Учебное предложение A: цена 600 условных единиц за килограмм. Цена вымышлена, не является рыночной котировкой.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "suppliers": {
+          "x": 283,
+          "y": 37
+        }
+      },
+      "attributes": {
+        "basis": "Из первичного документа",
+        "touches": [
+          "Качество",
+          "Деньги"
+        ]
+      }
+    },
+    {
+      "id": "ethiopia",
+      "name": "Зелёное зерно: Эфиопия",
+      "kind": "entity",
+      "sheets": [
+        "suppliers"
+      ],
+      "body": "Учебное предложение B: 900 условных единиц за килограмм. Меняется отдельным источником — прайсом.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "suppliers": {
+          "x": 546,
+          "y": 4
+        }
+      },
+      "attributes": {
+        "basis": "Из первичного документа",
+        "touches": [
+          "Качество",
+          "Деньги"
+        ]
+      }
+    },
+    {
+      "id": "quote",
+      "name": "Прайс поставщика v1",
+      "kind": "note",
+      "sheets": [
+        "suppliers"
+      ],
+      "body": "Источник: вымышленный прайс для демо.\n\n| Зерно | Цена, у.е./кг |\n|---|---|\n| Бразилия | 600 |\n| Эфиопия | 900 |\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "suppliers": {
+          "x": 837,
+          "y": 46
+        }
+      },
+      "attributes": {
+        "basis": "Из первичного документа",
+        "touches": [
+          "Деньги"
+        ]
+      }
+    },
+    {
+      "id": "minimum",
+      "name": "Минимальная партия",
+      "kind": "rule",
+      "sheets": [
+        "suppliers"
+      ],
+      "body": "Условие тестового предложения: один мешок каждого сорта. Проверить условия поставщика до расчёта оборотных средств.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "suppliers": {
+          "x": 4,
+          "y": 153
+        }
+      },
+      "attributes": {
+        "basis": "Из первичного документа",
+        "touches": [
+          "Деньги",
+          "Сроки"
+        ]
+      }
+    },
+    {
+      "id": "backup",
+      "name": "Резервный поставщик",
+      "kind": "risk",
+      "sheets": [
+        "suppliers"
+      ],
+      "body": "Наличие похожего зерна не гарантирует тот же вкус. Смена поставщика требует пробной обжарки и проверки документов.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "suppliers": {
+          "x": 292,
+          "y": 192
+        }
+      },
+      "attributes": {
+        "basis": "Допущение",
+        "touches": [
+          "Деньги",
+          "Сроки"
+        ]
+      }
+    },
+    {
+      "id": "delivery",
+      "name": "Срок доставки",
+      "kind": "hypothesis",
+      "sheets": [
+        "suppliers"
+      ],
+      "body": "Для планирования предполагаем две недели. Задержка расходует запас, а ускоренная доставка меняет себестоимость.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "suppliers": {
+          "x": 556,
+          "y": 160
+        }
+      },
+      "attributes": {
+        "basis": "Допущение",
+        "touches": [
+          "Сроки"
+        ]
+      }
+    },
+    {
+      "id": "cost",
+      "name": "Себестоимость смеси",
+      "kind": "metric",
+      "sheets": [
+        "money"
+      ],
+      "body": "Учебный расчёт: 0,7 × 600 + 0,3 × 900 = 690 у.е./кг зелёного зерна. Потери массы, упаковка, труд и доставка здесь ещё не включены.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "money": {
+          "x": 287,
+          "y": 39
+        }
+      },
+      "attributes": {
+        "basis": "Допущение",
+        "touches": [
+          "Деньги"
+        ]
+      }
+    },
+    {
+      "id": "loss",
+      "name": "Потеря массы",
+      "kind": "metric",
+      "sheets": [
+        "money",
+        "roasting"
+      ],
+      "body": "Для расчёта принята гипотеза 15 %. Тогда зерно на килограмм готового кофе: 690 / 0,85 ≈ 812 у.е. Проверить взвешиванием.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "money": {
+          "x": 563,
+          "y": 15
+        },
+        "roasting": {
+          "x": 23,
+          "y": 15
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество",
+          "Деньги"
+        ]
+      }
+    },
+    {
+      "id": "margin",
+      "name": "Маржа после переменных затрат",
+      "kind": "metric",
+      "sheets": [
+        "money",
+        "roasting"
+      ],
+      "body": "Цена минус зерно, упаковка, сдельный труд и доставка заказа. Это не прибыль бизнеса: аренда и оборудование считаются отдельно.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "money": {
+          "x": 817,
+          "y": 32
+        },
+        "roasting": {
+          "x": 277,
+          "y": 32
+        }
+      },
+      "attributes": {
+        "basis": "Допущение",
+        "touches": [
+          "Деньги"
+        ]
+      }
+    },
+    {
+      "id": "cash",
+      "name": "Деньги в запасах",
+      "kind": "risk",
+      "sheets": [
+        "money"
+      ],
+      "body": "Минимальная партия может потребовать денег раньше, чем появится спрос. Сравнить сценарии продаж, срока поставки и срока хранения.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "money": {
+          "x": 6,
+          "y": 154
+        }
+      },
+      "attributes": {
+        "basis": "Допущение",
+        "touches": [
+          "Деньги"
+        ]
+      }
+    },
+    {
+      "id": "price",
+      "name": "Тестовая цена",
+      "kind": "hypothesis",
+      "sheets": [
+        "money"
+      ],
+      "body": "Сначала проверить готовность покупателей повторять заказ. Число в модели — допущение, пока нет наблюдений.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "money": {
+          "x": 277,
+          "y": 183
+        }
+      },
+      "attributes": {
+        "basis": "Допущение",
+        "touches": [
+          "Деньги"
+        ]
+      }
+    },
+    {
+      "id": "fixed",
+      "name": "Постоянные расходы",
+      "kind": "metric",
+      "sheets": [
+        "money"
+      ],
+      "body": "Отдельно учитывать аренду, обслуживание, оклад и амортизацию. Маржа одного пакета не отвечает на вопрос об окупаемости.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "money": {
+          "x": 540,
+          "y": 150
+        }
+      },
+      "attributes": {
+        "basis": "Допущение",
+        "touches": [
+          "Деньги"
+        ]
+      }
+    },
+    {
+      "id": "label",
+      "name": "Макет этикетки",
+      "kind": "entity",
+      "sheets": [
+        "rules"
+      ],
+      "body": "Учебный макет явно называет страны происхождения. Само подорожание зерна не меняет этикетку; смена состава или происхождения запускает проверку макета.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "rules": {
+          "x": 299,
+          "y": 47
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество",
+          "Безопасность"
+        ]
+      }
+    },
+    {
+      "id": "market",
+      "name": "Рынок и применимые правила",
+      "kind": "note",
+      "sheets": [
+        "rules"
+      ],
+      "body": "Открытый вопрос: где продаётся продукт? Сначала определить рынок, затем найти действующие официальные требования к пищевой продукции и информации на упаковке.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "rules": {
+          "x": 552,
+          "y": 8
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Безопасность"
+        ]
+      }
+    },
+    {
+      "id": "trace",
+      "name": "Прослеживаемость партии",
+      "kind": "rule",
+      "sheets": [
+        "rules"
+      ],
+      "body": "Связать входящую партию, рецепт, дату обжарки и готовую упаковку. Это проектное правило демо, не цитата из закона.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "rules": {
+          "x": 837,
+          "y": 46
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество",
+          "Безопасность"
+        ]
+      }
+    },
+    {
+      "id": "documents",
+      "name": "Документы поставщика",
+      "kind": "note",
+      "sheets": [
+        "rules"
+      ],
+      "body": "Список нужных документов должен быть подтверждён для выбранного рынка. В этой карте такого подтверждения пока нет.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "rules": {
+          "x": 13,
+          "y": 159
+        }
+      },
+      "attributes": {
+        "basis": "Из первичного документа",
+        "touches": [
+          "Безопасность"
+        ]
+      }
+    },
+    {
+      "id": "food",
+      "name": "Проверка помещения",
+      "kind": "process",
+      "sheets": [
+        "rules"
+      ],
+      "body": "До аренды проверить пригодность помещения и действующие требования. Вопросы про вентиляцию, электричество и пищевое производство передать профильным специалистам.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "rules": {
+          "x": 295,
+          "y": 195
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Безопасность",
+          "Люди"
+        ]
+      }
+    },
+    {
+      "id": "claim",
+      "name": "Проверить обещания на упаковке",
+      "kind": "process",
+      "sheets": [
+        "rules"
+      ],
+      "body": "Сопоставить макет с фактической смесью. Связь с рецептом нужна и без формального требования указывать страну.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "rules": {
+          "x": 567,
+          "y": 168
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество",
+          "Безопасность"
+        ]
+      }
+    },
+    {
+      "id": "roaster",
+      "name": "Ростер",
+      "kind": "entity",
+      "sheets": [
+        "equipment"
+      ],
+      "body": "Выбор после теста партии и оценки производительности. Паспортная ёмкость не равна стабильному выпуску за смену.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "equipment": {
+          "x": 1,
+          "y": 1
+        }
+      },
+      "attributes": {
+        "basis": "Из первичного документа",
+        "touches": [
+          "Качество"
+        ]
+      }
+    },
+    {
+      "id": "ventilation",
+      "name": "Вентиляция",
+      "kind": "entity",
+      "sheets": [
+        "equipment"
+      ],
+      "body": "Проверить требования конкретного ростера и помещения. В демо нет инженерного расчёта.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "equipment": {
+          "x": 293,
+          "y": 43
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Безопасность"
+        ]
+      }
+    },
+    {
+      "id": "power",
+      "name": "Электропитание",
+      "kind": "risk",
+      "sheets": [
+        "equipment"
+      ],
+      "body": "Сверить доступную мощность с оборудованием до подписания аренды.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "equipment": {
+          "x": 541,
+          "y": 1
+        }
+      },
+      "attributes": {
+        "basis": "Допущение",
+        "touches": [
+          "Сроки"
+        ]
+      }
+    },
+    {
+      "id": "scales",
+      "name": "Весы",
+      "kind": "entity",
+      "sheets": [
+        "equipment"
+      ],
+      "body": "Входное и выходное взвешивание дают фактическую потерю массы. Предусмотреть проверку точности.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "equipment": {
+          "x": 17,
+          "y": 161
+        }
+      },
+      "attributes": {
+        "basis": "Из первичного документа",
+        "touches": [
+          "Качество"
+        ]
+      }
+    },
+    {
+      "id": "sealer",
+      "name": "Запайщик",
+      "kind": "entity",
+      "sheets": [
+        "equipment"
+      ],
+      "body": "Тест герметичности на выбранном пакете. Скорость запайки может ограничить всю линию.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "equipment": {
+          "x": 298,
+          "y": 196
+        }
+      },
+      "attributes": {
+        "basis": "Из первичного документа",
+        "touches": [
+          "Качество"
+        ]
+      }
+    },
+    {
+      "id": "service",
+      "name": "План обслуживания",
+      "kind": "rule",
+      "sheets": [
+        "equipment"
+      ],
+      "body": "Опираться на документацию изготовителя. Хранить историю обслуживания отдельно от текущего плана.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "equipment": {
+          "x": 544,
+          "y": 152
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество",
+          "Сроки"
+        ]
+      }
+    },
+    {
+      "id": "roaster_role",
+      "name": "Обжарщик",
+      "kind": "person",
+      "sheets": [
+        "people"
+      ],
+      "body": "Ведёт профиль и записи о партиях; останавливает выпуск при отклонениях.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "people": {
+          "x": 22,
+          "y": 15
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Люди"
+        ]
+      }
+    },
+    {
+      "id": "sales_role",
+      "name": "Продажи",
+      "kind": "person",
+      "sheets": [
+        "people"
+      ],
+      "body": "Собирает обратную связь и повторные заказы. Не меняет обещание вкуса без согласования.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "people": {
+          "x": 283,
+          "y": 37
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Люди"
+        ]
+      }
+    },
+    {
+      "id": "label_role",
+      "name": "Ответственный за этикетку",
+      "kind": "person",
+      "sheets": [
+        "people"
+      ],
+      "body": "Проверяет макет при изменении рецепта и рынка. Ответственность должна иметь имя, а не только роль.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "people": {
+          "x": 559,
+          "y": 13
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Безопасность",
+          "Люди"
+        ]
+      }
+    },
+    {
+      "id": "training",
+      "name": "Обучение смены",
+      "kind": "process",
+      "sheets": [
+        "people"
+      ],
+      "body": "Передача навыка включает журнал партии и совместную дегустацию.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "people": {
+          "x": 26,
+          "y": 167
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество",
+          "Люди"
+        ]
+      }
+    },
+    {
+      "id": "backup_role",
+      "name": "Замена на смене",
+      "kind": "risk",
+      "sheets": [
+        "people"
+      ],
+      "body": "Один человек с нужным навыком — риск остановки. Проверить, кто способен его заменить.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "people": {
+          "x": 299,
+          "y": 198
+        }
+      },
+      "attributes": {
+        "basis": "Допущение",
+        "touches": [
+          "Сроки",
+          "Люди"
+        ]
+      }
+    },
+    {
+      "id": "feedback",
+      "name": "Журнал обратной связи",
+      "kind": "note",
+      "sheets": [
+        "people"
+      ],
+      "body": "Записывать номер партии вместе с отзывом: иначе нельзя связать проблему с рецептом и процессом.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "people": {
+          "x": 559,
+          "y": 163
+        }
+      }
+    },
+    {
+      "id": "weigh",
+      "name": "Взвесить зерно",
+      "kind": "process",
+      "sheets": [
+        "roasting"
+      ],
+      "body": "Записать массы компонентов и идентификаторы входящих партий.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "roasting": {
+          "x": 541,
+          "y": 0
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество"
+        ]
+      }
+    },
+    {
+      "id": "roast",
+      "name": "Обжарить",
+      "kind": "process",
+      "sheets": [
+        "roasting"
+      ],
+      "body": "Записать фактический профиль. Точки времени и температуры не являются инструкцией по безопасной эксплуатации.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "roasting": {
+          "x": 820,
+          "y": 34
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество"
+        ]
+      }
+    },
+    {
+      "id": "cool",
+      "name": "Остудить",
+      "kind": "process",
+      "sheets": [
+        "roasting"
+      ],
+      "body": "Следовать инструкции оборудования; проверить воспроизводимость охлаждения.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "roasting": {
+          "x": 2,
+          "y": 151
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество"
+        ]
+      }
+    },
+    {
+      "id": "cup",
+      "name": "Оценить чашку",
+      "kind": "decision",
+      "sheets": [
+        "roasting"
+      ],
+      "body": "Партия проходит дегустацию? Если нет, записать причину и решение о партии.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "roasting": {
+          "x": 286,
+          "y": 189
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество"
+        ]
+      }
+    },
+    {
+      "id": "seal",
+      "name": "Упаковать и промаркировать",
+      "kind": "process",
+      "sheets": [
+        "roasting"
+      ],
+      "body": "Проверить массу, шов, версию этикетки и связь с журналом партии.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "roasting": {
+          "x": 558,
+          "y": 162
+        }
+      },
+      "attributes": {
+        "basis": "Нужна проверка",
+        "touches": [
+          "Качество",
+          "Безопасность"
+        ]
+      }
+    },
+    {
+      "id": "log",
+      "name": "Журнал партии",
+      "kind": "note",
+      "sheets": [
+        "roasting"
+      ],
+      "body": "Источник фактических наблюдений. В демо записи ещё нет: это место для будущего первичного документа.\n\nИсточник: учебный сценарий PlyLoom; не проверенные сведения о реальном бизнесе.",
+      "pos": {
+        "roasting": {
+          "x": 838,
+          "y": 197
+        }
+      },
+      "attributes": {
+        "basis": null,
+        "touches": [
+          "Качество"
+        ]
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "coffee-edge-0",
+      "from": "blend",
+      "to": "recipe",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-1",
+      "from": "blend",
+      "to": "brazil",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-2",
+      "from": "blend",
+      "to": "ethiopia",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-3",
+      "from": "blend",
+      "to": "cost",
+      "kind": "ref"
+    },
+    {
+      "id": "coffee-edge-4",
+      "from": "recipe",
+      "to": "taste",
+      "kind": "ref"
+    },
+    {
+      "id": "coffee-edge-5",
+      "from": "pack",
+      "to": "shelf",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-6",
+      "from": "launch",
+      "to": "cup",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-7",
+      "from": "launch",
+      "to": "pack",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-8",
+      "from": "brazil",
+      "to": "quote",
+      "kind": "ref"
+    },
+    {
+      "id": "coffee-edge-9",
+      "from": "ethiopia",
+      "to": "quote",
+      "kind": "ref"
+    },
+    {
+      "id": "coffee-edge-10",
+      "from": "minimum",
+      "to": "cash",
+      "kind": "ref"
+    },
+    {
+      "id": "coffee-edge-11",
+      "from": "backup",
+      "to": "recipe",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-12",
+      "from": "delivery",
+      "to": "cash",
+      "kind": "ref"
+    },
+    {
+      "id": "coffee-edge-13",
+      "from": "cost",
+      "to": "loss",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-14",
+      "from": "margin",
+      "to": "cost",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-15",
+      "from": "margin",
+      "to": "price",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-16",
+      "from": "fixed",
+      "to": "roaster",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-17",
+      "from": "price",
+      "to": "feedback",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-18",
+      "from": "label",
+      "to": "recipe",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-19",
+      "from": "label",
+      "to": "market",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-20",
+      "from": "label",
+      "to": "claim",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-21",
+      "from": "claim",
+      "to": "taste",
+      "kind": "ref"
+    },
+    {
+      "id": "coffee-edge-22",
+      "from": "trace",
+      "to": "log",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-23",
+      "from": "documents",
+      "to": "brazil",
+      "kind": "ref"
+    },
+    {
+      "id": "coffee-edge-24",
+      "from": "food",
+      "to": "ventilation",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-25",
+      "from": "roaster",
+      "to": "ventilation",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-26",
+      "from": "roaster",
+      "to": "power",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-27",
+      "from": "roaster",
+      "to": "service",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-28",
+      "from": "scales",
+      "to": "loss",
+      "kind": "supports"
+    },
+    {
+      "id": "coffee-edge-29",
+      "from": "sealer",
+      "to": "pack",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-30",
+      "from": "roaster_role",
+      "to": "roast",
+      "kind": "ref"
+    },
+    {
+      "id": "coffee-edge-31",
+      "from": "sales_role",
+      "to": "feedback",
+      "kind": "ref"
+    },
+    {
+      "id": "coffee-edge-32",
+      "from": "label_role",
+      "to": "label",
+      "kind": "ref"
+    },
+    {
+      "id": "coffee-edge-33",
+      "from": "training",
+      "to": "roaster_role",
+      "kind": "ref"
+    },
+    {
+      "id": "coffee-edge-34",
+      "from": "backup_role",
+      "to": "training",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-35",
+      "from": "weigh",
+      "to": "roast",
+      "kind": "flow"
+    },
+    {
+      "id": "coffee-edge-36",
+      "from": "roast",
+      "to": "cool",
+      "kind": "flow"
+    },
+    {
+      "id": "coffee-edge-37",
+      "from": "cool",
+      "to": "cup",
+      "kind": "flow"
+    },
+    {
+      "id": "coffee-edge-38",
+      "from": "cup",
+      "to": "seal",
+      "kind": "flow"
+    },
+    {
+      "id": "coffee-edge-39",
+      "from": "seal",
+      "to": "log",
+      "kind": "flow"
+    },
+    {
+      "id": "coffee-edge-40",
+      "from": "weigh",
+      "to": "scales",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-41",
+      "from": "seal",
+      "to": "label",
+      "kind": "depends"
+    },
+    {
+      "id": "coffee-edge-42",
+      "from": "log",
+      "to": "recipe",
+      "kind": "ref"
+    },
+    {
+      "id": "intentionally-broken",
+      "from": "blend",
+      "to": "missing-node",
+      "kind": "ref"
+    }
+  ]
+}
