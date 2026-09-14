@@ -9,6 +9,16 @@ async function savedGraph() {
   if(!window.indexedDB)return JSON.parse(localStorage.getItem("plyloom.graph.v2"));
   return new Promise((resolve,reject)=>{const r=indexedDB.open("plyloom",1);r.onerror=()=>reject(r.error);r.onsuccess=()=>{const db=r.result,tx=db.transaction("projects"),read=tx.objectStore("projects").get("current");tx.oncomplete=()=>{resolve(read.result?JSON.parse(JSON.stringify(read.result)):null);db.close();};};});
 }
+const settle=(ms)=>act(async()=>new Promise(resolve=>setTimeout(resolve,ms)));
+async function waitForSavedGraph(expected) {
+  const deadline=Date.now()+5000;
+  for(;;){
+    let actual;await act(async()=>{actual=await savedGraph();});
+    try{assert.deepEqual(actual,expected,'initial project migration finishes before UI assertions');return;}
+    catch(error){if(Date.now()>=deadline)throw error;}
+    await settle(20);
+  }
+}
 // `extra` writes raw keys before the first render; used to check migration from pre-rc.7 storage keys.
 async function mount(width=1366, stored=null, geometry=false, extra=null, scene=false) {
   const dom=new JSDOM('<!doctype html><html><body><div id="root"></div></body></html>', {url:"https://plyloom.test",pretendToBeVisual:true});
@@ -46,11 +56,24 @@ async function mount(width=1366, stored=null, geometry=false, extra=null, scene=
   await act(async()=>root.render(React.createElement(App)));
   for(let i=0;i<200&&document.querySelector(".storage-loading");i++)await act(async()=>new Promise(r=>setTimeout(r,10)));
   assert.equal(document.querySelector(".storage-loading"),null,"storage initialization finishes");
+  // A rendered fixture is not yet a saved fixture: migration writes to IndexedDB
+  // during idle time. Preserve that real write and wait for its committed value.
+  const initial=stored?loadGraph(stored).graph:null;
+  if(initial)try{await waitForSavedGraph(JSON.parse(JSON.stringify(initial)));}catch(error){await act(async()=>root.unmount());w.close();throw error;}
   const click=async(text)=>{
     const el=[...document.querySelectorAll("button")].find((b)=>!b.closest("[inert]")&&(b.textContent.trim()===text||b.getAttribute("aria-label")===text));
     assert.ok(el,`button: ${text}`);await act(async()=>el.click());
   };
-  const flush=()=>act(async()=>new Promise((resolve)=>setTimeout(resolve,350)));
+  const flush=async()=>{
+    await settle(350); // Also settle camera and input debounces.
+    const deadline=Date.now()+5000;
+    // Idle callbacks may run after 350 ms; the saved status follows transaction
+    // completion. Support both UI languages without forcing an early save.
+    while(/^(?:сохранение|saving)…/.test(document.querySelector('.workspace-save')?.textContent.trim()??'')){
+      assert.ok(Date.now()<deadline,'autosave finishes after pending edits');
+      await settle(20);
+    }
+  };
   const field=async(id,value)=>{
     const input=document.getElementById(id);assert.ok(input,`field: ${id}`);
     await act(async()=>{
@@ -705,6 +728,7 @@ test('overview header drag moves a whole sheet in one undo action and keeps all 
   await pointer(t,document.querySelector('[data-overview-handle="main"]'),'pointerdown',100,100);await pointer(t,surface,'pointermove',100+70*k,100+40*k);
   await t.flush();
   assert.deepEqual((await savedGraph()),before,'an in-progress drag leaves stored positions unchanged');
+  assert.equal(document.querySelector('[aria-label="Отменить изменение"]').disabled,true,'drag preview does not create an undo action');
   await pointer(t,surface,'pointerup',100+70*k,100+40*k);await t.flush();const saved=(await savedGraph());
   assert.deepEqual(saved.sheets[0].overviewPos,{x:start.x+70,y:start.y+40});assert.deepEqual(saved.nodes,g.nodes);assert.deepEqual(saved.sheets[1].overviewPos,overviewPositions(g).get('second'));
   await t.click('Отменить изменение');await t.flush();assert.equal((await savedGraph()).sheets[0].overviewPos,undefined);
@@ -1114,13 +1138,18 @@ test('dense scene paints candidates and captured background clicks open a readab
  try{
   const root=document.querySelector('main [data-canvas-id]'),canvas=root.querySelector('canvas.dense-scene');
   assert.ok(canvas);assert.equal(root.dataset.renderer,'canvas');assert.equal(root.querySelectorAll('[data-nid]').length,0);assert.ok(t.w.__canvasFills>0);
+  // jsdom has no layout. Use a non-zero origin there so viewport/local coordinate
+  // mistakes also fail in Node; Chromium keeps its actual element rectangle.
+  if(root.getBoundingClientRect().width===0)root.getBoundingClientRect=()=>({x:137,y:83,left:137,top:83,right:937,bottom:683,width:800,height:600,toJSON(){return this;}});
   const v={x:+root.dataset.viewX,y:+root.dataset.viewY,k:+root.dataset.viewK};
   const n=g.nodes.find(n=>{const p=n.pos[sid],x=v.x+(p.x+100)*v.k,y=v.y+(p.y+30)*v.k;return x>100&&x<700&&y>100&&y<500;});assert.ok(n);
-  const p=n.pos[sid],init={bubbles:true,clientX:v.x+(p.x+100)*v.k,clientY:v.y+(p.y+30)*v.k,button:0};
+  const p=n.pos[sid],rect=root.getBoundingClientRect();
+  const init={bubbles:true,clientX:rect.left+v.x+(p.x+100)*v.k,clientY:rect.top+v.y+(p.y+30)*v.k,button:0};
   await act(async()=>canvas.dispatchEvent(new t.w.MouseEvent('pointerdown',init)));
   // Native pointer capture retargets pointerup to the root, even if down was on the canvas.
   await act(async()=>root.dispatchEvent(new t.w.MouseEvent('pointerup',init)));
-  assert.equal(document.getElementById('node-name').value,n.name);
+  const editor=document.getElementById('node-name');assert.ok(editor,'captured canvas click opens the selected node editor');
+  assert.equal(editor.value,n.name);
   assert.equal(root.dataset.renderer,'dom');assert.ok(+root.dataset.viewK>=.7);
   assert.ok(root.querySelector(`[data-nid="${n.id}"]`));assert.ok(root.querySelectorAll('[data-nid]').length<200,'offscreen cards are culled at readable scale');
  }finally{await t.close();}
