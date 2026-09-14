@@ -1,7 +1,7 @@
 // Production HTML checks. --static also executes the emitted worker in Node;
 // the default adds real Chromium, file://, native IndexedDB, CSP and viewport QA.
 import assert from 'node:assert/strict';
-import {mkdirSync,readFileSync} from 'node:fs';
+import {mkdirSync,readFileSync,writeFileSync} from 'node:fs';
 import {createHash} from 'node:crypto';
 import {resolve} from 'node:path';
 import {pathToFileURL} from 'node:url';
@@ -34,6 +34,8 @@ mkdirSync('.qa/release',{recursive:true});
 try{
  for(const width of [1440,390]){
   const context=await browser.newContext({viewport:{width,height:900}}),page=await context.newPage(),errors=[],external=[],workers=[];
+  let phase='load and search';
+  try{
   page.on('pageerror',e=>errors.push(e.message));page.on('worker',w=>workers.push(w.url()));
   page.on('request',r=>{if(/^https?:/.test(r.url()))external.push(r.url());});
   page.on('dialog',d=>d.accept());
@@ -41,23 +43,40 @@ try{
   await page.goto(pathToFileURL(file).href);await page.waitForSelector('main [data-canvas-id]');
   await page.locator('[data-action="filter"]').click();await page.locator('[data-filter-search]').fill('Эспрессо');
   await page.locator('[data-filter-search]').press('Enter');
+  // Search opens the node inspector as a drawer on phones. Return to the map
+  // before taking the filter screenshot or interacting with its controls.
+  await page.keyboard.press('Escape');
+  await page.locator('.drawer-backdrop').waitFor({state:'hidden'});
   assert.ok(await page.locator('[data-filter-panel]').isVisible());
   await page.screenshot({path:`.qa/release/filter-${width}.png`,fullPage:true});
   const pageWidth=await page.evaluate(()=>({scroll:document.documentElement.scrollWidth,viewport:innerWidth}));
   assert.ok(pageWidth.scroll<=pageWidth.viewport+1,'no document horizontal overflow');
+  // The expanded mobile filter shares the available height with navigation and
+  // the canvas toolbar. Finish its QA before testing the visible dense scene;
+  // a collapsed viewport cannot fit the graph or activate the Canvas renderer.
+  phase='collapse filter and restore map viewport';
+  await page.getByRole('button',{name:'Свернуть фильтр',exact:true}).click();
+  await page.locator('[data-filter-panel]').waitFor({state:'hidden'});
+  await page.waitForFunction(()=>{
+   const el=document.querySelector('main [data-canvas-id]');
+   return el&&el.clientWidth>=40&&el.clientHeight>=40;
+  });
   // A real file import above the worker threshold, followed by a real IDB reload.
+  phase='large import and Canvas rendering';
   const g={...graph,title:`Release ${width}`,nodes:Array.from({length:1200},(_,i)=>({id:`n${i}`,name:`Node ${i}`,body:'detail '.repeat(140),kind:'entity',sheets:['s'],pos:{s:{x:(i%40)*270,y:Math.floor(i/40)*150}}}))};
   await page.locator('[data-import="native"]').setInputFiles({name:'release.plyloom',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(g))});
   await page.getByRole('button',{name:'Открыть и заменить',exact:true}).click({timeout:30000});
-  await page.waitForSelector('main [data-renderer="canvas"]');
+  await page.waitForSelector('main [data-renderer="canvas"][data-visible-nodes="1200"]');
   assert.ok(workers.some(url=>url.startsWith('blob:')),'large import starts a blob worker under release CSP');
   const pixels=await page.locator('canvas.dense-scene').evaluate(c=>{const a=c.getContext('2d').getImageData(0,0,c.width,c.height).data;let n=0;for(let i=3;i<a.length;i+=4)if(a[i])n++;return n;});
   assert.ok(pixels>100,'dense scene contains actual pixels');
   await page.screenshot({path:`.qa/release/dense-${width}.png`,fullPage:true});
+  phase='native IndexedDB save and reload';
   await page.waitForFunction(title=>new Promise(resolve=>{const r=indexedDB.open('plyloom',1);r.onerror=()=>resolve(false);r.onsuccess=()=>{const db=r.result,tx=db.transaction('projects'),q=tx.objectStore('projects').get('current');tx.oncomplete=()=>{db.close();resolve(q.result?.title===title&&q.result?.nodes.length===1200);};};}),g.title);
   await page.reload();await page.waitForSelector('main [data-renderer="canvas"][data-visible-nodes="1200"]');
   // Exercise pointer capture using native mouse events, then verify the selected
   // node is readable and the remaining offscreen DOM is culled.
+  phase='pointer selection and readable card';
   const target=await page.locator('main [data-canvas-id]').evaluate((el,nodes)=>{const r=el.getBoundingClientRect(),x=+el.dataset.viewX,y=+el.dataset.viewY,k=+el.dataset.viewK;for(const n of nodes){const px=x+(n.pos.s.x+100)*k,py=y+(n.pos.s.y+30)*k;if(px>40&&px<r.width-40&&py>80&&py<r.height-80)return {x:r.left+px,y:r.top+py,name:n.name};}},g.nodes);
   assert.ok(target);await page.mouse.click(target.x,target.y);
   await page.waitForFunction(()=>+document.querySelector('main [data-canvas-id]').dataset.viewK>=.7);
@@ -65,6 +84,17 @@ try{
   assert.ok(await page.locator('main [data-nid]').count()<500,'readable scale culls distant cards');
   assert.deepEqual(errors,[]);assert.deepEqual(external,[]);assert.deepEqual(await page.evaluate(()=>window.__csp),[]);
   console.log(`PASS: file:// ${width}px, search, production blob worker, native IndexedDB reload, Canvas pixels and pointer selection`);
-  await context.close();
+  }catch(error){
+   const state=await page.evaluate(()=>{
+    const rect=el=>el?{width:el.clientWidth,height:el.clientHeight,x:el.getBoundingClientRect().x,y:el.getBoundingClientRect().y}:null;
+    const canvas=document.querySelector('main [data-canvas-id]');
+    return {viewport:{width:innerWidth,height:innerHeight},canvas:{rect:rect(canvas),data:canvas?{...canvas.dataset}:null},filter:rect(document.querySelector('[data-filter-panel]')),csp:window.__csp};
+   }).catch(e=>({diagnosticError:e.message}));
+   const report={width,phase,error:error.stack??String(error),state,errors,external,workers};
+   console.error(`FAIL: file:// ${width}px during ${phase}\n${JSON.stringify(report,null,2)}`);
+   writeFileSync(`.qa/release/failure-${width}.json`,JSON.stringify(report,null,2)+'\n');
+   await page.screenshot({path:`.qa/release/failure-${width}.png`,fullPage:true,timeout:5000}).catch(()=>{});
+   throw error;
+  }finally{await context.close();}
  }
 }finally{await browser.close();}
