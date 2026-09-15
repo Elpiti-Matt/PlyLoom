@@ -30,6 +30,8 @@ jobs:
       - name: Committed demo matches this build
         run: git diff --exit-code -- demo/
       - run: npm run test:release -- --static
+      - name: Verify Pages analytics and offline isolation
+        run: node scripts/test-pages.mjs
       - uses: actions/upload-artifact@v7.0.1
         with:
           name: plyloom-offline-demo

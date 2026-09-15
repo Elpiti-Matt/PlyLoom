@@ -10,6 +10,8 @@
 
 One self-contained HTML file. No install, no account, no server, no network calls.
 
+The hosted GitHub Pages demo uses Yandex Metrica for page-view statistics with session recording disabled. The downloadable `demo/index.html` has no analytics. [Hosting and analytics](docs/PUBLISHING.ru.md#статистика-посещений-pages).
+
 ## The idea
 
 Most mapping tools make you pick a parent. A requirement belongs to a feature, *or* to a release, *or* to a test plan — choose one, and the other two views get a copy that immediately starts drifting out of date.

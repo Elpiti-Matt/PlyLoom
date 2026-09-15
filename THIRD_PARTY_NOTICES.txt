@@ -153,7 +153,7 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
 
-vite 7.3.2 — bundled modulepreload polyfill
+vite 7.3.6 — bundled modulepreload polyfill
 # Vite core license
 Vite is released under the MIT license:
 
